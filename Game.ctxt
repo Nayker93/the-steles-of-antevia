@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Game
+comment0.text=\n\ Classe\ Game\ -\ le\ moteur\ du\ jeu\ d'aventure\ Zuul.\n\n\ Cette\ classe\ cr\u00E9e\ une\ instance\ de\ GameEngine\ et\ de\ UserInterface\ puis\ les\n\ connecte\ ensemble,\ le\ jeu\ s'ex\u00E9cute\ ensuite\ par\ \u00E9v\u00E9nements\ GUI,\ sans\ \n\ l'affichage\ de\ la\ console.\n\n\ @author\ Cl\u00E9ment\ RUAN\n\ @version\ 17/12/2025\n
+comment1.params=
+comment1.target=Game()
+comment1.text=\n\ Lance\ le\ jeu\ en\ cr\u00E9ant\ GameEngine\ et\ UserInterface.\n
+numComments=2

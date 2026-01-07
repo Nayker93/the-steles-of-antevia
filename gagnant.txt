@@ -1,0 +1,52 @@
+# Chemin idéal du jeu
+
+# Démarrage
+help
+look
+
+# Items
+take coin
+take cookie
+inventory
+
+# Magic Cookie
+eat cookie
+inventory
+
+# Navigation
+go east
+look
+back
+
+# Cabin
+go south
+go east
+look
+take book
+inventory
+
+# Etage
+go up
+look
+take bed
+inventory
+
+# Galley
+go down
+back
+back
+go west
+look
+take chair1
+inventory
+
+# Exploration complète
+go east
+back
+go east
+go up
+look
+
+# Fin
+inventory
+quit

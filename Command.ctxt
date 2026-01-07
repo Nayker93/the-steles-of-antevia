@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Command
+comment0.text=\n\ Classe\ Command\ -\ Repr\u00E9sente\ une\ commande\ du\ jeu\ Zuul.\n\n\ @author\ Cl\u00E9ment\ RUAN\n\ @version\ 17/12/2025\n
+comment1.params=pCommandWord\ pSecondWord
+comment1.target=Command(java.lang.String,\ java.lang.String)
+comment1.text=\n\ Constructeur\ \:\ cr\u00E9e\ une\ commande\ avec\ mot-cl\u00E9\ et\ param\u00E8tre\ optionnel.\n\ \n\ @param\ pCommandWord\ Le\ mot-cl\u00E9\ de\ la\ commande\ peut\ \u00EAtre\ null\ pour\ commande\ inconnue\n\ @param\ pSecondWord\ Le\ param\u00E8tre\ optionnel\ \n
+comment2.params=
+comment2.target=java.lang.String\ getCommandWord()
+comment2.text=\n\ Retourne\ le\ mot-cl\u00E9\ de\ la\ commande.\n\ \n\ @return\ Le\ mot-cl\u00E9\ de\ la\ commande\ ou\ null\ si\ commande\ inconnue\n
+comment3.params=
+comment3.target=java.lang.String\ getSecondWord()
+comment3.text=\n\ Retourne\ le\ param\u00E8tre\ de\ la\ commande.\n\ \n\ @return\ Le\ param\u00E8tre\ ou\ null\ s'il\ n'existe\ pas\n
+comment4.params=
+comment4.target=boolean\ hasSecondWord()
+comment4.text=\n\ V\u00E9rifie\ s'il\ existe\ un\ second\ mot\ (param\u00E8tre).\n\ \n\ @return\ true\ s'il\ existe\ un\ second\ mot,\ sinon\ false\n
+comment5.params=
+comment5.target=boolean\ isUnknown()
+comment5.text=\n\ V\u00E9rifie\ si\ la\ commande\ est\ inconnue.\n\ \n\ @return\ true\ si\ le\ mot-cl\u00E9\ est\ null\ (commande\ inconnue),\ sinon\ false\n
+numComments=6

@@ -1,0 +1,33 @@
+# Test des fonctionnalités principales
+
+# Aide et affichage
+help
+look
+
+# Navigation
+go east
+back
+go south
+go east
+go up
+look
+go down
+
+# Items
+back
+back
+take coin
+inventory
+drop coin
+inventory
+
+# Magic Cookie
+back
+back
+take cookie
+inventory
+eat cookie
+inventory
+
+# Fin
+quit

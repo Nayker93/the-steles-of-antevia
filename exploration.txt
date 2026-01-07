@@ -1,0 +1,43 @@
+# Test pour se déplacer dans toutes les pièces du jeu
+# Vérifie que chaque pièce est accessible et contient les items corrects
+
+# Pièce 1: Boat
+look
+take coin
+take cookie
+
+# Pièce 2: Deck
+go east
+look
+back
+
+# Pièce 3: Cockpit
+go south
+look
+
+# Pièce 4: Cabin
+go east
+look
+take book
+
+# Pièce 5: Cabin_floor_1
+go up
+look
+take bed
+inventory
+
+# Pièce 6: Galley
+go down
+back
+back
+go west
+look
+take chair1
+take chair2
+
+# Manger le cookie
+eat cookie
+inventory
+
+# Fin
+quit

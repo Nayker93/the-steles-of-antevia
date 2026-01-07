@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Item
+comment0.text=\n\ Classe\ Item\ -\ Repr\u00E9sente\ un\ item\ du\ jeu\ qui\ peut\ \u00EAtre\ r\u00E9cup\u00E9rer.\n\ \n\ Cette\ classe\ poss\u00E8de\ des\ champs\ pour\ stocker\ la\ description\ et\ le\ poids\n\n\ @author\ Cl\u00E9ment\ RUAN\n\ @version\ 17/12/2025\n
+comment1.params=pItemName\ pItemDescription\ pWeight\ pPrice
+comment1.target=Item(java.lang.String,\ java.lang.String,\ double,\ double)
+comment1.text=\n\ Constructeur\ pour\ un\ item\ du\ jeu\n\ \n\ @param\ pItemName\ Nom\ de\ l'item\n\ @param\ pItemDescription\ Description\ de\ l'item\n\ @param\ pWeight\ Poids\ de\ l'item\ en\ kg\n\ @param\ pPrice\ Prix\ de\ l'item\ en\ Jerry\n
+comment2.params=
+comment2.target=java.lang.String\ getItemName()
+comment2.text=\n\ Retrourne\ le\ nom\ de\ l'item\ courant\n\ \n\ @return\ Nom\ de\ l'item\ courant\n
+comment3.params=
+comment3.target=java.lang.String\ getItemDescription()
+comment3.text=\n\ Retourne\ la\ description\ de\ l'item\ courant\n\ \n\ @return\ Description\ de\ l'item\ courant\n
+comment4.params=
+comment4.target=double\ getWeight()
+comment4.text=\n\ Retourne\ le\ poids\ de\ l'item\ courant\n\ \n\ @return\ Poids\ de\ l'item\ courant\ en\ kg\n
+comment5.params=
+comment5.target=double\ getPrice()
+comment5.text=\n\ Retourne\ le\ prix\ de\ l'item\ courant\n\ \n\ @return\ Prix\ de\ l'item\ courant\ en\ Jerry\n
+numComments=6

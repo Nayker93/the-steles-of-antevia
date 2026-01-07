@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=CommandWords
+comment0.text=\n\ Classe\ CommandWords\ -\ Tableau\ des\ commandes\ valides\ du\ jeu\n\ go\ \:\ d\u00E9placement\ vers\ une\ direction\n\ quit\ \:\ quitte\ le\ jeu\n\ help\ \:\ affiche\ les\ commandes\ disponibles\n\ back\ \:\ reviens\ \u00E0\ la\ pi\u00E8ce\ pr\u00E9c\u00E9dente\n\ look\ \:\ affiche\ la\ description\ de\ la\ pi\u00E8ce\ actuelle\n\ eat\ \:\ action\ du\ joueur\ (test)\n\ sleep\ \:\ action\ du\ joueur\ (test)\n\ test\ \:\ ex\u00E9cute\ un\ fichier\ de\ test\n\ take\ \:\ ramasse\ un\ item\ dans\ la\ pi\u00E8ce\n\ drop\ \:\ l\u00E2che\ un\ item\ de\ l'inventaire\n\ inventory"\ \:\ affiche\ l'inventaire\ et\ les\ contraintes\ du\ joueur\ (poids\ et\ prix)\n\n\ @author\ \ Cl\u00E9ment\ RUAN\n\ @version\ 17/12/2025\n
+comment1.params=
+comment1.target=CommandWords()
+comment1.text=\n\ Constructeur\ par\ d\u00E9faut\n
+comment2.params=pString
+comment2.target=boolean\ isCommand(java.lang.String)
+comment2.text=\n\ V\u00E9rifie\ si\ pString\ est\ une\ commande\ valide.\n\ \n\ @param\ pString\ La\ cha\u00EEne\ \u00E0\ v\u00E9rifier\n\ @return\ true\ si\ pString\ est\ une\ commande\ valide,\ sinon\ false\n
+comment3.params=
+comment3.target=java.lang.String\ getCommandList()
+comment3.text=\n\ Retourne\ toutes\ les\ commandes\ valides.\n\ \n\ @return\ Une\ cha\u00EEne\ ayant\ toutes\ les\ commandes\ valides\n
+numComments=4

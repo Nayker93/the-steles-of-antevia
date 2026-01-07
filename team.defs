@@ -1,0 +1,17 @@
+#Sun Oct 05 22:17:25 CEST 2025
+bluej.teamsettings.git.branch=
+bluej.teamsettings.git.protocol=https
+bluej.teamsettings.git.repositoryPrefix=/ruanc/zuul-bad.git
+bluej.teamsettings.git.server=git.esiee.fr
+bluej.teamsettings.ignore1=.*\\.class
+bluej.teamsettings.ignore2=bluej\\.pkh
+bluej.teamsettings.ignore3=team\\.defs
+bluej.teamsettings.ignore4=.*\\.ctxt
+bluej.teamsettings.ignore5=.*\\~
+bluej.teamsettings.ignore6=.*\\\#
+bluej.teamsettings.ignore7=.*\\\#backup
+bluej.teamsettings.ignore8=\\.DS_Store
+bluej.teamsettings.user=ruanc
+bluej.teamsettings.vcs=git
+bluej.teamsettings.yourEmail=clement.ruan@edu.esiee.fr
+bluej.teamsettings.yourName=Clement RUAN

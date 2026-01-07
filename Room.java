@@ -1,11 +1,6 @@
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Scanner;
 import java.util.Collection;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.net.URL;
 /**
  * Classe Room - un lieu du jeu d'aventure Anthevia.
  *
@@ -33,10 +28,6 @@ public class Room
      * Nom des images des différentes sorties des pièces
      */
     private String aImageName;
-    /**
-     * Items présent dans les pièces
-     */
-    private Item aItem;
     
     /**
      *  Créer la description de la pièce et initialise la HashMap pour 

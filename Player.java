@@ -1,7 +1,4 @@
-import java.util.HashMap;
 import java.util.Stack;
-import java.util.Collection;
-import java.util.Set;
 
 /**
  * Classe Player - Le/Les joueurs du jeu
@@ -45,10 +42,7 @@ public class Player
      * Stack des pièces précédentes
      */
     private Stack<Room> aPreviousRooms;
-    /**
-     * GUI pour l'affichage des messages
-     */
-    private UserInterface aGui;
+
     /**
      * Compteur de commandes utilisées
      */
@@ -79,7 +73,6 @@ public class Player
         this.aTimeLimitReached = false; // Si vrai alors le joueur perd
         this.aCurrentPrice = 0.0;
         this.aPreviousRooms = new Stack<>();
-        this.aGui = null;
     } // Player()
 
     /**
@@ -155,16 +148,6 @@ public class Player
     {
         return this.aCurrentPrice;
     } // getCurrentPrice()
-
-    /**
-     * Définit la GUI pour afficher les messages du joueur.
-     * 
-     * @param pGui Interface utilisateur
-     */
-    public void setGui(final UserInterface pGui)
-    {
-        this.aGui = pGui;
-    } // setGui()
 
     /**
      * Définit la pièce courante du joueur.
@@ -396,21 +379,26 @@ public class Player
     } // setTimeLimitReached()
     
     /**
-     * Incrémente le compteur de commandes
+     * Incrémente le compteur de commandes utilisées du joueur
      */
     public void increaseCommandCount()
     {
         this.aCommandCount++;
+
+        if (this.aCommandCount >= COMMAND_LIMIT)
+        {
+            this.aTimeLimitReached = true;
+        }
     } // increaseCommandCount()
     
     /**
-     * Vérifie si la limite de temps est atteinte
+     * Vérifie si la limite de temps est atteinte et si le nombre de commandes est supérieur à la limite
      * 
-     * @return true si la limite est atteinte, sinon false
+     * @return true si la limite de temps est atteinte ou si le nombre de commandes a atteint la limite, false sinon
      */
     public boolean isTimeLimitReached()
     {
-        return this.aCommandCount >= COMMAND_LIMIT;
+        return this.aTimeLimitReached || (this.aCommandCount >= COMMAND_LIMIT);
     } // isTimeLimitReached()
-}
+} // Player
 

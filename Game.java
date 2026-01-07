@@ -11,11 +11,6 @@
 public class Game
 {
     /**
-     * Le parser pour analyser les commandes saisies par le joueur
-     */
-    private Parser aParser;
-    
-    /**
      * Lance le jeu en créant GameEngine et UserInterface.
      */
     public Game()

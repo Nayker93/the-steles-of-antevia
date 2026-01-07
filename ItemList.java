@@ -1,6 +1,4 @@
-import java.util.HashMap;
 import java.util.Collection;
-import java.util.Set;
 import java.util.TreeMap;
 
 /**

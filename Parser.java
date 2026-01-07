@@ -45,13 +45,17 @@ public class Parser
 
         // cherche jusqu'a 2 mots dans la ligne tapee
         Scanner vTokenizer = new Scanner( pInputLine );
-        if ( vTokenizer.hasNext() ) {     // y a-t-il un mot suivant ?
-            vWord1 = vTokenizer.next();      // recupere le premier mot
-            if ( vTokenizer.hasNext() ) { // y a-t-il encore un mot suivant ?
-                vWord2 = vTokenizer.next();  // recupere le deuxieme mot
-                // note : on ignore tout le reste de la ligne tapee !
+        try {
+            if ( vTokenizer.hasNext() ) {     // y a-t-il un mot suivant ?
+                vWord1 = vTokenizer.next();      // recupere le premier mot
+                if ( vTokenizer.hasNext() ) { // y a-t-il encore un mot suivant ?
+                    vWord2 = vTokenizer.next();  // recupere le deuxieme mot
+                    // note : on ignore tout le reste de la ligne tapee !
+                } // if
             } // if
-        } // if
+        } finally {
+            vTokenizer.close();
+        }
 
         // Verifie si le premier mot est une commande connue.
         // Si oui, cree un objet Command avec ce mot. (vWord2 peut etre null)

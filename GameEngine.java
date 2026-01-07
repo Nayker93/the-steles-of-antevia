@@ -1,4 +1,3 @@
-import java.util.Stack;
 import java.util.Scanner;
 import java.io.File;
 import java.io.*;
@@ -46,14 +45,13 @@ public class GameEngine
     } // GameEngine()
 
     /**
-     * Définit l'interface de l'utilisateur et affiche le message de bienvenue
+     * Initialise l'interface du joueur et affiche le message de bienvenue.
      * 
-     * @param pUserInterface L'interface utilisateur
+     * @param pGui L'interface du joueur
      */
-    public void setGUI( final UserInterface pUserInterface )
+    public void setGUI(final UserInterface pGui)
     {
-        this.aGui = pUserInterface;
-        this.aPlayer.setGui(pUserInterface);
+        this.aGui = pGui;
         this.printWelcome();
     } // setGUI()
 

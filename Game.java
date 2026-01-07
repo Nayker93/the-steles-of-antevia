@@ -11,6 +11,16 @@
 public class Game
 {
     /**
+     * Pour lancer le jeu Anthevia depuis le terminal.
+     *
+     * @param pArgs Les arguments de la ligne de commande
+     */
+    public static void main(final String[] pArgs)
+    {
+        new Game();
+    } // main()
+
+    /**
      * Lance le jeu en créant GameEngine et UserInterface.
      */
     public Game()

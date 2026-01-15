@@ -9,7 +9,9 @@
  */
 public class GameWorld
 {
-    
+    /**
+     * Constructeur privé - empêche l'instanciation
+     */
     private GameWorld(){}
     
     /**

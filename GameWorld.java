@@ -105,74 +105,87 @@ public class GameWorld
         vPortusPrima.setExit("sanctuary", vSanctuaryOfTheOracle1);
         vPortusPrima.setExit("seaport", vSeaPort1);
 
-        // 2 - Insula Templum
-
-        vInsulaTemplum.setExit("boat", vBoat);
-        vInsulaTemplum.setExit("ancient_temple", vAncientTemple);
-
-
         Item vInsulaTemplumMap = new Item("insula_templum_map", 
                                        "A map of Insula Templum island", 0.2, 50);
+        Item vCryptaMarinaMap = new Item("crypta_marina_map", 
+                                       "A map of Crypta Marina island", 0.2, 50);
+        Item vCivitasAntiquaMap = new Item("civitas_antiqua_map", 
+                                       "A map of Civitas Antiqua island", 0.2, 50);
+        Item vSilvaMysticaMap = new Item("silva_mystica_map", 
+                                       "A map of Silva Mystica island", 0.2, 50);
+        Item vMercatusFlotillaMap = new Item("mercatus_flotilla_map", 
+                                       "A map of Mercatus Flotilla island", 0.2, 50);
+        Item vLabyrinthosMap = new Item("labyrinthos_map", 
+                                       "A map of Labyrinthos island", 0.2, 50);
+        Item vSanctumIgnisMap = new Item("sanctum_ignis_map", 
+                                       "A map of Sanctum Ignis cave", 0.2, 50);
+        Item vMonsCaelestisMap = new Item("mons_caelestis_map", 
+                                       "A map of Mons Caelestis mountain", 0.2, 50);
+        Item vUltimaSapientiaMap = new Item("ultima_sapientia_map",
+                                        "A map of Ultima Sapientia temple", 0.2, 50);
 
         Door vDoorBoatInsulaTemplum = new Door(vInsulaTemplumMap, false);
         vBoat.setDoor("boat", vDoorBoatInsulaTemplum);
         vInsulaTemplum.setDoor("insula_templum", vDoorBoatInsulaTemplum);
 
-        // 3 - Crypta Marina
-        
-        vCryptaMarina.setExit("boat", vBoat);
-
-        Item vCryptaMarinaMap = new Item("crypta_marina_map", 
-                                       "A map of Crypta Marina island", 0.2, 50);
-
         Door vDoorBoatCryptaMarina = new Door(vCryptaMarinaMap, false);
         vBoat.setDoor("crypta_marina", vDoorBoatCryptaMarina);
         vCryptaMarina.setDoor("boat", vDoorBoatCryptaMarina);
-
-        // 4 - Civitas Antiqua
-
-        vCivitasAntiqua.setExit("boat", vBoat);
-
-        Item vCivitasAntiquaMap = new Item("civitas_antiqua_map", 
-                                       "A map of Civitas Antiqua island", 0.2, 50);
 
         Door vDoorBoatCivitasAntiqua = new Door(vCivitasAntiquaMap, false);
         vBoat.setDoor("civitas_antiqua", vDoorBoatCivitasAntiqua);
         vCivitasAntiqua.setDoor("boat", vDoorBoatCivitasAntiqua);
 
-        // 5 - Silva Mystica
-
-        vSilvaMystica.setExit("boat", vBoat);
-
-        Item vSilvaMysticaMap = new Item("silva_mystica_map", 
-                                       "A map of Silva Mystica island", 0.2, 50);
-
         Door vDoorBoatSilvaMystica = new Door(vSilvaMysticaMap, false);
         vBoat.setDoor("silva_mystica", vDoorBoatSilvaMystica);
         vSilvaMystica.setDoor("boat", vDoorBoatSilvaMystica);
-
-        // 6 - Mercatus Flotilla
-
-        vMercatusFlotilla.setExit("boat", vBoat);
-
-        Item vMercatusFlotillaMap = new Item("mercatus_flotilla_map", 
-                                       "A map of Mercatus Flotilla island", 0.2, 50);
 
         Door vDoorBoatMercatusFlotilla = new Door(vMercatusFlotillaMap, false);
         vBoat.setDoor("mercatus_flotilla", vDoorBoatMercatusFlotilla);
         vMercatusFlotilla.setDoor("boat", vDoorBoatMercatusFlotilla);
 
-        // 7 - Labyrinthos
-
-        vLabyrinthos.setExit("boat", vBoat);
-
-        Item vLabyrinthosMap = new Item("labyrinthos_map", 
-                                       "A map of Labyrinthos island", 0.2, 50);
-
         Door vDoorBoatLabyrinthos = new Door(vLabyrinthosMap, false);
         vBoat.setDoor("labyrinthos", vDoorBoatLabyrinthos);
         vLabyrinthos.setDoor("boat", vDoorBoatLabyrinthos);
 
+        Door vDoorBoatSanctumIgnis = new Door(vSanctumIgnisMap, false);
+        vBoat.setDoor("sanctum_ignis", vDoorBoatSanctumIgnis);
+        vSanctumIgnis.setDoor("boat", vDoorBoatSanctumIgnis);
+
+        Door vDoorBoatMonsCaelestis = new Door(vMonsCaelestisMap, false);
+        vBoat.setDoor("mons_caelestis", vDoorBoatMonsCaelestis);
+        vMonsCaelestis.setDoor("boat", vDoorBoatMonsCaelestis);
+
+        Door vDoorBoatUltimaSapientia = new Door(vUltimaSapientiaMap, false);
+        vBoat.setDoor("ultima_sapientia", vDoorBoatUltimaSapientia);
+        vUltimaSapientia.setDoor("boat", vDoorBoatUltimaSapientia);
+
+
+
+        // 2 - Insula Templum
+
+        vInsulaTemplum.setExit("boat", vBoat);
+        vInsulaTemplum.setExit("ancient_temple", vAncientTemple);
+
+        // 3 - Crypta Marina
+        
+        vCryptaMarina.setExit("boat", vBoat);
+
+        // 4 - Civitas Antiqua
+
+        vCivitasAntiqua.setExit("boat", vBoat);
+
+        // 5 - Silva Mystica
+
+        vSilvaMystica.setExit("boat", vBoat);
+
+        // 6 - Mercatus Flotilla
+
+        vMercatusFlotilla.setExit("boat", vBoat);
+
+        // 7 - Labyrinthos
+
+        vLabyrinthos.setExit("boat", vBoat);
 
         // 8 - Sanctum Ignis
 
@@ -181,13 +194,6 @@ public class GameWorld
         // 9 - Mons Caelestis
 
         vMonsCaelestis.setExit("boat", vBoat);
-
-        Item vMonsCaelestisMap = new Item("mons_caelestis_map", 
-                                       "A map of Mons Caelestis island", 0.2, 50);
-
-        Door vDoorBoatMonsCaelestis = new Door(vMonsCaelestisMap, false);
-        vBoat.setDoor("mons_caelestis", vDoorBoatMonsCaelestis);
-        vMonsCaelestis.setDoor("boat", vDoorBoatMonsCaelestis);
 
         // 10 - Ultima Sapientia
 
@@ -449,7 +455,6 @@ public class GameWorld
         Room vDormitory = new Room("in the hostel dormitory", "images/hostel/dormitory.jpg");
         Room vKitchen = new Room("in the hostel kitchen", "images/hostel/kitchen.jpg");
         Room vDiningRoom = new Room("in the hostel dining room", "images/hostel/dining_room.jpg");
-        Room vLaundry = new Room("in the hostel laundry room", "images/hostel/laundry.jpg");
         Room vTerrasse = new Room("on the hostel terrace", "images/hostel/terrace.jpg");
 
         // Le placement des pièces
@@ -458,7 +463,6 @@ public class GameWorld
         vHostelReception.setExit("dormitory", vDormitory);
         vHostelReception.setExit("kitchen", vKitchen);
         vHostelReception.setExit("dining", vDiningRoom);
-        vHostelReception.setExit("laundry", vLaundry);
         vHostelReception.setExit("terrace", vTerrasse);
 
         vCommonRoom.setExit("reception", vHostelReception);
@@ -472,8 +476,6 @@ public class GameWorld
         vDiningRoom.setExit("reception", vHostelReception);
         vDiningRoom.setExit("kitchen", vKitchen);
 
-        vLaundry.setExit("reception", vHostelReception);
-
         vTerrasse.setExit("reception", vHostelReception);
         vTerrasse.setExit("common", vCommonRoom);
 
@@ -483,18 +485,13 @@ public class GameWorld
         Item vPillow = new Item("pillow", "Soft pillow", 0.5, 5);
         Item vBlanket = new Item("blanket", "Warm blanket", 1, 10);
         Item vSheet = new Item("sheet", "White cotton sheet", 0.3, 5);
-        Item vTowel = new Item("towel", "Fluffy towel", 0.4, 5);
         Item vChair = new Item("chair", "Wooden chair", 3, 10);
         Item vTable = new Item("table", "Wooden table", 8, 20);
         Item vSofa = new Item("sofa", "Comfortable sofa", 20, 50);
         Item vFridge = new Item("fridge", "Small refrigerator", 30, 60);
-        Item vDishes = new Item("dishes", "Set of ceramic dishes", 2, 15);
         Item vFork = new Item("fork", "Metal fork", 0.1, 2);
         Item vSpoon = new Item("spoon", "Metal spoon", 0.1, 2);
         Item vKnife = new Item("knife", "Kitchen knife", 0.2, 5);
-        Item vSoap = new Item("soap", "Bar of soap", 0.1, 3);
-        Item vShampoo = new Item("shampoo", "Bottle of shampoo", 0.3, 5);
-        Item vToothbrush = new Item("toothbrush", "Toothbrush", 0.05, 2);
         Item vGuestBook = new Item("guest_book", "Hostel guest book", 0.5, 15);
         Item vMap = new Item("city_map", "Map of the city", 0.2, 10);
         Item vKey = new Item("room_key", "Room key", 0.05, 1);
@@ -516,18 +513,12 @@ public class GameWorld
         vDormitory.setItem(vSheet);
 
         vKitchen.setItem(vFridge);
-        vKitchen.setItem(vDishes);
         vKitchen.setItem(vFork);
         vKitchen.setItem(vSpoon);
         vKitchen.setItem(vKnife);
 
         vDiningRoom.setItem(vTable);
         vDiningRoom.setItem(vChair);
-
-        vLaundry.setItem(vTowel);
-        vLaundry.setItem(vSoap);
-        vLaundry.setItem(vShampoo);
-        vLaundry.setItem(vToothbrush);
 
         vTerrasse.setItem(vChair);
         vTerrasse.setItem(vTable);
@@ -579,9 +570,7 @@ public class GameWorld
         Item vCandle = new Item("candle", "White ceremonial candle", 0.2, 5);
         Item vPrayerBook = new Item("prayer_book", "Ancient book of prayers", 0.8, 50);
         Item vHolyWater = new Item("holy_water", "Blessed water in a vial", 0.3, 30);
-        Item vRobe = new Item("oracle_robe", "White oracle's ceremonial robe", 1.5, 100);
         Item vScroll = new Item("prophecy_scroll", "Ancient scroll with prophecies", 0.2, 150);
-        Item vGrimoire = new Item("grimoire", "Dark magic grimoire", 1, 300);
         Item vTarot = new Item("tarot_cards", "Mystical tarot deck", 0.3, 75);
         Item vStatue = new Item("statue", "Golden statue of a deity", 15, 500);
         Item vGoldCoin = new Item("ancient_coin", "Ancient gold coin, 50 Jerries", 0.05, 50);
@@ -589,6 +578,8 @@ public class GameWorld
         Item vCrown = new Item("crown", "Sacred crown of the oracle", 2, 1000);
         Item vHerb = new Item("healing_herb", "Rare healing herb", 0.1, 60);
         Item vFlower = new Item("sacred_flower", "Mystical glowing flower", 0.1, 80);
+        Item vTreasuryKey = new Item("treasury_key", "Key to the treasury", 0.1, 100);
+
 
         // Ajouter les items aux pièces
 
@@ -602,13 +593,13 @@ public class GameWorld
         vPrayerRoom.setItem(vHolyWater);
 
         vOracleRoom.setItem(vCrystalBall);
-        vOracleRoom.setItem(vRobe);
         vOracleRoom.setItem(vScroll);
         vOracleRoom.setItem(vTarot);
 
-        vLibrary.setItem(vGrimoire);
         vLibrary.setItem(vPrayerBook);
         vLibrary.setItem(vScroll);
+        vLibrary.setItem(vTreasuryKey);
+
 
         vTreasury.setItem(vGoldCoin);
         vTreasury.setItem(vJewel);
@@ -618,8 +609,6 @@ public class GameWorld
         vGarden.setItem(vFlower);
 
         // Les portes verrouillées
-        Item vTreasuryKey = new Item("treasury_key", "Key to the treasury", 0.1, 100);
-        vLibrary.setItem(vTreasuryKey);
         Door vDoorTreasury = new Door(vTreasuryKey, false);
         vHall.setDoor("treasury", vDoorTreasury);
         vTreasury.setDoor("hall", vDoorTreasury);
@@ -639,7 +628,6 @@ public class GameWorld
         Room vPortEntrance = new Room("at the port entrance", "images/port/entrance.jpg");
         Room vHarbor = new Room("at the harbor", "images/port/harbor.jpg");
         Room vDocks = new Room("on the docks", "images/port/docks.jpg");
-        Room vWarehouse = new Room("in the warehouse", "images/port/warehouse.jpg");
         Room vShipyard = new Room("in the shipyard", "images/port/shipyard.jpg");
         Room vCustomsOffice = new Room("in the customs office", "images/port/customs.jpg");
         Room vMarket = new Room("at the fish market", "images/port/market.jpg");
@@ -655,10 +643,7 @@ public class GameWorld
         vHarbor.setExit("lighthouse", vLighthouse);
 
         vDocks.setExit("harbor", vHarbor);
-        vDocks.setExit("warehouse", vWarehouse);
         vDocks.setExit("shipyard", vShipyard);
-
-        vWarehouse.setExit("docks", vDocks);
 
         vShipyard.setExit("docks", vDocks);
 
@@ -673,17 +658,12 @@ public class GameWorld
         Item vAnchor = new Item("anchor", "Heavy ship anchor", 50, 80);
         Item vNet = new Item("fishing_net", "Large fishing net", 3, 25);
         Item vCompass = new Item("compass", "Navigation compass", 0.3, 50);
-        Item vMap = new Item("sea_map", "Maritime navigation map", 0.2, 40);
         Item vFish = new Item("fish", "Fresh caught fish", 0.5, 5);
         Item vShrimp = new Item("shrimp", "Fresh shrimp", 0.3, 8);
         Item vOyster = new Item("oyster", "Fresh oysters", 0.2, 10);
         Item vCoin = new Item("coin", "20 Jerries", 0.05, 20);
-        Item vGold = new Item("gold_bar", "Small gold bar", 1, 500);
-        Item vSpice = new Item("spice", "Exotic spices", 0.5, 60);
-        Item vSilk = new Item("silk", "Fine silk fabric", 1, 150);
         Item vTool = new Item("hammer", "Shipbuilding hammer", 2, 25);
         Item vNail = new Item("nails", "Iron nails", 1, 10);
-        Item vKey = new Item("warehouse_key", "Key to the warehouse", 0.1, 50);
 
         // Ajouter les items aux pièces
         vHarbor.setItem(vRope);
@@ -691,29 +671,16 @@ public class GameWorld
 
         vDocks.setItem(vAnchor);
 
-        vWarehouse.setItem(vSpice);
-        vWarehouse.setItem(vSilk);
-        vWarehouse.setItem(vGold);
-
         vShipyard.setItem(vTool);
         vShipyard.setItem(vNail);
 
-        vCustomsOffice.setItem(vMap);
         vCustomsOffice.setItem(vCoin);
-        vCustomsOffice.setItem(vKey);
 
         vMarket.setItem(vFish);
         vMarket.setItem(vShrimp);
         vMarket.setItem(vOyster);
 
         vLighthouse.setItem(vCompass);
-
-        // Les portes verrouillées
-        Item vWarehouseKey = new Item("warehouse_key", "Key to the warehouse", 0.1, 50);
-        vCustomsOffice.setItem(vWarehouseKey);
-        Door vDoorWarehouse = new Door(vWarehouseKey, false);
-        vDocks.setDoor("warehouse", vDoorWarehouse);
-        vWarehouse.setDoor("docks", vDoorWarehouse);
 
         // Pièce de départ
         return vPortEntrance;
@@ -828,77 +795,463 @@ public class GameWorld
     // Création des vraies/fausses stèles directrices
 
     /**
-     * Crée la stèle directrice de Insula Templum (1er énigme)
+     * Crée la stèle directrice de Insula Templum (thème : Connaissances fondamentales)
      * Permet de débloquer la carte de l'île de Crypta Marina (vCryptaMarinaMap)
      * 
      * @return La stèle directrice
      */
     public static Room createGuideStone2()
-    {
-        Room vGuideStone2 = new Room("at the guide stone of Insula Templum", "images/guide_stone/guide_stone_2.jpg");
-        Room vGuideStone2Solved = new Room("in the exit of the guide stone", "images/guide_stone/guide_stone_2_solved.jpg");
+{
+    Room vGuideStone2 = new Room("at the guide stone of Insula Templum", "images/guide_stone/guide_stone_2.jpg");
+    Room vGuideStone2Solved = new Room("in the exit of the guide stone", "images/guide_stone/guide_stone_2_solved.jpg");
 
-        // Les énigmes de la stèle
-        Room vEnigme1 = new Room("at the first enigma of the guide stone", "images/guide_stone/enigma_1.jpg");
-        Room vEnigme1Answer1 = new Room("having solved the first enigma of the guide stone", "images/guide_stone/enigma_1_solved.jpg");
-        Room vEnigme1Answer2 = new Room("having solved the second enigma of the guide stone", "images/guide_stone/enigma_2_solved.jpg");
-        Room vEnigme1Answer3 = new Room("having solved the third enigma of the guide stone", "images/guide_stone/enigma_3_solved.jpg");
-        Room vEnigme1Answer4 = new Room("having solved the fourth enigma of the guide stone", "images/guide_stone/enigma_4_solved.jpg");
+    // Les énigmes de la stèle
+    // Énigme 1
+    Room vEnigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
+    Room vEnigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
+    Room vEnigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
 
-        Room vEnigme2 = new Room("at the second enigma of the guide stone", "images/guide_stone/enigma_2.jpg");
-        Room vEnigme2Answer1 = new Room("having solved the first enigma of the guide stone", "images/guide_stone/enigma_1_solved.jpg");
-        Room vEnigme2Answer2 = new Room("having solved the second enigma of the guide stone", "images/guide_stone/enigma_2_solved.jpg");
-        Room vEnigme2Answer3 = new Room("having solved the third enigma of the guide stone", "images/guide_stone/enigma_3_solved.jpg");
-        Room vEnigme2Answer4 = new Room("having solved the fourth enigma of the guide stone", "images/guide_stone/enigma_4_solved.jpg");
+    // Énigme 2
+    Room vEnigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
+    Room vEnigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
+    Room vEnigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
 
-        Room vEnigme3 = new Room("at the third enigma of the guide stone", "images/guide_stone/enigma_3.jpg");
-        Room vEnigme3Answer1 = new Room("having solved the first enigma of the guide stone", "images/guide_stone/enigma_1_solved.jpg");
-        Room vEnigme3Answer2 = new Room("having solved the second enigma of the guide stone", "images/guide_stone/enigma_2_solved.jpg");
-        Room vEnigme3Answer3 = new Room("having solved the third enigma of the guide stone", "images/guide_stone/enigma_3_solved.jpg");
-        Room vEnigme3Answer4 = new Room("having solved the fourth enigma of the guide stone", "images/guide_stone/enigma_4_solved.jpg");
+    // Énigme 3
+    Room vEnigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
+    Room vEnigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
+    Room vEnigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
 
-        Room vEnigme4 = new Room("at the fourth enigma of the guide stone", "images/guide_stone/enigma_4.jpg");
-        Room vEnigme4Answer1 = new Room("having solved the first enigma of the guide stone", "images/guide_stone/enigma_1_solved.jpg");
-        Room vEnigme4Answer2 = new Room("having solved the second enigma of the guide stone", "images/guide_stone/enigma_2_solved.jpg");
-        Room vEnigme4Answer3 = new Room("having solved the third enigma of the guide stone", "images/guide_stone/enigma_3_solved.jpg");
-        Room vEnigme4Answer4 = new Room("having solved the fourth enigma of the guide stone", "images/guide_stone/enigma_4_solved.jpg");
+    // Énigme 4
+    Room vEnigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
+    Room vEnigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
 
+    // Le placement des pièces
+    vGuideStone2.setExit("enigma1", vEnigme1);
+    vEnigme1.setExit("answer1", vEnigme1Answer1);
+    vEnigme1.setExit("answer2", vEnigme1Answer2);
+    vEnigme1.setExit("answer3", vEnigme1Answer3);
+    vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer2.setExit("enigma2", vEnigme2);
 
-        // Le placement des pièces
+    vEnigme2.setExit("answer1", vEnigme2Answer1);
+    vEnigme2.setExit("answer2", vEnigme2Answer2);
+    vEnigme2.setExit("answer3", vEnigme2Answer3);
+    vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer3.setExit("enigma3", vEnigme3);
 
-        vGuideStone2.setExit("enigma1", vEnigme1);
-        vEnigme1.setExit("answer1", vEnigme1Answer1);
-        vEnigme1.setExit("answer2", vEnigme1Answer2);
-        vEnigme1.setExit("answer3", vEnigme1Answer3); 
-        vEnigme1.setExit("answer4", vEnigme1Answer4);
-        vEnigme1Answer2.setExit("enigma2", vEnigme2);
+    vEnigme3.setExit("answer1", vEnigme3Answer1);
+    vEnigme3.setExit("answer2", vEnigme3Answer2);
+    vEnigme3.setExit("answer3", vEnigme3Answer3);
+    vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer3.setExit("enigma4", vEnigme4);
 
-        vEnigme2.setExit("answer1", vEnigme2Answer1);
-        vEnigme2.setExit("answer2", vEnigme2Answer2);
-        vEnigme2.setExit("answer3", vEnigme2Answer3);
-        vEnigme2.setExit("answer4", vEnigme2Answer4);
-        vEnigme2Answer3.setExit("enigma3", vEnigme3);
+    vEnigme4.setExit("answer1", vEnigme4Answer1);
+    vEnigme4.setExit("answer2", vEnigme4Answer2);
+    vEnigme4.setExit("answer3", vEnigme4Answer3);
+    vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer4.setExit("exit", vGuideStone2Solved);
 
-        vEnigme3.setExit("answer1", vEnigme3Answer1);
-        vEnigme3.setExit("answer2", vEnigme3Answer2);
-        vEnigme3.setExit("answer3", vEnigme3Answer3);
-        vEnigme3.setExit("answer4", vEnigme3Answer4);
-        vEnigme3Answer3.setExit("enigma4", vEnigme4);
+    // L'item récompense de la stèle
+    Item vCryptaMarinaMap = new Item("crypta_marina_map", 
+                                   "A map of Crypta Marina island", 0.2, 50);
 
-        vEnigme4.setExit("answer1", vEnigme4Answer1);
-        vEnigme4.setExit("answer2", vEnigme4Answer2);
-        vEnigme4.setExit("answer3", vEnigme4Answer3);
-        vEnigme4.setExit("answer4", vEnigme4Answer4);
-        vEnigme4Answer4.setExit("exit", vGuideStone2Solved);
+    vGuideStone2Solved.setItem(vCryptaMarinaMap);
 
-        // L'item récompense de la stèle
-        Item vCryptaMarinaMap = new Item("crypta_marina_map", 
-                                       "A map of Crypta Marina island", 0.2, 50);
+    // Pièce de départ
+    return vGuideStone2;
+} // createGuideStone2()
 
-        vGuideStone2.setItem(vCryptaMarinaMap);
+/**
+ * Crée la fausse stèle directrice de Crypta Marina (thème : Scanner)
+ * C'est une fausse stèle qui ne donne aucune récompense
+ * 
+ * @return La fausse stèle directrice
+ */
+public static Room createFakeGuideStone3()
+{
+    Room vFakeGuideStone3 = new Room("at the fake guide stone of Crypta Marina", "images/guide_stone/fake_guide_stone_3.jpg");
+    Room vFakeGuideStone3Solved = new Room("in the exit of the fake guide stone - No reward here!", "images/guide_stone/fake_guide_stone_3_solved.jpg");
 
-        // Pièce de départ
-        return vGuideStone2;
-    }
+    // Les énigmes de la stèle
+    // Énigme 1
+    Room vEnigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
+    Room vEnigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
+    Room vEnigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+
+    // Énigme 2
+    Room vEnigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
+    Room vEnigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
+    Room vEnigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+
+    // Énigme 3
+    Room vEnigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
+    Room vEnigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
+
+    // Énigme 4
+    Room vEnigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
+    Room vEnigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+    Room vEnigme4Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+
+    // Le placement des pièces
+    vFakeGuideStone3.setExit("enigma1", vEnigme1);
+    vEnigme1.setExit("answer1", vEnigme1Answer1);
+    vEnigme1.setExit("answer2", vEnigme1Answer2);
+    vEnigme1.setExit("answer3", vEnigme1Answer3);
+    vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer2.setExit("enigma2", vEnigme2);
+
+    vEnigme2.setExit("answer1", vEnigme2Answer1);
+    vEnigme2.setExit("answer2", vEnigme2Answer2);
+    vEnigme2.setExit("answer3", vEnigme2Answer3);
+    vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer1.setExit("enigma3", vEnigme3);
+
+    vEnigme3.setExit("answer1", vEnigme3Answer1);
+    vEnigme3.setExit("answer2", vEnigme3Answer2);
+    vEnigme3.setExit("answer3", vEnigme3Answer3);
+    vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer4.setExit("enigma4", vEnigme4);
+
+    vEnigme4.setExit("answer1", vEnigme4Answer1);
+    vEnigme4.setExit("answer2", vEnigme4Answer2);
+    vEnigme4.setExit("answer3", vEnigme4Answer3);
+    vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer3.setExit("exit", vFakeGuideStone3Solved);
+
+    // L'item récompense de la stèle
+    Item vCivitasAntiquaMap = new Item("civitas_antiqua_map",
+                                   "A map of Civitas Antiqua island", 0.2, 50);
+
+    vFakeGuideStone3Solved.setItem(vCivitasAntiquaMap);
+
+    // Pièce de départ
+    return vFakeGuideStone3;
+} // createFakeGuideStone3()
+    
+/**
+ * Crée la stèle directrice de Civitas Antiqua (thème : HashMap)
+ * Permet de débloquer la carte de l'île de Silva Mystica (vSilvaMysticaMap)
+ * 
+ * @return La stèle directrice
+ */
+public static Room createGuideStone4()
+{
+    Room vGuideStone4 = new Room("at the guide stone of Civitas Antiqua", "images/guide_stone/guide_stone_4.jpg");
+    Room vGuideStone4Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_4_solved.jpg");
+
+    // Les énigmes de la stèle
+    // Énigme 1
+    Room vEnigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
+    Room vEnigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
+
+    // Énigme 2
+    Room vEnigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
+    Room vEnigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
+    Room vEnigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+
+    // Énigme 3
+    Room vEnigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
+    Room vEnigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
+    Room vEnigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+
+    // Énigme 4
+    Room vEnigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
+    Room vEnigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+
+    // Le placement des pièces
+    vGuideStone4.setExit("enigma1", vEnigme1);
+    vEnigme1.setExit("answer1", vEnigme1Answer1);
+    vEnigme1.setExit("answer2", vEnigme1Answer2);
+    vEnigme1.setExit("answer3", vEnigme1Answer3);
+    vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer4.setExit("enigma2", vEnigme2);
+
+    vEnigme2.setExit("answer1", vEnigme2Answer1);
+    vEnigme2.setExit("answer2", vEnigme2Answer2);
+    vEnigme2.setExit("answer3", vEnigme2Answer3);
+    vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer2.setExit("enigma3", vEnigme3);
+
+    vEnigme3.setExit("answer1", vEnigme3Answer1);
+    vEnigme3.setExit("answer2", vEnigme3Answer2);
+    vEnigme3.setExit("answer3", vEnigme3Answer3);
+    vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer3.setExit("enigma4", vEnigme4);
+
+    vEnigme4.setExit("answer1", vEnigme4Answer1);
+    vEnigme4.setExit("answer2", vEnigme4Answer2);
+    vEnigme4.setExit("answer3", vEnigme4Answer3);
+    vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer4.setExit("exit", vGuideStone4Solved);
+
+    // L'item récompense de la stèle
+    Item vSilvaMysticaMap = new Item("silva_mystica_map", 
+                                   "A map of Silva Mystica island", 0.2, 50);
+
+    vGuideStone4Solved.setItem(vSilvaMysticaMap);
+
+    // Pièce de départ
+    return vGuideStone4;
+} // createGuideStone4()
+
+/**
+ * Crée la fausse stèle directrice de Silva Mystica (thème : Set)
+ * Permet de débloquer les cartes de Mercatus Flotilla et Labyrinthos
+ * 
+ * @return La fausse stèle directrice
+ */
+public static Room createFakeGuideStone5()
+{
+    Room vFakeGuideStone5 = new Room("at the fake guide stone of Silva Mystica", "images/guide_stone/fake_guide_stone_5.jpg");
+    Room vFakeGuideStone5Solved = new Room("in the exit of the fake guide stone - Congratulations!", "images/guide_stone/fake_guide_stone_5_solved.jpg");
+
+    // Les énigmes de la stèle
+    // Énigme 1
+    Room vEnigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
+    Room vEnigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
+    Room vEnigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+
+    // Énigme 2
+    Room vEnigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
+    Room vEnigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
+    Room vEnigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+
+    // Énigme 3
+    Room vEnigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
+    Room vEnigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
+    Room vEnigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+
+    // Énigme 4
+    Room vEnigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
+    Room vEnigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+
+    // Le placement des pièces
+    vFakeGuideStone5.setExit("enigma1", vEnigme1);
+    vEnigme1.setExit("answer1", vEnigme1Answer1);
+    vEnigme1.setExit("answer2", vEnigme1Answer2);
+    vEnigme1.setExit("answer3", vEnigme1Answer3);
+    vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer3.setExit("enigma2", vEnigme2);
+
+    vEnigme2.setExit("answer1", vEnigme2Answer1);
+    vEnigme2.setExit("answer2", vEnigme2Answer2);
+    vEnigme2.setExit("answer3", vEnigme2Answer3);
+    vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer1.setExit("enigma3", vEnigme3);
+
+    vEnigme3.setExit("answer1", vEnigme3Answer1);
+    vEnigme3.setExit("answer2", vEnigme3Answer2);
+    vEnigme3.setExit("answer3", vEnigme3Answer3);
+    vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer3.setExit("enigma4", vEnigme4);
+
+    vEnigme4.setExit("answer1", vEnigme4Answer1);
+    vEnigme4.setExit("answer2", vEnigme4Answer2);
+    vEnigme4.setExit("answer3", vEnigme4Answer3);
+    vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer4.setExit("exit", vFakeGuideStone5Solved);
+
+    // Les items récompense de la stèle
+    Item vMercatusFlotillaMap = new Item("mercatus_flotilla_map", 
+                                       "A map of Mercatus Flotilla island", 0.2, 50);
+    Item vLabyrinthosMap = new Item("labyrinthos_map", 
+                                   "A map of Labyrinthos island", 0.2, 50);
+
+    vFakeGuideStone5Solved.setItem(vMercatusFlotillaMap);
+    vFakeGuideStone5Solved.setItem(vLabyrinthosMap);
+
+    // Pièce de départ
+    return vFakeGuideStone5;
+} // createFakeGuideStone5()
+
+/**
+ * Crée la stèle directrice de Sanctum Ignis (thème : Stack)
+ * Permet de débloquer la carte de Mons Caelestis (vMonsCaelestisMap)
+ * 
+ * @return La stèle directrice
+ */
+public static Room createGuideStone8()
+{
+    Room vGuideStone8 = new Room("at the guide stone of Sanctum Ignis", "images/guide_stone/guide_stone_8.jpg");
+    Room vGuideStone8Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_8_solved.jpg");
+
+    // Les énigmes de la stèle
+    // Énigme 1
+    Room vEnigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
+    Room vEnigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
+    Room vEnigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+
+    // Énigme 2
+    Room vEnigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
+    Room vEnigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
+    Room vEnigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+
+    // Énigme 3
+    Room vEnigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
+    Room vEnigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
+
+    // Énigme 4
+    Room vEnigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
+    Room vEnigme4Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+    Room vEnigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+
+    // Le placement des pièces
+    vGuideStone8.setExit("enigma1", vEnigme1);
+    vEnigme1.setExit("answer1", vEnigme1Answer1);
+    vEnigme1.setExit("answer2", vEnigme1Answer2);
+    vEnigme1.setExit("answer3", vEnigme1Answer3);
+    vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer3.setExit("enigma2", vEnigme2);
+
+    vEnigme2.setExit("answer1", vEnigme2Answer1);
+    vEnigme2.setExit("answer2", vEnigme2Answer2);
+    vEnigme2.setExit("answer3", vEnigme2Answer3);
+    vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer1.setExit("enigma3", vEnigme3);
+
+    vEnigme3.setExit("answer1", vEnigme3Answer1);
+    vEnigme3.setExit("answer2", vEnigme3Answer2);
+    vEnigme3.setExit("answer3", vEnigme3Answer3);
+    vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer4.setExit("enigma4", vEnigme4);
+
+    vEnigme4.setExit("answer1", vEnigme4Answer1);
+    vEnigme4.setExit("answer2", vEnigme4Answer2);
+    vEnigme4.setExit("answer3", vEnigme4Answer3);
+    vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer1.setExit("exit", vGuideStone8Solved);
+
+    // L'item récompense de la stèle
+    Item vMonsCaelestisMap = new Item("mons_caelestis_map", 
+                                    "A map of Mons Caelestis mountain", 0.2, 50);
+
+    vGuideStone8Solved.setItem(vMonsCaelestisMap);
+
+    // Pièce de départ
+    return vGuideStone8;
+} // createGuideStone8()
+
+/**
+ * Crée la stèle directrice de Mons Caelestis (thème : StringBuilder)
+ * Permet de débloquer la carte de Ultima Sapientia (vUltimaSapientiaMap)
+ * 
+ * @return La stèle directrice
+ */
+public static Room createGuideStone9()
+{
+    Room vGuideStone9 = new Room("at the guide stone of Mons Caelestis", "images/guide_stone/guide_stone_9.jpg");
+    Room vGuideStone9Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_9_solved.jpg");
+
+    // Les énigmes de la stèle
+    // Énigme 1
+    Room vEnigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
+    Room vEnigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
+    Room vEnigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+    Room vEnigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+
+    // Énigme 2
+    Room vEnigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
+    Room vEnigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+    Room vEnigme2Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
+    Room vEnigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+
+    // Énigme 3
+    Room vEnigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
+    Room vEnigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+    Room vEnigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
+    Room vEnigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+
+    // Énigme 4
+    Room vEnigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
+    Room vEnigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+    Room vEnigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+
+    // Le placement des pièces
+    vGuideStone9.setExit("enigma1", vEnigme1);
+    vEnigme1.setExit("answer1", vEnigme1Answer1);
+    vEnigme1.setExit("answer2", vEnigme1Answer2);
+    vEnigme1.setExit("answer3", vEnigme1Answer3);
+    vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer2.setExit("enigma2", vEnigme2);
+
+    vEnigme2.setExit("answer1", vEnigme2Answer1);
+    vEnigme2.setExit("answer2", vEnigme2Answer2);
+    vEnigme2.setExit("answer3", vEnigme2Answer3);
+    vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer3.setExit("enigma3", vEnigme3);
+
+    vEnigme3.setExit("answer1", vEnigme3Answer1);
+    vEnigme3.setExit("answer2", vEnigme3Answer2);
+    vEnigme3.setExit("answer3", vEnigme3Answer3);
+    vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer3.setExit("enigma4", vEnigme4);
+
+    vEnigme4.setExit("answer1", vEnigme4Answer1);
+    vEnigme4.setExit("answer2", vEnigme4Answer2);
+    vEnigme4.setExit("answer3", vEnigme4Answer3);
+    vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer4.setExit("exit", vGuideStone9Solved);
+
+    // L'item récompense de la stèle
+    Item vUltimaSapientiaMap = new Item("ultima_sapientia_map",
+                                      "A map of Ultima Sapientia temple", 0.2, 50);
+
+    vGuideStone9Solved.setItem(vUltimaSapientiaMap);
+
+    // Pièce de départ
+    return vGuideStone9;
+} // createGuideStone9()
+
 
 } // GameWorld.java

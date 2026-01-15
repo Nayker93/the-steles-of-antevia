@@ -1,104 +1,154 @@
+
 /**
- * Classe Beamer - Téléporteur pour le jeu d'aventure
+ * Classe Beamer - Item permettant au joueur de se téléporter
  * 
- * Un Beamer est un objet spécial qui :
- * - Peut être ramassé et transporté comme un Item
- * - Peut être "chargé" pour mémoriser une pièce
- * - Peut être "déclenché" pour téléporter le joueur vers la pièce mémorisée
- * - Ne peut être utilisé qu'une seule fois (option recommandée)
- * 
- * Conçu selon les principes:
- * - Beamer hérite de Item (c'est un objet du jeu)
- * - La pièce mémorisée est stockée DANS le Beamer (pas dans le Player)
- * - Permet plusieurs Beamers dans le jeu (meilleure conception)
- * 
- * @author Clément RUAN
- * @version 06/01/2026
+ * Le Beamer peut sauvegarder la pièce actuelle du joueur en chargeant la pièce
+ * Il pourra ensuite être déclenché pour téléporter le joueur vers la pièce sauvegardé.
+ * Il ne pourrra être utilisé que 3 fois maximum, il sera progressivement endommagé.
+ * Si le joueur passe par une trap door alors le Beamer est endommager et ne peut plus être utilisé.
+ *
+ * @author CLEMENT RUAN
+ * @version 2026
  */
 public class Beamer extends Item
 {
     /**
-     * Pièce mémorisée par le Beamer
-     * null = pas de pièce chargée
+     * Le nombre d'utilisations restantes du Beamer (jusqu'à 3 fois)
      */
-    private Room aChargedRoom;
+    private int aUsesRemaining;
+    /**
+     * La pièce stockée par le Beamer
+     */
+    private Room aBeamerRoom;
     
     /**
-     * Indicateur si le Beamer a déjà été utilisé
-     * false = peut être utilisé
-     * true = déjà utilisé, à ne pas réutiliser
+     * Crée un Beamer vide
      */
-    private boolean aAlreadyFired;
-    
-    /**
-     * Crée un nouveau Beamer
-     * 
-     * @param pName Nom du Beamer (ex: "beamer", "teleporter")
-     * @param pWeight Poids du Beamer en kg (ex: 0.5)
-     * @param pPrice Prix du Beamer en Jerries (ex: 50)
-     */
-    public Beamer(final String pName, final double pWeight, final double pPrice)
+    public Beamer()
     {
-        super(pName, "A mysterious beamer device", pWeight, pPrice);
-        this.aChargedRoom = null;      // Pas encore chargé
-        this.aAlreadyFired = false;    // Pas encore utilisé
+        super("beamer", "A device that can charge and fire to teleport", 1, 100);
+        this.aBeamerRoom = null;
+        this.aUsesRemaining = 3;
     } // Beamer()
     
     /**
-     * Charge le Beamer avec la pièce donnée en paramètre
+     * Charge le Beamer
+     * Stocke la pièce actuelle dans la perle de téléportation insérée
      * 
-     * @param pRoom La pièce à mémoriser
+     * @param pCurrentRoom La pièce à sauvegarder
      * @return Message de confirmation
      */
-    public String chargeBeamer(final Room pRoom)
+    public String chargeBeamer( final Room pCurrentRoom )
     {
-        // Cas déjà utilisé
-        if (this.aAlreadyFired)
+        // Vérifie si le Beamer est inutilisable
+        if (this.aUsesRemaining <= 0)
         {
-            return "This beamer has already been fired. It's now useless.";
+            return "The beamer is too damaged to function.";
         }
         
-        if (pRoom == null)
+        if (pCurrentRoom == null)
         {
-            return "Error: no room to charge.";
+            return "Error: no current room.";
         }
         
-        this.aChargedRoom = pRoom;
-        return "The beamer is charged with this room.";
+        // Stockage de la pièce dans le Beamer
+        this.aBeamerRoom = pCurrentRoom;
+        
+        // Condition du Beamer
+        String vCondition = this.getBeamerCondition();
+        
+        return "The beamer stores this room ! " + vCondition;
     } // chargeBeamer()
     
     /**
-     * Déclenche le Beamer pour téléporter le joueur
+     * Déclenche le Beamer et téléporte le joueur dans la pièce stockée par le Beamer
+     * Réduit le nombre d'utilisation du Beamer de 1
      * 
-     * @return La pièce destination, ou null si pas chargé ou déjà utilisé
+     * @return La pièce stockée
      */
     public Room fireBeamer()
     {
-        // Si déjà utilisé
-        if (this.aAlreadyFired)
+        // Vérifie si le Beamer est encore utilisable
+        if (this.aUsesRemaining <= 0)
         {
             return null;
         }
         
-        // Si pas chargé
-        if (this.aChargedRoom == null)
+        // Vérifie s'il y'a une pièce stockée dans le Beamer
+        if (this.aBeamerRoom == null)
         {
             return null;
         }
         
-        // Marquer comme utilisé et retourner la pièce
-        this.aAlreadyFired = true;
-        return this.aChargedRoom;
+        this.aUsesRemaining--;
+        return this.aBeamerRoom;
     } // fireBeamer()
     
     /**
-     * Vérifie si le Beamer a une pièce chargée
+     * Retourne la pièce stockée par le Beamer
      * 
-     * @return true si une pièce est chargée, false sinon
+     * @return La pièce stockée par le Beamer
      */
-    public boolean hasChargedRoom()
+    public Room getBeamerRoom()
     {
-        return this.aChargedRoom != null;
-    } // hasChargedRoom()
+        return this.aBeamerRoom;
+    } // getBeamerRoom()
     
-    /**\n     * Vérifie si le Beamer a déjà été utilisé\n     * \n     * @return true si déjà utilisé, false sinon\n     */\n    public boolean hasAlreadyFired()\n    {\n        return this.aAlreadyFired;\n    } // hasAlreadyFired()\n    \n    /**\n     * Retourne la pièce chargée dans le Beamer (info)\n     * \n     * @return La pièce chargée ou null\n     */\n    public Room getChargedRoom()\n    {\n        return this.aChargedRoom;\n    } // getChargedRoom()\n} // Beamer
+    /**
+     * Détruit le Beamer si le joueur passe par une TrapDoor
+     */
+    public void destroyBeamer()
+    {
+        if (this.aUsesRemaining > 0)
+        {
+            this.aUsesRemaining = 0;
+        }
+    } // destroyBeamer()
+    
+    /**
+     * Vérifie si Beamer est inutilisable
+     * 
+     * @return true si le Beamer est inutilisable, false sinon
+     */
+    public boolean isDamaged()
+    {
+        return this.aUsesRemaining <= 0;
+    } // isDisintegrated()
+    
+    /**
+     * Retourne le nombre d'utilisations d'un Beamer
+     * 
+     * @return le nombre d'utilisations d'un Beamer
+     */
+    public int getUsesRemaining()
+    {
+        return this.aUsesRemaining;
+    } // getUsesRemaining()
+    
+    /**
+     * L'état du Beamer
+     * 
+     * @return Description du Beamer
+     */
+    public String getBeamerCondition()
+    {
+        String vBeamerRoom = (this.aBeamerRoom != null) ? this.aBeamerRoom.getRoomDescription() : "none";
+        
+        if (this.aUsesRemaining == 3)
+        {
+            return "( Condition : perfect, " + this.aUsesRemaining + " uses remaining, Room : " + vBeamerRoom + " )";
+        }
+        else if (this.aUsesRemaining == 2)
+        {
+            return "( Condition : slightly worn, " + this.aUsesRemaining + " uses remaining, Room : " + vBeamerRoom + " )";
+        }
+        else if (this.aUsesRemaining == 1)
+        {
+            return "( Condition : heavily damaged, " + this.aUsesRemaining + " uses remaining, Room : " + vBeamerRoom + " )";
+        }
+        else
+        {
+            return "( Condition : unusable, " + this.aUsesRemaining + " uses remaining )";
+        }
+    } // getBeamerCondition()
+}

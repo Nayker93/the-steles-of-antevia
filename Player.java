@@ -1,12 +1,13 @@
-import java.util.Stack;
+import java.util.Collection;
+
 
 /**
  * Classe Player - Le/Les joueurs du jeu
  * Cette classe stocke les champs et définis les méthodes qui vérifie notamment 
  * la contrainte de poids, les objets que le joueur possède ou encore sa pièce courante.
  *
- * @author Clément RUAN
- * @version 17/12/2025
+ * @author CLEMENT RUAN
+ * @version 2026
  */
 public class Player
 {
@@ -19,42 +20,17 @@ public class Player
      */
     private Room aCurrentRoom;
     /**
-     * Items du joueur
+     * Inventaire du joueur
      */
-    private ItemList aItems;
+    private Inventory aInventory;
     /**
-     * Poids max du joueur
+     * Historique des pièces du joueur
      */
-    private double aMaxWeight;
+    private RoomHistory aRoomHistory;
     /**
-     * Poids actuelle du joueur
+     * Nombre de commandes utilisées par le joueur
      */
-    private double aCurrentWeight;
-    /**
-     * Prix max du joueur (budget max)
-     */
-    private double aMaxPrice;
-    /**
-     * Prix total actuel du joueur
-     */
-    private double aCurrentPrice;
-    /**
-     * Stack des pièces précédentes
-     */
-    private Stack<Room> aPreviousRooms;
-
-    /**
-     * Compteur de commandes utilisées
-     */
-    private int aCommandCount;
-    /**
-     * Limite de commandes disponible
-     */
-    private static final int COMMAND_LIMIT = 10;
-    /**
-     * Limite de commandes atteinte
-     */
-    private boolean aTimeLimitReached;
+    private CommandCount aCommandCount;
     
     /**
      * Crée un nouveau joueur avec son nom
@@ -65,14 +41,9 @@ public class Player
     {
         this.aName = pName;
         this.aCurrentRoom = null; // Initialisé dans GameEngine
-        this.aItems = new ItemList();
-        this.aMaxWeight = 10.0; // Poids maximum que le joueur peut porté (en kg)
-        this.aCurrentWeight = 0.0;
-        this.aMaxPrice = 100.0; // Somme d'argent maximum que le joueur peut porté sur lui (100 Jerries)
-        this.aCommandCount = 0; // Compteur de commandes utilisées
-        this.aTimeLimitReached = false; // Si vrai alors le joueur perd
-        this.aCurrentPrice = 0.0;
-        this.aPreviousRooms = new Stack<>();
+        this.aInventory = new Inventory();
+        this.aRoomHistory = new RoomHistory();
+        this.aCommandCount = new CommandCount();
     } // Player()
 
     /**
@@ -96,60 +67,6 @@ public class Player
     } // getCurrentRoom()
 
     /**
-     * Retourne la pièce précédente du joueur
-     * 
-     * @return La pièce précédente du joueur
-     */
-    public Room getPreviousRoom()
-    {
-        if (this.aPreviousRooms.isEmpty())
-        {
-            return null;
-        }
-        return this.aPreviousRooms.peek();
-    } // getPreviousRoom()
-    
-    /**
-     * Retourne le poids maximum du joueur
-     * 
-     * @return Le poids maximum du joueur
-     */
-    public double getMaxWeight()
-    {
-        return this.aMaxWeight;
-    } // getMaxWeight()
-
-    /**
-     * Retourne le poids actuel du joueur
-     * 
-     * @return Le poids actuel du joueur
-     */
-    public double getCurrentWeight()
-    {
-        return this.aCurrentWeight;
-    } // getCurrentWeight()
-    
-    /**
-     * Retourne le prix maximum du joueur
-     * 
-     * @return Le prix maximum du joueur en Jerry
-     */
-    public double getMaxPrice()
-    {
-        return this.aMaxPrice;
-    } // getMaxPrice()
-
-    /**
-     * Retourne le budget actuel du joueur
-     * 
-     * @return Le budget actuel du joueur en Jerry
-     */
-    public double getCurrentPrice()
-    {
-        return this.aCurrentPrice;
-    } // getCurrentPrice()
-
-    /**
      * Définit la pièce courante du joueur.
      * 
      * @param pRoom La pièce
@@ -160,25 +77,23 @@ public class Player
     } // setCurrentRoom()
 
     /**
-     * Le joueur se déplace dans une pièce spécifiée et sauvegarde
-     * la pièce actuelle dans la stack.
+     * Déplace le joueur dans une pièce et l'ajoute dans l'historique
      * 
      * @param pRoom Pièce de destination
-     * @return true si le déplacement a réussi, false sinon
      */
-    public boolean goToRoom(final Room pRoom)
+    public void goToRoom( final Room pRoom )
     {
-        if (pRoom == null) {
-            return false;
+        if (pRoom == null) 
+        {
+            return;
         }
 
         if (this.aCurrentRoom != null)
         {
-            this.aPreviousRooms.push(this.aCurrentRoom);
+            this.aRoomHistory.storeRoom(this.aCurrentRoom);
         }
 
         this.aCurrentRoom = pRoom;
-        return true;
     } // goToRoom()
 
     /**
@@ -188,24 +103,31 @@ public class Player
      */
     public boolean canGoBack()
     {
-        return !this.aPreviousRooms.isEmpty();
+        return this.aRoomHistory.canGoBack();
     } // canGoBack()
 
     /**
      * Le joueur revient à la pièce précédente.
-     * 
-     * @return La pièce précédente, ou null s'il n'y en a pas
      */
-    public Room goBack()
+    public void goBack()
     {
-        if (this.aPreviousRooms.isEmpty()) 
+        Room vPreviousRoom = this.aRoomHistory.goBack();
+        if (vPreviousRoom != null)
         {
-            return null;
+            this.aCurrentRoom = vPreviousRoom;
         }
-        this.aCurrentRoom = this.aPreviousRooms.pop();
-        return this.aCurrentRoom;
     } // goBack()
 
+    /**
+     * Retourne la pièce précédente
+     * 
+     * @return La pièce précédente
+     */
+    public Room getPreviousRoom()
+    {
+        return this.aRoomHistory.getPreviousRoom();
+    } // getPreviousRoom()
+    
     /**
      * Le joueur récupère un item dans la pièce actuelle s'il a 
      * le poids disponible et si l'item n'est pas trop lourd
@@ -221,6 +143,7 @@ public class Player
             return "Take what ?";
         }
 
+        Room vCurrentRoom = this.aCurrentRoom;
         Item vItem = this.aCurrentRoom.getItem(pItemName);
 
         // Si l'item existe dans la pièce ou pas
@@ -229,30 +152,13 @@ public class Player
             return "You can't find what you're looking for...";
         }
 
-        // Si l'item existe dans cette pièce :
-        // Si l'item est trop lourd pour être pris
-        if (vItem.getWeight() >= 10.0)
+        if (!(this.aInventory.addItem(vItem)))
         {
-            return "It's too heavy to pick up !";
-        }
-
-        // Si le joueur a le poids disponible pour le prendre
-        if (this.aCurrentWeight + vItem.getWeight() > this.aMaxWeight)
-        {
-            return "You carry too much to pick up more things !";
-        }
-
-        // Si le joueur ne dépasse pas la somme d'argent
-        if (this.aCurrentPrice + vItem.getPrice() > this.aMaxPrice)
-        {
-            return "This item is too valuable, it's too risky !";
+            return "You can't carry that.";
         }
         
         // L'item est récupéré
-        this.aCurrentRoom.removeItem(vItem);
-        this.aItems.addItem(vItem);
-        this.aCurrentWeight += vItem.getWeight();
-        this.aCurrentPrice += vItem.getPrice();
+        vCurrentRoom.removeItem(vItem);
         return "You picked up the " + pItemName + ".";
     } // takeItem()
 
@@ -270,7 +176,7 @@ public class Player
             return "Drop what ?";
         }
 
-        Item vItem = this.aItems.getItem(pItemName);
+        Item vItem = this.aInventory.removeItem(pItemName);
 
         // Si le joueur possède l'item ou pas
         if (vItem == null)
@@ -279,10 +185,10 @@ public class Player
         }
 
         // L'item est laché
-        this.aItems.removeItem(pItemName);
-        this.aCurrentWeight -= vItem.getWeight();
-        this.aCurrentPrice -= vItem.getPrice();
-        this.aCurrentRoom.addItem(vItem);
+        if (this.aCurrentRoom != null)
+        {
+            this.aCurrentRoom.setItem(vItem);
+        }
         return "You dropped the " + pItemName + ".";
     } // dropItem()
 
@@ -293,40 +199,11 @@ public class Player
      */
     public String getItemsPlayer()
     {
-        // Condition singulier/pluriel pour Jerry/Jerries
-        String vCurrentPrice = (this.aCurrentPrice <= 1.0) ? " Jerry" : " Jerries";
-        
-        // Si le joueur ne possède aucun item sur lui
-        if (this.aItems.isEmpty())
+        if (this.aInventory.getItems().isEmpty())
         {
-            return "You have nothing in your pocket.\nWeight : " 
-            + this.aCurrentWeight 
-            + " kg / " 
-            + this.aMaxWeight 
-            + " kg\n"
-            + "Value : "
-            + this.aCurrentPrice
-            + vCurrentPrice
-            + " / "
-            + this.aMaxPrice
-            + " Jerries\n";
+            return "You don't have any items.";
         }
-        
-        // Si le joueur possède des items
-        StringBuilder vItems = new StringBuilder
-        ( "You are carrying : \n" + "Weight : "
-                                  + this.aCurrentWeight 
-                                  + "kg / " 
-                                  + this.aMaxWeight 
-                                  + " kg\n"
-                                  + "Value : "
-                                  + this.aCurrentPrice
-                                  + vCurrentPrice
-                                  + " / "
-                                  + this.aMaxPrice
-                                  + " Jerries\n");
-        vItems.append("\n").append(this.aItems.getItemListDescription());
-        return vItems.toString();
+        return this.aInventory.getInventoryDescription();
     } // getItemsPlayer()
     
     /**
@@ -337,68 +214,75 @@ public class Player
      */
     public Item getItemByName( final String pItemName )
     {
-        return this.aItems.getItem(pItemName);
+        return this.aInventory.getItem(pItemName);
     } // getItemName()
     
     /**
-     * Augmente la capacité maximale transportable par le joueur
+     * Retourne tous les items de l'inventaire du joueur
      * 
-     * @param pWeight Le poids en plus à ajouter
+     * @return L'inventaire du joueur
      */
-    public void increaseMaxWeight( final double pWeight )
+    public Collection<Item> getInventory()
     {
-        this.aMaxWeight += pWeight;
-    } // increaseMaxWeight()
+        return this.aInventory.getItems();
+    } // getInventory()
     
     /**
-     * Retourne le nombre de commandes effectuées
+     * Retourne le compteur de commandes
      * 
-     * @return nombre de commandes
+     * @return Le compteur de commandes
      */
     public int getCommandCount()
     {
-        return this.aCommandCount;
+        return this.aCommandCount.getCommandCount();
     } // getCommandCount()
     
     /**
-     * Retourne la limite de commandes
+     * Retourne le nombre de commandes utilisables
      * 
-     * @return limite (COMMAND_LIMIT)
+     * @return Le nombre de commandes utilisables
      */
     public static int getCommandLimit()
     {
-        return COMMAND_LIMIT;
+        return CommandCount.getCommandLimit();
     } // getCommandLimit()
     
     /**
-     * Marque que la limite de commandes est atteinte
+     * Incrémente le nombre de commandes utilisées
      */
-    public void setTimeLimitReached()
+    public void increaseCommandCount() 
     {
-        this.aTimeLimitReached = true;
-    } // setTimeLimitReached()
+        this.aCommandCount.increaseCommandCount();
+    } // increaseCommandCount() 
     
     /**
-     * Incrémente le compteur de commandes utilisées du joueur
-     */
-    public void increaseCommandCount()
-    {
-        this.aCommandCount++;
-
-        if (this.aCommandCount >= COMMAND_LIMIT)
-        {
-            this.aTimeLimitReached = true;
-        }
-    } // increaseCommandCount()
-    
-    /**
-     * Vérifie si la limite de temps est atteinte et si le nombre de commandes est supérieur à la limite
+     * Vérifie si le compteur a atteint la limite de commandes utilisable
      * 
-     * @return true si la limite de temps est atteinte ou si le nombre de commandes a atteint la limite, false sinon
+     * @return true si atteint, false sinon
      */
-    public boolean isTimeLimitReached()
+    public boolean isTimeLimitReached() 
     {
-        return this.aTimeLimitReached || (this.aCommandCount >= COMMAND_LIMIT);
+        return this.aCommandCount.isTimeLimitReached();
     } // isTimeLimitReached()
+    
+    /**
+     * Augmente le poids porté par le joueur
+     * 
+     * @param pIncrease Le poids augmenté
+     */
+    public void increaseMaxWeight(final double pIncrease)
+    {
+        this.aInventory.increaseMaxWeight(pIncrease);
+    } // increaseMaxWeight()
+    
+    /**
+     * Retourne le poids max de l'item que le joueur peut prendre
+     * 
+     * @return Le poids max de l'item que le joueur peut prendre
+     */
+    public double getMaxWeight()
+    {
+        return this.aInventory.getMaxWeight();
+    } // getMaxWeight()
 } // Player
 

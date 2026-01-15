@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.*;
+import java.util.Collection;
 
 /**
  *  Classe GameEngine - le moteur du jeu d'aventure The Steles of Antevia.
@@ -10,8 +11,8 @@ import java.io.*;
  *  - affichage des messages
  *  - interprétation et exécution des commandes du joueur
  * 
- * @author Clément RUAN
- * @version 17/12/2025
+ * @author CLEMENT RUAN
+ * @version 2026
  */
 public class GameEngine
 {
@@ -45,16 +46,27 @@ public class GameEngine
     } // GameEngine()
 
     /**
-     * Initialise l'interface du joueur et affiche le message de bienvenue.
+     * Définit l'interface de l'utilisateur et affiche le message de bienvenue
      * 
-     * @param pGui L'interface du joueur
+     * @param pUserInterface L'interface utilisateur
      */
-    public void setGUI(final UserInterface pGui)
+    public void setGUI( final UserInterface pUserInterface )
     {
-        this.aGui = pGui;
+        this.aGui = pUserInterface;
         this.printWelcome();
     } // setGUI()
 
+    /**
+     * Affiche la description de la pièce actuelle du joueur
+     */
+    private void printRoomDescription()
+    {
+        this.aGui.println(this.aPlayer.getCurrentRoom().getLongDescription());
+        {
+            this.aGui.showImage(this.aPlayer.getCurrentRoom().getImageName());
+        }
+    } // printRoomDescription()
+    
     /**
      * Affiche le message de bienvenue en lançant le jeu et affiche la 
      * description de la pièce de départ.
@@ -63,12 +75,9 @@ public class GameEngine
     {
         this.aGui.print("\n");
         this.aGui.println("Welcome to The Steles of Antevia!");
-        this.aGui.println("The Steles of Antevia is a new, incredibly boring adventure game.");
         this.aGui.println("Type 'help' if you need help.");
         this.aGui.print("\n");
-        this.aGui.println(this.aPlayer.getCurrentRoom().getLongDescription());
-        if ( this.aPlayer.getCurrentRoom().getImageName() != null )
-            this.aGui.showImage(this.aPlayer.getCurrentRoom().getImageName());
+        this.printRoomDescription();
     } // printWelcome()
 
     /**
@@ -76,10 +85,8 @@ public class GameEngine
      */
     private void printLocationInfo()
     {
-        this.aGui.println( this.aPlayer.getCurrentRoom().getLongDescription() );
+        this.printRoomDescription();
         this.aGui.println( "\nCommand used : " + this.aPlayer.getCommandCount() + "/" + Player.getCommandLimit() );
-        if ( this.aPlayer.getCurrentRoom().getImageName() != null )
-            this.aGui.showImage( this.aPlayer.getCurrentRoom().getImageName() );
     } // printLocationInfo()
 
     /**
@@ -88,59 +95,7 @@ public class GameEngine
      */
     private void createRooms()
     {
-        // Les pièces du bateau
-        Room vBoat = new Room("You just entered the boat", "images/boat/boat.jpg");
-        Room vDeck = new Room("on the deck", "images/boat/deck.jpg");
-        Room vGalley = new Room("in the galley", "images/boat/galley.jpg");
-        Room vCockpit = new Room("in the cockpit", "images/boat/cockpit.jpg");
-        Room vCabin = new Room("in the cabin", "images/boat/cabin.jpg");
-        Room vCabin_floor_1 = new Room("in the first floor of the cabin", "images/boat/cabin_floor_1.jpg");
-        
-        // Trap Doors
-        Room vSlide = new Room("You entered the slide, you can't go up !", "");
-        Room vEmergencyExit = new Room("in an emergency path", "");
-        
-        // Les items du bateau
-        Item vBed = new Item("bed", "A comfortable bed", 100, 500);
-        Item vBooks = new Item("book", "Captain's book", 0.5, 15);
-        Item vChair1 = new Item("chair1", "A chair", 4, 20);
-        Item vChair2 = new Item("chair2", "A chair", 4.5, 25);
-        Item vChair3 = new Item("chair3", "A chair", 9, 45);
-        Item vCoin = new Item("coin", "3 Jerries", 0.1, 3);
-        Item vCookie = new Item("cookie", "A magic cookie that increases your strength", 0.1, 5);
-
-        // Initialise les sorties de pièces et d'items
-        // Boat
-        vBoat.setExit("east", vDeck);
-        vBoat.setExit("south", vCockpit);
-        vBoat.setExit("west", vGalley);
-        vBoat.addItem(vCoin);
-        vBoat.addItem(vCookie);
-        // Deck
-        vDeck.setExit("west", vBoat);
-        // Galley
-        vGalley.setExit("east", vBoat);
-        vGalley.addItem(vChair3);
-        vGalley.addItem(vChair2);
-        vGalley.addItem(vChair1);
-        // Cockpit
-        vCockpit.setExit("north", vBoat);
-        vCockpit.setExit("east", vCabin);
-        vCockpit.setExit("emergency", vEmergencyExit); // trapdoor
-        // Cabin
-        vCabin.setExit("west", vCockpit);
-        vCabin.setExit("up", vCabin_floor_1);
-        vCabin.addItem(vBooks);
-        // Cabin - etage1
-        vCabin_floor_1.setExit("down", vCabin);
-        vCabin_floor_1.setExit("slide", vSlide); // trapdoor
-        vCabin_floor_1.addItem(vBed);
-        // Slide
-        vSlide.setExit("down", vCabin);
-        // Emergency Exit
-        vEmergencyExit.setExit("exit", vBoat);
-
-        this.aStartingRoom = vBoat; // Pièce de départ
+        this.aStartingRoom = GameWorld.createWorld();
     } // createRooms()
 
     /**
@@ -170,11 +125,10 @@ public class GameEngine
             this.aGui.println( "Command used : " + this.aPlayer.getCommandCount() + "/" + Player.getCommandLimit());
             this.aGui.println( "\n" );
             this.aGui.println( "Restart the game !\n" );
-            this.aPlayer.setTimeLimitReached();
             this.endGame();
             return;
         }
-        
+
         // Commandes utilisable par le joueur
         String vCommandWord = vCommand.getCommandWord();
         if ( vCommandWord.equals( "help" ) )
@@ -195,7 +149,15 @@ public class GameEngine
             this.inventory( vCommand );
         else if ( vCommandWord.equals( "back" ) )
             this.back( vCommand );
-        else if (vCommandWord.equals("test")) 
+        else if ( vCommandWord.equals( "charge" ) )
+            this.chargeBeamer( vCommand );
+        else if ( vCommandWord.equals( "fire" ) ) 
+            this.fireBeamer( vCommand );
+        else if (vCommandWord.equals( "unlock" ) )
+            this.unlockDoor(vCommand);
+        else if (vCommandWord.equals( "lock" ) )
+            this.lockDoor(vCommand);
+        else if ( vCommandWord.equals( "test" ) ) 
         {
             if (vCommand.getSecondWord() == null) 
             {
@@ -215,20 +177,59 @@ public class GameEngine
         }
     } // interpretCommand()
 
-    // implementations of user commands:
+    // Implémentation des commandes du joueur
 
     /**
-     * Affiche la description de la pièce actuelle.
+     * Affiche la description d'aide et les commandes disponibles.
+     */
+    private void printHelp() 
+    {
+        this.aGui.println( "You are lost. You are alone. You wander" );
+        this.aGui.println( "around one of the isle of Antevia." + "\n" );
+        this.aGui.println( "Your command words are: " + this.aParser.getCommandList() );
+    } // printHelp()
+    
+    /**
+     * Affiche la description de la pièce actuelle ou de l'item si second mot
      * 
      * @param pCommand La commande contient un second mot ou pas
      */
     private void look(final Command pCommand)
-    {
-        if (pCommand.hasSecondWord()) {
-            this.aGui.println("Look at what? I don't know how to look at something in particular yet.");
-        } else {
+    {  
+        if (!pCommand.hasSecondWord()) {
             this.printLocationInfo();
+            return;
         }
+
+        String vItemName = pCommand.getSecondWord();
+        Item vItem = this.aPlayer.getItemByName(vItemName);
+
+        // Si le joueur n'a pas l'item dans son inventaire
+        if (vItem == null) {
+            this.aGui.println("You don't have that item!");
+            return;
+        }
+
+        // Cas spécial pour Beamer
+        if (vItem instanceof Beamer) {
+            Beamer vBeamer = (Beamer) vItem;
+            this.aGui.println(vBeamer.getBeamerCondition());
+
+            // Affiche la pièce stockée par le Beamer
+            Room vBeamerRoom = vBeamer.getBeamerRoom();
+            if (vBeamerRoom != null)
+            {
+                this.aGui.println("Room charged into the Beamer : " + vBeamerRoom.getRoomDescription());
+            }
+            else
+            {
+                this.aGui.println("Room charged into the Beamer : none.");
+            }
+            return;
+        }
+
+        // Cas général
+        this.aGui.println(vItem.getItemDescription());
     } // look()
 
     /**
@@ -244,14 +245,14 @@ public class GameEngine
         }
         String vItemName = pCommand.getSecondWord();
         Item vItem = this.aPlayer.getItemByName(vItemName);
-        
+
         // Si l'item est dans l'inventaire
         if (vItem == null)
         {
             this.aGui.println("You don't find that item...");
             return;
         }
-        
+
         // Si l'item est le cookie magique ou autre
         if (vItem.getItemName().equals("cookie"))
         {
@@ -260,8 +261,8 @@ public class GameEngine
             this.aPlayer.dropItem(vItemName);
             this.aGui.println("You ate the magic cookie !");
             this.aGui.println("Your maximum weight just increased from "+
-            vPreviousMaxWeight + " kg to " + this.aPlayer.getMaxWeight()
-            + " kg\n");
+                vPreviousMaxWeight + " kg to " + this.aPlayer.getMaxWeight()
+                + " kg\n");
         }
         else
         {
@@ -303,11 +304,11 @@ public class GameEngine
             this.aGui.println("You can't go backwards !");
             return;
         }
-        
+
         // Trap Door
         Room vCurrentRoom = this.aPlayer.getCurrentRoom();
         Room vPreviousRoom = this.aPlayer.getPreviousRoom();
-        
+
         if (vCurrentRoom.isExit(vPreviousRoom))
         {
             // Pièce précédente 
@@ -337,16 +338,6 @@ public class GameEngine
         int vRemainingCommand = Player.getCommandLimit() - this.aPlayer.getCommandCount();
         this.aGui.println( "\nCommands remaining : " + vRemainingCommand );
     } // inventory()
-    
-    /**
-     * Affiche la description d'aide et les commandes disponibles.
-     */
-    private void printHelp() 
-    {
-        this.aGui.println( "You are lost. You are alone. You wander" );
-        this.aGui.println( "around one of the isle of Antevia." + "\n" );
-        this.aGui.println( "Your command words are: " + this.aParser.getCommandList() );
-    } // printHelp()
 
     /**
      * Récupère un item
@@ -372,7 +363,8 @@ public class GameEngine
      */
     private void drop( final Command pCommand )
     {
-        if (!pCommand.hasSecondWord()) {
+        if (!pCommand.hasSecondWord()) 
+        {
             this.aGui.println( "Drop what?" );
             return;
         }
@@ -380,6 +372,211 @@ public class GameEngine
         String vMessage = this.aPlayer.dropItem( vItemName );
         this.aGui.println( vMessage );
     } // drop()
+
+    /**
+     * Charge le Beamer 
+     * Stocke la pièce actuelle
+     * 
+     * @param pCommand La commande (charge beamer)
+     */
+    private void chargeBeamer(final Command pCommand)
+    {
+        if (!pCommand.hasSecondWord()) 
+        {
+            this.aGui.println("Charge what? (syntax: charge beamer)");
+            return;
+        }
+
+        String vItemName = pCommand.getSecondWord();
+
+        Item vItem = this.aPlayer.getItemByName(vItemName);
+
+        // Vérifie si le joueur a un Beamer dans son inventaire
+        if (vItem == null)
+        {
+            this.aGui.println("You don't have that item.");
+            return;
+        }
+
+        // Vérifie si l'item est bien un Beamer
+        if (!(vItem instanceof Beamer))
+        {
+            this.aGui.println("You can't charge " + vItemName + ".");
+            return;
+        }
+
+        // Cast l'item en Beamer
+        Beamer vBeamer = (Beamer) vItem;
+
+        // Vérifie si le Beamer est endommagé
+        if (vBeamer.isDamaged())
+        {
+            this.aGui.println("This beamer is too damaged to use.");
+            return;
+        }
+
+        // Charge le Beamer avec la pièce actuelle
+        String vMessage = vBeamer.chargeBeamer(this.aPlayer.getCurrentRoom());
+        this.aGui.println(vMessage);
+    } // chargeBeamer()
+
+    /**
+     * Déclenche le Beamer et téléporte le joueur
+     * Détruit si le joueur passe par une Trapdoor
+     * 
+     * @param pCommand La commande (fire beamer)
+     */
+    private void fireBeamer(final Command pCommand)
+    {
+        if (!pCommand.hasSecondWord()) 
+        {
+            this.aGui.println("Fire what? (syntax: fire beamer)");
+            return;
+        }
+
+        String vItemName = pCommand.getSecondWord();
+        Item vItem = this.aPlayer.getItemByName(vItemName);
+
+        // Vérifie si le joueur a un Beamer dans son inventaire
+        if (vItem == null)
+        {
+            this.aGui.println("You don't have that item.");
+            return;
+        }
+
+        // Vérifie si l'item est bien un Beamer
+        if (!(vItem instanceof Beamer))
+        {
+            this.aGui.println("You can't charge " + vItemName + ".");
+            return;
+        }
+
+        Beamer vBeamer = (Beamer) vItem;
+
+        // Vérifie si le Beamer est endommagé
+        if (vBeamer.isDamaged())
+        {
+            this.aGui.println("This beamer is too damaged to use.");
+            return;
+        }
+
+        Room vBeamerRoom = vBeamer.fireBeamer();
+        
+        // Vérifie si le Beamer a été chargé
+        if (vBeamerRoom == null)
+        {
+            this.aGui.println("The beamer has no room stored in ! You must charge it.");
+            return;
+        }
+
+        // Téléporte le joueur
+        this.aGui.println("The beamer is teleporting you...");
+        this.aPlayer.goToRoom(vBeamerRoom);
+        this.aGui.println(vBeamer.getBeamerCondition());
+        this.printLocationInfo();
+    } // fireBeamer()
+
+    /**
+     * Déverrouille une porte
+     * Commande à utiliser : unlock 'direction'
+     * 
+     * @param pCommand La commande
+     */
+    private void unlockDoor( final Command pCommand )
+    {
+        // S'il n'y a pas de second mot
+        if (!pCommand.hasSecondWord())
+        {
+            this.aGui.println("Unlock what ? (unlock 'direction')");
+            return;
+        }
+
+        String vDirection = pCommand.getSecondWord();
+        Room vCurrentRoom = this.aPlayer.getCurrentRoom();
+
+        // Cherche la porte à déverrouiller
+        Door vDoor = vCurrentRoom.getDoor(vDirection);
+        if (vDoor ==null)
+        {
+            this.aGui.println("There is no door in that direction.");
+            return;
+        }
+
+        // Vérifie si la porte est déjà déverrouillée
+        if (vDoor.isUnlocked())
+        {
+            this.aGui.println("The door is already unlocked.");
+            return;
+        }
+
+        // Vérifie si la porte n'est pas verrouillée
+        if (!vDoor.isLocked())
+        {
+            vDoor.tryUnlocking(null);
+            this.aGui.println("You unlocked the door.");
+            return;
+        }
+
+        // Vérifie si c'est la bonne clé
+        Item vKeyDoor = vDoor.getKeyDoor();
+        Item vKeyPlayer = this.aPlayer.getItemByName(vKeyDoor.getItemName());
+
+        // Si le joueur n'a pas de clés
+        if (vKeyPlayer == null)
+        {
+            this.aGui.println("You don't have the key for this door !");
+            return;
+        }
+
+        // Si le joueur a une clé
+        if (vDoor.tryUnlocking(vKeyPlayer))
+        {
+            this.aGui.println("You unlocked the door with the key.");
+            this.aGui.println(vDoor.getDoorDescription());
+        }
+        else
+        {
+            this.aGui.println("The key doesn't fit in.");
+        }
+    } // unlockDoor()
+
+    /**
+     * Verrouille une porte 
+     * Commande : lock 'direction'
+     * 
+     * @param pCommand La commande
+     */
+    private void lockDoor( final Command pCommand )
+    {
+        // S'il n'y a pas de second mot
+        if (!pCommand.hasSecondWord())
+        {
+            this.aGui.println("Lock what? (lock 'direction')");
+            return;
+        }
+
+        String vDirection = pCommand.getSecondWord();
+        Room vCurrentRoom = this.aPlayer.getCurrentRoom();
+
+        // Vérifie qu'il y'a une porte dans cette direction
+        Door vDoor = vCurrentRoom.getDoor(vDirection);
+        if (vDoor == null)
+        {
+            this.aGui.println("There is no door in that direction.");
+            return;
+        }
+
+        // Vérifie si la porte est déjà verrouillée
+        if (!vDoor.isLocked())
+        {
+            this.aGui.println("This door is already locked.");
+            return;
+        }
+
+        vDoor.closeDoor();
+        this.aGui.println("You locked the door.");
+        this.aGui.println(vDoor.getDoorDescription());
+    } // lockDoor()
 
     /**
      * Déplace le joueur dans la direction choisie par le joueur.
@@ -390,29 +587,56 @@ public class GameEngine
      */
     private void goRoom( final Command pCommand ) 
     {
-        if ( ! pCommand.hasSecondWord() ) {
-            // if there is no second word, we don't know where to go...
+        if (!pCommand.hasSecondWord()) 
+        {
             this.aGui.println( "Go where?" );
             return;
         }
 
         String vDirection = pCommand.getSecondWord();
+        Room vCurrentRoom = this.aPlayer.getCurrentRoom();
+        Room vNextRoom = vCurrentRoom.getExit(vDirection);
 
-        // Try to leave current room.
-        Room vNextRoom = this.aPlayer.getCurrentRoom().getExit( vDirection );
-
+        // Vérifie s'il existe une sortie
         if ( vNextRoom == null )
         {
             this.aGui.println( "Nothing to find here!" );
+            return;
         }
-        else 
+
+        // Vérifie s'il y'a une porte verrouillée
+        Door vDoor = vCurrentRoom.getDoor(vDirection);
+        if (vDoor != null && !vDoor.isUnlocked())
         {
-            boolean vRoom = this.aPlayer.goToRoom(vNextRoom);
-            if (vRoom)
+            if (vDoor.isLocked())
             {
-                printLocationInfo();
+                this.aGui.println("The door is locked. You need a key.");
+                this.aGui.println(vDoor.getDoorDescription());
             }
+            else
+            {
+                this.aGui.println("The door is closed.");
+            }
+            return;
         }
+
+        // Vérifie si c'est une TrapDoor
+        boolean vIsTrapDoor = isTrapDoor(vNextRoom);
+        if (vIsTrapDoor)
+        {
+            destroyAllBeamer();
+        }
+
+        // Le joueur accède à la pièce de la direction
+        this.aPlayer.goToRoom(vNextRoom);
+
+        // La porte se referme automatiquement
+        if (vDoor != null && vDoor.autoLock())
+        {
+            vDoor.closeDoor();
+        }
+
+        this.printLocationInfo();
     } // goRoom()
 
     /**
@@ -454,6 +678,47 @@ public class GameEngine
             }
         }
     } // testFile()
+
+    /**
+     * Vérifie si la pièce suivante est une TrapDoor
+     * 
+     * @param pNextRoom La pièce de la direction
+     * @return true si c'est une TrapDoor, false sinon
+     */
+    private boolean isTrapDoor( final Room pNextRoom )
+    {
+        return pNextRoom.isTrapDoor();
+    } // isTrapDoor
+
+    /**
+     * Détruit tous les Beamer de l'inventaire du joueur
+     */
+    private void destroyAllBeamer()
+    {
+        // Récupère l'inventaire du joueur
+        Collection<Item> vInventory = this.aPlayer.getInventory();
+        boolean vBeamerDestroyed = false;
+
+        // Cherche les Beamer dans l'inventaire
+        for (Item vItem : vInventory)
+        {
+            if (vItem instanceof Beamer)
+            {
+                Beamer vBeamer = (Beamer) vItem;
+                // Vérifie si le Beamer fonctionne
+                if (!vBeamer.isDamaged())
+                {
+                    vBeamer.destroyBeamer();
+                    vBeamerDestroyed = true;
+                }
+            }
+        }
+        
+        if (vBeamerDestroyed)
+        {
+            this.aGui.println("Your Beamer was destroyed by the trapdoor and is now unusable.");
+        }
+    } // destroyAllBeamer()
 
     /**
      * Met fin au jeu en affichant un message d'au revoir et désactive 

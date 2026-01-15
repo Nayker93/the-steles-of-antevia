@@ -1,18 +1,6 @@
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ImageIcon;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.net.URL;
 
 /**
@@ -20,8 +8,8 @@ import java.net.URL;
  * une zone de saisie de texte, une zone de sortie de texte et une image 
  * optionnelle.
  * 
- * @author Clément RUAN
- * @version 17/12/2025
+ * @author CLEMENT RUAN
+ * @version 2026
  */
 public class UserInterface implements ActionListener
 {
@@ -146,14 +134,14 @@ public class UserInterface implements ActionListener
      */
     private void createGUI()
     {
-        this.aMyFrame = new JFrame( "The Steles of Antevia" ); // change the title !
+        this.aMyFrame = new JFrame( "The Steles of Antevia" );
         this.aEntryField = new JTextField( 34 );
 
         this.aLog = new JTextArea();
         this.aLog.setEditable( false );
         JScrollPane vListScroller = new JScrollPane( this.aLog );
-        vListScroller.setPreferredSize( new Dimension(100, 100) );
-        vListScroller.setMinimumSize( new Dimension(50,50) );
+        vListScroller.setPreferredSize( new Dimension(200, 200) );
+        vListScroller.setMinimumSize( new Dimension(100,100) );
         
         // Ajouts des boutons
         this.aImage = new JLabel();

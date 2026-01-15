@@ -7,7 +7,7 @@ import java.util.Collection;
  * Une Room est un lieu dans le jeu.
  * Chaque pièce a une description, une image et des sorties vers d'autres pièces.
  *
- * @author Clément RUAN
+ * @author CLEMENT RUAN
  * @version 17/12/2025
  */
 public class Room
@@ -15,11 +15,15 @@ public class Room
     /**
      * Description de la pièce
      */
-    private String aDescription;
+    private String aRoomDescription;
     /**
      * HashMap des différentes sorties des pièces
      */
     private HashMap<String, Room> aExits;
+    /**
+     * HashMap des différentes portes
+     */
+    private HashMap<String, Door> aDoors;
     /**
      * Liste des items disponible dans la pièce
      */
@@ -33,16 +37,17 @@ public class Room
      *  Créer la description de la pièce et initialise la HashMap pour 
      *  les sorties
      *  
-     *  @param pDescription La description de la pièce
+     *  @param pRoomDescription La description de la pièce
      *  @param pImageName L'image de la pièce
      */
-    public Room(final String pDescription, final String pImageName)
+    public Room(final String pRoomDescription, final String pImageName)
     {
-        this.aDescription = pDescription;
+        this.aRoomDescription = pRoomDescription;
         this.aImageName = pImageName;
         this.aExits = new HashMap<String, Room>();
+        this.aDoors = new HashMap<String, Door>();
         this.aItems = new ItemList();
-    } // Room(final String pDescription)
+    } // Room()
     
     /**
      * Retourne le nom du fichier de l'image de la pièce actuelle.
@@ -59,10 +64,10 @@ public class Room
      * 
      * @return La description de la pièce actuelle
      */
-    public String getDescription()
+    public String getRoomDescription()
     {
-        return this.aDescription;
-    } // getDescription()
+        return this.aRoomDescription;
+    } // getRoomDescription()
     
     /**
      * Definis les sorties possibles de la pièce actuelle. Chaque direction
@@ -74,7 +79,7 @@ public class Room
     public void setExit(final String pDirection, final Room pNeighbor)
     {
         this.aExits.put(pDirection, pNeighbor);
-    } // setExits(final String pDirection, final Room pNeighbor)
+    } // setExits()
 
     /**
      * Retourne la pièce choisie en allant vers la direction choisie.
@@ -86,7 +91,7 @@ public class Room
     public Room getExit(final String pDirection)
     {
         return this.aExits.get(pDirection);
-    } // getExit(String pDirection)
+    } // getExit()
     
     /**
      * Retourne la description des sorties de la pièce actuelle.
@@ -115,14 +120,14 @@ public class Room
     } // getExitString()
     
     /**
-     * Retourne une longue description de la pièce, sur cette forme :
+     * Retourne une longue description de la pièce, sous cette forme :
      *      Your are in the kichen.
      *      Exits : north west
      * @return Une description de la pièce, incluant les sorties
      */
     public String getLongDescription()
     {
-        return "You are " + this.aDescription + ".\n" + 
+        return "You are " + this.aRoomDescription + ".\n" + 
         this.getExitString() + "\n" + this.getItemString();
     } // getLongDescription()
     
@@ -131,9 +136,9 @@ public class Room
      * 
      * @param pItem L'item dans la pièce
      */
-    public void addItem( final Item pItem )
+    public void setItem( final Item pItem )
     {
-        this.aItems.addItem(pItem);
+        this.aItems.setItem(pItem);
     } // setItem()
     
     /**
@@ -196,5 +201,37 @@ public class Room
         }
         return false;
     } // isExit()
+    
+    /**
+     * Ajoute une porte dans une direction
+     * 
+     * @param pDirection La direction
+     * @param pDoor la porte
+     */
+    public void setDoor( final String pDirection, final Door pDoor )
+    {
+        this.aDoors.put(pDirection, pDoor);
+    } // setDoor()
+    
+    /**
+     * Retourne la direction de la porte
+     * 
+     * @param pDirection La direction
+     * @return La porte
+     */
+    public Door getDoor( final String pDirection )
+    {
+        return this.aDoors.get(pDirection);
+    } // getDoor()
+    
+    /**
+     * Vérifie si le joueur passe par une TrapDoor
+     * 
+     * @return true s'il y'a une TrapDoor, false sinon
+     */
+    public boolean isTrapDoor()
+    {
+        return this.aRoomDescription.contains("trapdoor");
+    } // isTrapDoor()
 } // Room()
 

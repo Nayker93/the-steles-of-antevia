@@ -1,8 +1,8 @@
 /**
  * Classe Command - Représente une commande du jeu Zuul.
  *
- * @author Clément RUAN
- * @version 17/12/2025
+ * @author CLEMENT RUAN
+ * @version 2026
  */
 public class Command
 {

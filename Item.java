@@ -4,8 +4,8 @@
  * 
  * Cette classe possède des champs pour stocker la description et le poids
  *
- * @author Clément RUAN
- * @version 17/12/2025
+ * @author CLEMENT RUAN
+ * @version 2026
  */
 public class Item
 {

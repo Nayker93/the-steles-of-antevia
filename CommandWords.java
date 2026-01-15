@@ -1,3 +1,4 @@
+
  
 
 /**
@@ -7,15 +8,19 @@
  * help : affiche les commandes disponibles
  * back : reviens à la pièce précédente
  * look : affiche la description de la pièce actuelle
- * eat : action du joueur (test)
- * sleep : action du joueur (test)
+ * eat : se nourrit 
+ * sleep : se repose 
  * test : exécute un fichier de test
  * take : ramasse un item dans la pièce
  * drop : lâche un item de l'inventaire
- * inventory" : affiche l'inventaire et les contraintes du joueur (poids et prix)
+ * inventory : affiche l'inventaire et les contraintes du joueur (poids et prix)
+ * charge : charge la pièce actuelle dans le beamer
+ * fire : téléporte le joueur dans la pièce chargée dans le beamer
+ * unlock : déverrouille les portes
+ * lock : verrouille les portes
  *
- * @author  Clément RUAN
- * @version 17/12/2025
+ * @author  CLEMENT RUAN
+ * @version 2026
  */
 public class CommandWords
 {
@@ -24,7 +29,8 @@ public class CommandWords
      */
     private static final String[] sValidCommands = { 
         "go", "quit", "help", "back","look", "eat", "sleep", "test", 
-        "take", "drop", "inventory"
+        "take", "drop", "inventory", "charge", "fire",
+        "unlock", "lock",
     };
     // static : pour que ce tableau n'existe qu'en un seul exemplaire dans cette classe (même si on l'instancie plusieurs fois)
     // final : pour qu'on ne puisse pas modifier ce tableau

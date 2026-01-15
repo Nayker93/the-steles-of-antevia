@@ -5,8 +5,8 @@ import java.util.TreeMap;
  * Classe ItemList - Gère la liste d'items
  * Organise la gestion des items pour les classes Room et Player
  *
- * @author Clément RUAN
- * @version 2025
+ * @author CLEMENT RUAN
+ * @version 2026
  */
 public class ItemList
 {
@@ -21,20 +21,31 @@ public class ItemList
     {
         this.aItems = new TreeMap<>();;
     } // ItemList()
-    
+
     /**
      * Ajoute un item dans la liste courante
      * 
      * @param pItem L'item à ajouter
      */
-    public void addItem( final Item pItem )
+    public void setItem( final Item pItem )
     {
         if (pItem != null)
         {
             this.aItems.put(pItem.getItemName(), pItem);
         }
-    } // addItem()
-    
+    } // setItem()
+
+    /**
+     * Retourne l'item à partir de son nom.
+     * 
+     * @param pName Nom de l'item
+     * @return L'item
+     */
+    public Item getItem( final String pName )
+    {
+        return this.aItems.get(pName);
+    } // getItem()
+
     /**
      * Retire un item de la liste courante selon sa référence
      * 
@@ -49,7 +60,7 @@ public class ItemList
         }
         return this.aItems.remove(pItem.getItemName());
     } // removeItem()
-    
+
     /**
      * Retire un item de la liste courante à partir de son nom
      * 
@@ -60,18 +71,7 @@ public class ItemList
     {
         return this.aItems.remove(pName);
     } // removeItem()
-    
-    /**
-     * Retourne l'item à partir de son nom.
-     * 
-     * @param pName Nom de l'item
-     * @return L'item
-     */
-    public Item getItem( final String pName )
-    {
-        return this.aItems.get(pName);
-    } // getItem()
-    
+
     /**
      * Vérifie si la liste contient des items ou pas
      * 
@@ -81,7 +81,7 @@ public class ItemList
     {
         return this.aItems.isEmpty();
     } // isEmpty()
-    
+
     /**
      * Retourne tous les items de la liste courante
      * 
@@ -91,7 +91,7 @@ public class ItemList
     {
         return this.aItems.values();
     } // getItems()
-    
+
     /**
      * Retourne une description de tous les items.
      * 
@@ -104,9 +104,12 @@ public class ItemList
         }
 
         StringBuilder vItemsDescription = new StringBuilder( "Items : " );
-        for ( Item vItem : this.aItems.values() ) {
+        for ( Item vItem : this.aItems.values() ) 
+        {
             String vCurrentPrice = (vItem.getPrice() <= 1.0) ? " Jerry" : " Jerries";
             vItemsDescription.append( "\n  - " )
+                             .append( vItem.getItemName() )
+                             .append( ", " )
                              .append( vItem.getItemDescription() )
                              .append( ", " )
                              .append( vItem.getWeight() )

@@ -22,6 +22,25 @@ public class GameWorld
      */
     public static Room createWorld()
     {
+        // Création des lieux principaux du jeu
+        Room vBoat = createBoat();
+        Room vLibrary = createLibrary();
+        
+        // Placement des lieux principaux
+        vBoat.setExit("library", vLibrary);
+        vLibrary.setExit("boat", vBoat);
+        
+        // Pièce de départ
+        return vBoat;
+    } // CreateWorld()
+
+    /**
+     * Crée le bateau du jeu
+     * 
+     * @return La pièce du bateau
+     */
+    public static Room createBoat()
+    {
         // Les pièces du bateau
         Room vBoat = new Room("in the boat", "images/boat/boat.jpg");
         Room vDeck = new Room("on the deck", "images/boat/deck.jpg");
@@ -91,5 +110,57 @@ public class GameWorld
         
         // Pièce de départ
         return vBoat; 
-    } // CreateWorld()
+    } // createBoat()
+
+    /**
+     * Crée la bibliothèque du jeu
+     * 
+     * @return La pièce de la bibliothèque
+     */
+    public static Room createLibrary()
+    {
+        // Les pièces de la bibliothèque
+        Room vLibrary = new Room("in the library", "images/library/library.jpg");
+        Room vCheckoutDesk = new Room("at the checkout desk", "images/library/checkout_desk.jpg");
+        Room vReadingRoom = new Room("in the reading room", "images/library/reading_room.jpg");
+        Room vPrivateStudyRoom = new Room("in the private study room", "images/library/private_study_room.jpg");
+        Room vComputerLab = new Room("in the computer lab", "images/library/computer_lab.jpg");
+        Room vRestRoom = new Room("in the rest room", "images/library/rest_room.jpg");
+        Room vConferenceRoom = new Room("in the conference room", "images/library/conference_room.jpg");
+
+        // Le placement des pièces
+        // Library
+        vLibrary.setExit("checkout", vCheckoutDesk);
+        // Checkout Desk
+        vCheckoutDesk.setExit("library", vLibrary);
+        vCheckoutDesk.setExit("restroom", vRestRoom);
+        vCheckoutDesk.setExit("reading", vReadingRoom);
+        // Reading Room
+        vReadingRoom.setExit("checkout", vCheckoutDesk);
+        vReadingRoom.setExit("privatestudy", vPrivateStudyRoom);
+        vReadingRoom.setExit("computerlab", vComputerLab);
+        vReadingRoom.setExit("conferenceroom", vConferenceRoom);
+        // Private Study Room
+        vPrivateStudyRoom.setExit("reading", vReadingRoom);
+        // Computer Lab
+        vComputerLab.setExit("reading", vReadingRoom);
+        // Rest Room
+        vRestRoom.setExit("checkout", vCheckoutDesk);
+        // Conference Room
+        vConferenceRoom.setExit("reading", vReadingRoom);
+
+        // Créer les items
+        Item vLibraryCard = new Item("library_card", "This card gives you access to the library", 0.1, 5);
+        Item vLaptop = new Item("laptop", "A powerful laptop", 2, 1500);
+        Item vNotebook = new Item("notebook", "A notebook for taking notes", 0.5, 20);
+        
+        // Ajouter les items aux pièces
+
+        // Les portes
+
+        // Pièce de départ
+        return vLibrary;
+    } // createLibrary()
+
+
 } // GameWorld()

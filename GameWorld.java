@@ -108,6 +108,8 @@ public class GameWorld
         // 2 - Insula Templum
 
         vInsulaTemplum.setExit("boat", vBoat);
+        vInsulaTemplum.setExit("ancient_temple", vAncientTemple);
+
 
         Item vInsulaTemplumMap = new Item("insula_templum_map", 
                                        "A map of Insula Templum island", 0.2, 50);
@@ -120,6 +122,9 @@ public class GameWorld
         
         vCryptaMarina.setExit("boat", vBoat);
 
+        Item vCryptaMarinaMap = new Item("crypta_marina_map", 
+                                       "A map of Crypta Marina island", 0.2, 50);
+
         Door vDoorBoatCryptaMarina = new Door(vCryptaMarinaMap, false);
         vBoat.setDoor("crypta_marina", vDoorBoatCryptaMarina);
         vCryptaMarina.setDoor("boat", vDoorBoatCryptaMarina);
@@ -127,6 +132,9 @@ public class GameWorld
         // 4 - Civitas Antiqua
 
         vCivitasAntiqua.setExit("boat", vBoat);
+
+        Item vCivitasAntiquaMap = new Item("civitas_antiqua_map", 
+                                       "A map of Civitas Antiqua island", 0.2, 50);
 
         Door vDoorBoatCivitasAntiqua = new Door(vCivitasAntiquaMap, false);
         vBoat.setDoor("civitas_antiqua", vDoorBoatCivitasAntiqua);
@@ -136,6 +144,9 @@ public class GameWorld
 
         vSilvaMystica.setExit("boat", vBoat);
 
+        Item vSilvaMysticaMap = new Item("silva_mystica_map", 
+                                       "A map of Silva Mystica island", 0.2, 50);
+
         Door vDoorBoatSilvaMystica = new Door(vSilvaMysticaMap, false);
         vBoat.setDoor("silva_mystica", vDoorBoatSilvaMystica);
         vSilvaMystica.setDoor("boat", vDoorBoatSilvaMystica);
@@ -144,6 +155,9 @@ public class GameWorld
 
         vMercatusFlotilla.setExit("boat", vBoat);
 
+        Item vMercatusFlotillaMap = new Item("mercatus_flotilla_map", 
+                                       "A map of Mercatus Flotilla island", 0.2, 50);
+
         Door vDoorBoatMercatusFlotilla = new Door(vMercatusFlotillaMap, false);
         vBoat.setDoor("mercatus_flotilla", vDoorBoatMercatusFlotilla);
         vMercatusFlotilla.setDoor("boat", vDoorBoatMercatusFlotilla);
@@ -151,6 +165,9 @@ public class GameWorld
         // 7 - Labyrinthos
 
         vLabyrinthos.setExit("boat", vBoat);
+
+        Item vLabyrinthosMap = new Item("labyrinthos_map", 
+                                       "A map of Labyrinthos island", 0.2, 50);
 
         Door vDoorBoatLabyrinthos = new Door(vLabyrinthosMap, false);
         vBoat.setDoor("labyrinthos", vDoorBoatLabyrinthos);
@@ -164,6 +181,9 @@ public class GameWorld
         // 9 - Mons Caelestis
 
         vMonsCaelestis.setExit("boat", vBoat);
+
+        Item vMonsCaelestisMap = new Item("mons_caelestis_map", 
+                                       "A map of Mons Caelestis island", 0.2, 50);
 
         Door vDoorBoatMonsCaelestis = new Door(vMonsCaelestisMap, false);
         vBoat.setDoor("mons_caelestis", vDoorBoatMonsCaelestis);
@@ -700,9 +720,9 @@ public class GameWorld
     } // createSeaPort()
 
     /**
-     * Crée le temple ancien
+     * Crée le temple antique
      * 
-     * @return La pièce d'entrée du temple
+     * @return La pièce d'entrée du temple antique
      */
     public static Room createAncientTemple()
     {
@@ -741,13 +761,10 @@ public class GameWorld
 
         // Créer les items
         Item vStatue = new Item("stone_statue", "Ancient statue of a deity", 30, 300);
-        Item vAltar = new Item("altar", "Sacred stone altar", 50, 400);
         Item vCandle = new Item("candle", "Ceremonial candle", 0.2, 5);
         Item vIncense = new Item("incense", "Sacred temple incense", 0.1, 10);
-        Item vPrayerBead = new Item("prayer_beads", "Carved prayer beads", 0.3, 25);
         Item vHolyBook = new Item("holy_book", "Ancient holy scripture", 1, 150);
         Item vScroll = new Item("ancient_scroll", "Ancient sacred scroll", 0.2, 200);
-        Item vChalice = new Item("chalice", "Golden ceremonial chalice", 1, 400);
         Item vCross = new Item("cross", "Silver temple cross", 0.5, 250);
         Item vAmulet = new Item("amulet", "Protective temple amulet", 0.1, 300);
         Item vJewel = new Item("jewel", "Precious temple jewel", 0.15, 500);
@@ -766,15 +783,11 @@ public class GameWorld
         vHall.setItem(vStatue);
         vHall.setItem(vCandle);
 
-        vShrine.setItem(vAltar);
         vShrine.setItem(vCross);
-        vShrine.setItem(vPrayerBead);
-
         vChapel.setItem(vHolyBook);
         vChapel.setItem(vCandle);
         vChapel.setItem(vAmulet);
 
-        vTreasury.setItem(vChalice);
         vTreasury.setItem(vJewel);
         vTreasury.setItem(vGoldBar);
         vTreasury.setItem(vDiamonds);
@@ -800,6 +813,92 @@ public class GameWorld
         return vTempleEntrance;
     } // createAncientTemple()
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+    // Création des vraies/fausses stèles directrices
+
+    /**
+     * Crée la stèle directrice de Insula Templum (1er énigme)
+     * Permet de débloquer la carte de l'île de Crypta Marina (vCryptaMarinaMap)
+     * 
+     * @return La stèle directrice
+     */
+    public static Room createGuideStone2()
+    {
+        Room vGuideStone2 = new Room("at the guide stone of Insula Templum", "images/guide_stone/guide_stone_2.jpg");
+        Room vGuideStone2Solved = new Room("in the exit of the guide stone", "images/guide_stone/guide_stone_2_solved.jpg");
+
+        // Les énigmes de la stèle
+        Room vEnigme1 = new Room("at the first enigma of the guide stone", "images/guide_stone/enigma_1.jpg");
+        Room vEnigme1Answer1 = new Room("having solved the first enigma of the guide stone", "images/guide_stone/enigma_1_solved.jpg");
+        Room vEnigme1Answer2 = new Room("having solved the second enigma of the guide stone", "images/guide_stone/enigma_2_solved.jpg");
+        Room vEnigme1Answer3 = new Room("having solved the third enigma of the guide stone", "images/guide_stone/enigma_3_solved.jpg");
+        Room vEnigme1Answer4 = new Room("having solved the fourth enigma of the guide stone", "images/guide_stone/enigma_4_solved.jpg");
+
+        Room vEnigme2 = new Room("at the second enigma of the guide stone", "images/guide_stone/enigma_2.jpg");
+        Room vEnigme2Answer1 = new Room("having solved the first enigma of the guide stone", "images/guide_stone/enigma_1_solved.jpg");
+        Room vEnigme2Answer2 = new Room("having solved the second enigma of the guide stone", "images/guide_stone/enigma_2_solved.jpg");
+        Room vEnigme2Answer3 = new Room("having solved the third enigma of the guide stone", "images/guide_stone/enigma_3_solved.jpg");
+        Room vEnigme2Answer4 = new Room("having solved the fourth enigma of the guide stone", "images/guide_stone/enigma_4_solved.jpg");
+
+        Room vEnigme3 = new Room("at the third enigma of the guide stone", "images/guide_stone/enigma_3.jpg");
+        Room vEnigme3Answer1 = new Room("having solved the first enigma of the guide stone", "images/guide_stone/enigma_1_solved.jpg");
+        Room vEnigme3Answer2 = new Room("having solved the second enigma of the guide stone", "images/guide_stone/enigma_2_solved.jpg");
+        Room vEnigme3Answer3 = new Room("having solved the third enigma of the guide stone", "images/guide_stone/enigma_3_solved.jpg");
+        Room vEnigme3Answer4 = new Room("having solved the fourth enigma of the guide stone", "images/guide_stone/enigma_4_solved.jpg");
+
+        Room vEnigme4 = new Room("at the fourth enigma of the guide stone", "images/guide_stone/enigma_4.jpg");
+        Room vEnigme4Answer1 = new Room("having solved the first enigma of the guide stone", "images/guide_stone/enigma_1_solved.jpg");
+        Room vEnigme4Answer2 = new Room("having solved the second enigma of the guide stone", "images/guide_stone/enigma_2_solved.jpg");
+        Room vEnigme4Answer3 = new Room("having solved the third enigma of the guide stone", "images/guide_stone/enigma_3_solved.jpg");
+        Room vEnigme4Answer4 = new Room("having solved the fourth enigma of the guide stone", "images/guide_stone/enigma_4_solved.jpg");
+
+
+        // Le placement des pièces
+
+        vGuideStone2.setExit("enigma1", vEnigme1);
+        vEnigme1.setExit("answer1", vEnigme1Answer1);
+        vEnigme1.setExit("answer2", vEnigme1Answer2);
+        vEnigme1.setExit("answer3", vEnigme1Answer3); 
+        vEnigme1.setExit("answer4", vEnigme1Answer4);
+        vEnigme1Answer2.setExit("enigma2", vEnigme2);
+
+        vEnigme2.setExit("answer1", vEnigme2Answer1);
+        vEnigme2.setExit("answer2", vEnigme2Answer2);
+        vEnigme2.setExit("answer3", vEnigme2Answer3);
+        vEnigme2.setExit("answer4", vEnigme2Answer4);
+        vEnigme2Answer3.setExit("enigma3", vEnigme3);
+
+        vEnigme3.setExit("answer1", vEnigme3Answer1);
+        vEnigme3.setExit("answer2", vEnigme3Answer2);
+        vEnigme3.setExit("answer3", vEnigme3Answer3);
+        vEnigme3.setExit("answer4", vEnigme3Answer4);
+        vEnigme3Answer3.setExit("enigma4", vEnigme4);
+
+        vEnigme4.setExit("answer1", vEnigme4Answer1);
+        vEnigme4.setExit("answer2", vEnigme4Answer2);
+        vEnigme4.setExit("answer3", vEnigme4Answer3);
+        vEnigme4.setExit("answer4", vEnigme4Answer4);
+        vEnigme4Answer4.setExit("exit", vGuideStone2Solved);
+
+        // L'item récompense de la stèle
+        Item vCryptaMarinaMap = new Item("crypta_marina_map", 
+                                       "A map of Crypta Marina island", 0.2, 50);
+
+        vGuideStone2.setItem(vCryptaMarinaMap);
+
+        // Pièce de départ
+        return vGuideStone2;
+    }
 
 } // GameWorld.java

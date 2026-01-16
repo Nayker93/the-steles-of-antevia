@@ -43,17 +43,21 @@ public class GameWorld
         Room vSanctuaryOfTheOracle1 = createSanctuaryOfTheOracle();
         Room vSeaPort1 = createSeaPort();
         // 2 - Insula Templum
-        Room vAncientTemple = createAncientTemple();
+        Room[] vAncientTempleRooms = createAncientTemple();
+        Room vAncientTemple = vAncientTempleRooms[0];
+        Room vTreasuryAncientTemple = vAncientTempleRooms[1];
         Room vSeaPort2 = createSeaPort();
         Room vGuideStone2 = createGuideStone2();
         // 3 - Crypta Marina
         Room vSeaPort3 = createSeaPort();
         Room vSanctuaryOfTheOracle3 = createSanctuaryOfTheOracle();
-        Room vTavern2 = createTavern();
+        Room vTavern3 = createTavern();
         Room vFakeGuideStone3 = createFakeGuideStone3();
         // 4 - Civitas Antiqua
         Room vSeaPort4 = createSeaPort();
-        Room vRuinedPalace = createRuinedPalace();
+        Room vRuinedPalaceRooms[] = createRuinedPalace();
+        Room vRuinedPalace = vRuinedPalaceRooms[0];
+        Room vTreasuryRuinedPalace = vRuinedPalaceRooms[1];
         Room vGuideStone4 = createGuideStone4();
         // 5 - Silva Mystica
         Room vSeaPort5 = createSeaPort();
@@ -68,15 +72,28 @@ public class GameWorld
         // 7 - Labyrinthos
         Room vSeaPort7 = createSeaPort();
         Room vTavern7 = createTavern();
-        Room vCave = createCave();
+        Room[] vCaveRooms = createCave();
+        Room vCave = vCaveRooms[0];
+        Room vNarrowPassage = vCaveRooms[1];
+        Room vLostHole = new Room("in the lost hole, you can't go up !", "");
         // 8 - Sanctum Ignis
-        Room vUndergroundTemple = createUndergroundTemple();
-        Room vGuideStone8 = createGuideStone8();
+        Room[] vUndergroundTempleRooms = createUndergroundTemple();
+        Room vUndergroundTemple = vUndergroundTempleRooms[0];
+        Room vTreasureVaultUndergroundTemple = vUndergroundTempleRooms[1];
+        Room[] vGuideStone8Rooms = createGuideStone8();
+        Room vGuideStone8 = vGuideStone8Rooms[0];
+        Room vGuideStone8Solved = vGuideStone8Rooms[1];
         // 9 - Mons Caelestis
         Room vSeaPort9 = createSeaPort();
-        Room vAncientObservatory = createAncientObservatory();
-        Room vSacredMontain = createSacredMontain();
-        Room vGuideStone9 = createGuideStone9();
+        Room[] vAncientObservatoryRooms = createAncientObservatory();
+        Room vAncientObservatory = vAncientObservatoryRooms[0];
+        Room vTelescopeRoom = vAncientObservatoryRooms[1];
+        Room[] vSacredMontainRooms = createSacredMontain();
+        Room vSacredMontain = vSacredMontainRooms[0];
+        Room vWaterfall = vSacredMontainRooms[1];
+        Room[] vGuideStone9Rooms = createGuideStone9();
+        Room vGuideStone9 = vGuideStone9Rooms[0];
+        Room vGuideStone9Solved = vGuideStone9Rooms[1];
         // 10 - Ultima Sapientia
         Room vSapientiaTemple = createSapientiaTemple();
 
@@ -103,6 +120,11 @@ public class GameWorld
         vPortusPrima.setExit("hostel", vHostel1);
         vPortusPrima.setExit("sanctuary", vSanctuaryOfTheOracle1);
         vPortusPrima.setExit("seaport", vSeaPort1);
+        vLibrary1.setExit("portus_prima", vPortusPrima);
+        vTavern1.setExit("portus_prima", vPortusPrima);
+        vHostel1.setExit("portus_prima", vPortusPrima);
+        vSanctuaryOfTheOracle1.setExit("portus_prima", vPortusPrima);
+        vSeaPort1.setExit("portus_prima", vPortusPrima);
 
         Item vInsulaTemplumMap = new Item("insula_templum_map", 
                                        "A map of Insula Templum island", 0.2, 50);
@@ -165,37 +187,75 @@ public class GameWorld
 
         vInsulaTemplum.setExit("boat", vBoat);
         vInsulaTemplum.setExit("ancient_temple", vAncientTemple);
+        vInsulaTemplum.setExit("seaport", vSeaPort2);
+        vTreasuryAncientTemple.setExit("guidestone", vGuideStone2);
+        vGuideStone2.setExit("treasury", vTreasuryAncientTemple);
 
         // 3 - Crypta Marina
         
         vCryptaMarina.setExit("boat", vBoat);
+        vCryptaMarina.setExit("sanctuary", vSanctuaryOfTheOracle3);
+        vCryptaMarina.setExit("tavern", vTavern3);
+        vCryptaMarina.setExit("guidestone", vFakeGuideStone3);
+        vCryptaMarina.setExit("seaport", vSeaPort3);
 
         // 4 - Civitas Antiqua
 
         vCivitasAntiqua.setExit("boat", vBoat);
+        vCivitasAntiqua.setExit("ruined_palace", vRuinedPalace);
+        vCivitasAntiqua.setExit("seaport", vSeaPort4);
+        vTreasuryRuinedPalace.setExit("guidestone", vGuideStone4);
+        vGuideStone4.setExit("treasury", vTreasuryRuinedPalace);
 
         // 5 - Silva Mystica
 
         vSilvaMystica.setExit("boat", vBoat);
+        vSilvaMystica.setExit("sanctuary", vSanctuaryOfTheOracle5);
+        vSilvaMystica.setExit("tavern", vTavern5);
+        vSilvaMystica.setExit("guidestone", vFakeGuideStone5);
+        vSilvaMystica.setExit("seaport", vSeaPort5);
 
         // 6 - Mercatus Flotilla
 
         vMercatusFlotilla.setExit("boat", vBoat);
+        vMercatusFlotilla.setExit("seaport", vSeaPort6);
+        vMercatusFlotilla.setExit("hostel", vHostel6);
+        vMercatusFlotilla.setExit("tavern", vTavern6);
+        vMercatusFlotilla.setExit("library", vLibrary6);
 
         // 7 - Labyrinthos
 
         vLabyrinthos.setExit("boat", vBoat);
+        vLabyrinthos.setExit("seaport", vSeaPort7);
+        vLabyrinthos.setExit("tavern", vTavern7);
+        vLabyrinthos.setExit("cave", vCave);
+
+        // Liaison grotte -> trou perdu -> temple souterrain
+        vNarrowPassage.setExit("hole", vLostHole);
 
         // 8 - Sanctum Ignis
 
+        vLostHole.setExit("underground_temple", vUndergroundTemple);
+        vTreasureVaultUndergroundTemple.setExit("guidestone", vGuideStone8);
+        vGuideStone8.setExit("treasure_vault", vTreasureVaultUndergroundTemple);
+        vGuideStone8Solved.setExit("labyrinthos", vLabyrinthos);
 
 
         // 9 - Mons Caelestis
 
         vMonsCaelestis.setExit("boat", vBoat);
+        vMonsCaelestis.setExit("seaport", vSeaPort9);
+        vMonsCaelestis.setExit("sacred_mountain", vSacredMontain);
+        vWaterfall.setExit("observatory", vAncientObservatory);
+        vAncientObservatory.setExit("waterfall", vWaterfall);
+        vTelescopeRoom.setExit("guidestone", vGuideStone9);
+        vGuideStone9.setExit("telescope", vTelescopeRoom);
+        vGuideStone9Solved.setExit("telescope", vTelescopeRoom);
 
         // 10 - Ultima Sapientia
 
+        vUltimaSapientia.setExit("boat", vBoat);
+        vUltimaSapientia.setExit("sapientia_temple", vSapientiaTemple);
         
         // Pièce de départ
         return vBoat;
@@ -536,7 +596,7 @@ public class GameWorld
         Room vPrayerRoom = new Room("in the prayer room", "images/sanctuary/prayer_room.jpg");
         Room vOracleRoom = new Room("in the oracle's chamber", "images/sanctuary/oracle_room.jpg");
         Room vLibrary = new Room("in the sanctuary library", "images/sanctuary/library.jpg");
-        Room vTreasury = new Room("in the sanctuary treasury", "images/sanctuary/treasury.jpg");
+        Room vTreasuryOracle = new Room("in the sanctuary treasury", "images/sanctuary/treasury.jpg");
         Room vGarden = new Room("in the sacred garden", "images/sanctuary/garden.jpg");
 
         // Le placement des pièces
@@ -548,7 +608,7 @@ public class GameWorld
         vHall.setExit("prayer", vPrayerRoom);
         vHall.setExit("oracle", vOracleRoom);
         vHall.setExit("library", vLibrary);
-        vHall.setExit("treasury", vTreasury);
+        vHall.setExit("treasury", vTreasuryOracle);
 
         vPrayerRoom.setExit("hall", vHall);
 
@@ -556,7 +616,7 @@ public class GameWorld
 
         vLibrary.setExit("hall", vHall);
 
-        vTreasury.setExit("hall", vHall);
+        vTreasuryOracle.setExit("hall", vHall);
 
         vGarden.setExit("entrance", vSanctuaryEntrance);
 
@@ -597,9 +657,9 @@ public class GameWorld
         vLibrary.setItem(vTreasuryKey);
 
 
-        vTreasury.setItem(vGoldCoin);
-        vTreasury.setItem(vJewel);
-        vTreasury.setItem(vCrown);
+        vTreasuryOracle.setItem(vGoldCoin);
+        vTreasuryOracle.setItem(vJewel);
+        vTreasuryOracle.setItem(vCrown);
 
         vGarden.setItem(vHerb);
         vGarden.setItem(vFlower);
@@ -607,7 +667,7 @@ public class GameWorld
         // Les portes verrouillées
         Door vDoorTreasury = new Door(vTreasuryKey, false);
         vHall.setDoor("treasury", vDoorTreasury);
-        vTreasury.setDoor("hall", vDoorTreasury);
+        vTreasuryOracle.setDoor("hall", vDoorTreasury);
 
         // Pièce de départ
         return vSanctuaryEntrance;
@@ -685,16 +745,16 @@ public class GameWorld
     /**
      * Crée le temple antique
      * 
-     * @return La pièce d'entrée du temple antique
+     * @return Un tableau contenant la pièce d'entrée [0] et la treasury [1]
      */
-    public static Room createAncientTemple()
+    public static Room[] createAncientTemple()
     {
         // Les pièces du temple
         Room vTempleEntrance = new Room("at the ancient temple entrance", "images/temple/entrance.jpg");
         Room vHall = new Room("in the temple hall", "images/temple/hall.jpg");
         Room vShrine = new Room("at the temple shrine", "images/temple/shrine.jpg");
         Room vChapel = new Room("in the temple chapel", "images/temple/chapel.jpg");
-        Room vTreasury = new Room("in the temple treasury", "images/temple/treasury.jpg");
+        Room vTreasuryAncientTemple = new Room("in the temple treasury", "images/temple/treasury.jpg");
         Room vLibrary = new Room("in the temple library", "images/temple/library.jpg");
         Room vPriestChamber = new Room("in the priest's chamber", "images/temple/priest_chamber.jpg");
         Room vGarden = new Room("in the temple garden", "images/temple/garden.jpg");
@@ -706,7 +766,7 @@ public class GameWorld
         vHall.setExit("entrance", vTempleEntrance);
         vHall.setExit("shrine", vShrine);
         vHall.setExit("chapel", vChapel);
-        vHall.setExit("treasury", vTreasury);
+        vHall.setExit("treasury", vTreasuryAncientTemple);
         vHall.setExit("library", vLibrary);
         vHall.setExit("priest", vPriestChamber);
 
@@ -714,7 +774,7 @@ public class GameWorld
 
         vChapel.setExit("hall", vHall);
 
-        vTreasury.setExit("hall", vHall);
+        vTreasuryAncientTemple.setExit("hall", vHall);
 
         vLibrary.setExit("hall", vHall);
 
@@ -751,10 +811,10 @@ public class GameWorld
         vChapel.setItem(vCandle);
         vChapel.setItem(vAmulet);
 
-        vTreasury.setItem(vJewel);
-        vTreasury.setItem(vGoldBar);
-        vTreasury.setItem(vDiamonds);
-        vTreasury.setItem(vGoldCoin);
+        vTreasuryAncientTemple.setItem(vJewel);
+        vTreasuryAncientTemple.setItem(vGoldBar);
+        vTreasuryAncientTemple.setItem(vDiamonds);
+        vTreasuryAncientTemple.setItem(vGoldCoin);
 
         vLibrary.setItem(vScroll);
         vLibrary.setItem(vGrimoire);
@@ -770,26 +830,26 @@ public class GameWorld
         vLibrary.setItem(vTreasuryKey);
         Door vDoorTreasury = new Door(vTreasuryKey, false);
         vHall.setDoor("treasury", vDoorTreasury);
-        vTreasury.setDoor("hall", vDoorTreasury);
+        vTreasuryAncientTemple.setDoor("hall", vDoorTreasury);
 
-        // Pièce de départ
-        return vTempleEntrance;
+        // Pièce de départ et accès à la treasury
+        return new Room[]{vTempleEntrance, vTreasuryAncientTemple};
     } // createAncientTemple()
 
 
-    /**
+/**
  * Crée le palais en ruines
  * 
- * @return La pièce d'entrée du palais en ruines
+ * @return Un tableau contenant la pièce d'entrée [0] et la treasury [1]
  */
-public static Room createRuinedPalace()
+public static Room[] createRuinedPalace() 
 {
     // Les pièces du palais en ruines
     Room vPalaceEntrance = new Room("at the ruined palace entrance", "images/palace/entrance.jpg");
     Room vGreatHall = new Room("in the great hall", "images/palace/great_hall.jpg");
     Room vThroneRoom = new Room("in the throne room", "images/palace/throne_room.jpg");
     Room vBanquetHall = new Room("in the banquet hall", "images/palace/banquet_hall.jpg");
-    Room vTreasury = new Room("in the palace treasury", "images/palace/treasury.jpg");
+    Room vTreasuryRuinedPalace = new Room("in the palace treasury", "images/palace/treasury.jpg");
     Room vLibrary = new Room("in the palace library", "images/palace/library.jpg");
     Room vRoyalChamber = new Room("in the royal chamber", "images/palace/royal_chamber.jpg");
     Room vCourtyard = new Room("in the palace courtyard", "images/palace/courtyard.jpg");
@@ -803,7 +863,7 @@ public static Room createRuinedPalace()
     vGreatHall.setExit("throne", vThroneRoom);
     vGreatHall.setExit("banquet", vBanquetHall);
     vGreatHall.setExit("library", vLibrary);
-    vGreatHall.setExit("treasury", vTreasury);
+    vGreatHall.setExit("treasury", vTreasuryRuinedPalace);
     vGreatHall.setExit("dungeon", vDungeon);
 
     vThroneRoom.setExit("hall", vGreatHall);
@@ -811,7 +871,7 @@ public static Room createRuinedPalace()
 
     vBanquetHall.setExit("hall", vGreatHall);
 
-    vTreasury.setExit("hall", vGreatHall);
+    vTreasuryRuinedPalace.setExit("hall", vGreatHall);
 
     vLibrary.setExit("hall", vGreatHall);
 
@@ -846,9 +906,9 @@ public static Room createRuinedPalace()
 
     vBanquetHall.setItem(vPainting);
 
-    vTreasury.setItem(vGoldCoin);
-    vTreasury.setItem(vJewel);
-    vTreasury.setItem(vDiamond);
+    vTreasuryRuinedPalace.setItem(vGoldCoin);
+    vTreasuryRuinedPalace.setItem(vJewel);
+    vTreasuryRuinedPalace.setItem(vDiamond);
 
     vLibrary.setItem(vScroll);
     vLibrary.setItem(vBook);
@@ -867,19 +927,19 @@ public static Room createRuinedPalace()
     vRoyalChamber.setItem(vTreasuryKey);
     Door vDoorTreasury = new Door(vTreasuryKey, false);
     vGreatHall.setDoor("treasury", vDoorTreasury);
-    vTreasury.setDoor("hall", vDoorTreasury);
+    vTreasuryRuinedPalace.setDoor("hall", vDoorTreasury);
 
     // Pièce de départ
-    return vPalaceEntrance;
+    return new Room [] {vPalaceEntrance, vTreasuryRuinedPalace};
 } // createRuinedPalace()
 
 
 /**
  * Crée la grotte du jeu
  * 
- * @return La pièce d'entrée de la grotte
+ * @return Un tableau contenant l'entrée [0] et le passage étroit [1]
  */
-public static Room createCave()
+public static Room[] createCave()
 {
     // Les pièces de la grotte
     Room vCaveEntrance = new Room("at the cave entrance", "images/cave/entrance.jpg");
@@ -926,8 +986,8 @@ public static Room createCave()
     
     vDarkTunnel.setItem(vTorch);
 
-    // Pièce de départ
-    return vCaveEntrance;
+    // Pièce de départ + passage étroit pour connexions externes
+    return new Room[]{vCaveEntrance, vNarrowPassage};
 } // createCave()
 
 
@@ -935,9 +995,9 @@ public static Room createCave()
  * Crée le temple souterrain
  * Le joueur arrive ici après être tombé dans le trou perdu de la grotte
  * 
- * @return La pièce d'entrée du temple souterrain
+ * @return Un tableau contenant l'entrée [0] et le trésor [1]
  */
-public static Room createUndergroundTemple()
+public static Room[] createUndergroundTemple()
 {
     // Les pièces du temple souterrain
     Room vTempleEntrance = new Room("at the underground temple entrance", "images/underground_temple/entrance.jpg");
@@ -1019,8 +1079,8 @@ public static Room createUndergroundTemple()
     vSecretPassage.setDoor("vault", vDoorVault);
     vTreasureVault.setDoor("secret", vDoorVault);
 
-    // Pièce de départ
-    return vTempleEntrance;
+    // Pièce de départ + trésor pour connexions externes
+    return new Room[]{vTempleEntrance, vTreasureVault};
 } // createUndergroundTemple()
 
 
@@ -1029,7 +1089,7 @@ public static Room createUndergroundTemple()
  * 
  * @return La pièce d'entrée de l'observatoire antique
  */
-public static Room createAncientObservatory()
+public static Room[] createAncientObservatory()
 {
     // Les pièces de l'observatoire
     Room vObservatoryEntrance = new Room("at the ancient observatory entrance", "images/observatory/entrance.jpg");
@@ -1111,8 +1171,8 @@ public static Room createAncientObservatory()
     vTelescopeRoom.setDoor("roof", vDoorRoof);
     vRoofDeck.setDoor("telescope", vDoorRoof);
 
-    // Pièce de départ
-    return vObservatoryEntrance;
+    // Pièce de départ + telescope room pour connexions externes
+    return new Room[]{vObservatoryEntrance, vTelescopeRoom};
 } // createAncientObservatory()
 
 /**
@@ -1120,7 +1180,7 @@ public static Room createAncientObservatory()
  * 
  * @return La pièce d'entrée de la montagne sacrée
  */
-public static Room createSacredMontain()
+public static Room[] createSacredMontain()
 {
     // Les pièces de la montagne sacrée
     Room vMountainBase = new Room("at the base of the sacred mountain", "images/mountain/base.jpg");
@@ -1201,8 +1261,8 @@ public static Room createSacredMontain()
     vSummit.setDoor("shrine", vDoorShrine);
     vShrine.setDoor("summit", vDoorShrine);
 
-    // Pièce de départ
-    return vMountainBase;
+    // Pièce de départ + waterfall pour connexions externes
+    return new Room[]{vMountainBase, vWaterfall};
 } // createSacredMontain()
 
 /**
@@ -1347,24 +1407,36 @@ public static Room createGuideStone2()
     vEnigme1.setExit("answer2", vEnigme1Answer2);
     vEnigme1.setExit("answer3", vEnigme1Answer3);
     vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer1.setExit("enigma1", vEnigme1);
+    vEnigme1Answer3.setExit("enigma1", vEnigme1);
+    vEnigme1Answer4.setExit("enigma1", vEnigme1);
     vEnigme1Answer2.setExit("enigma2", vEnigme2);
 
     vEnigme2.setExit("answer1", vEnigme2Answer1);
     vEnigme2.setExit("answer2", vEnigme2Answer2);
     vEnigme2.setExit("answer3", vEnigme2Answer3);
     vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer1.setExit("enigma2", vEnigme2);
+    vEnigme2Answer2.setExit("enigma2", vEnigme2);
+    vEnigme2Answer4.setExit("enigma2", vEnigme2);
     vEnigme2Answer3.setExit("enigma3", vEnigme3);
 
     vEnigme3.setExit("answer1", vEnigme3Answer1);
     vEnigme3.setExit("answer2", vEnigme3Answer2);
     vEnigme3.setExit("answer3", vEnigme3Answer3);
     vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer1.setExit("enigma3", vEnigme3);
+    vEnigme3Answer2.setExit("enigma3", vEnigme3);
+    vEnigme3Answer4.setExit("enigma3", vEnigme3);
     vEnigme3Answer3.setExit("enigma4", vEnigme4);
 
     vEnigme4.setExit("answer1", vEnigme4Answer1);
     vEnigme4.setExit("answer2", vEnigme4Answer2);
     vEnigme4.setExit("answer3", vEnigme4Answer3);
     vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer1.setExit("enigma4", vEnigme4);
+    vEnigme4Answer2.setExit("enigma4", vEnigme4);
+    vEnigme4Answer3.setExit("enigma4", vEnigme4);
     vEnigme4Answer4.setExit("exit", vGuideStone2Solved);
 
     // L'item récompense de la stèle
@@ -1423,24 +1495,36 @@ public static Room createFakeGuideStone3()
     vEnigme1.setExit("answer2", vEnigme1Answer2);
     vEnigme1.setExit("answer3", vEnigme1Answer3);
     vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer1.setExit("enigma1", vEnigme1);
+    vEnigme1Answer3.setExit("enigma1", vEnigme1);
+    vEnigme1Answer4.setExit("enigma1", vEnigme1);
     vEnigme1Answer2.setExit("enigma2", vEnigme2);
 
     vEnigme2.setExit("answer1", vEnigme2Answer1);
     vEnigme2.setExit("answer2", vEnigme2Answer2);
     vEnigme2.setExit("answer3", vEnigme2Answer3);
     vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer2.setExit("enigma2", vEnigme2);
+    vEnigme2Answer3.setExit("enigma2", vEnigme2);
+    vEnigme2Answer4.setExit("enigma2", vEnigme2);
     vEnigme2Answer1.setExit("enigma3", vEnigme3);
 
     vEnigme3.setExit("answer1", vEnigme3Answer1);
     vEnigme3.setExit("answer2", vEnigme3Answer2);
     vEnigme3.setExit("answer3", vEnigme3Answer3);
     vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer1.setExit("enigma3", vEnigme3);
+    vEnigme3Answer2.setExit("enigma3", vEnigme3);
+    vEnigme3Answer3.setExit("enigma3", vEnigme3);
     vEnigme3Answer4.setExit("enigma4", vEnigme4);
 
     vEnigme4.setExit("answer1", vEnigme4Answer1);
     vEnigme4.setExit("answer2", vEnigme4Answer2);
     vEnigme4.setExit("answer3", vEnigme4Answer3);
     vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer1.setExit("enigma4", vEnigme4);
+    vEnigme4Answer2.setExit("enigma4", vEnigme4);
+    vEnigme4Answer4.setExit("enigma4", vEnigme4);
     vEnigme4Answer3.setExit("exit", vFakeGuideStone3Solved);
 
     // L'item récompense de la stèle
@@ -1499,24 +1583,36 @@ public static Room createGuideStone4()
     vEnigme1.setExit("answer2", vEnigme1Answer2);
     vEnigme1.setExit("answer3", vEnigme1Answer3);
     vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer1.setExit("enigma1", vEnigme1);
+    vEnigme1Answer2.setExit("enigma1", vEnigme1);
+    vEnigme1Answer3.setExit("enigma1", vEnigme1);
     vEnigme1Answer4.setExit("enigma2", vEnigme2);
 
     vEnigme2.setExit("answer1", vEnigme2Answer1);
     vEnigme2.setExit("answer2", vEnigme2Answer2);
     vEnigme2.setExit("answer3", vEnigme2Answer3);
     vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer1.setExit("enigma2", vEnigme2);
+    vEnigme2Answer3.setExit("enigma2", vEnigme2);
+    vEnigme2Answer4.setExit("enigma2", vEnigme2);
     vEnigme2Answer2.setExit("enigma3", vEnigme3);
 
     vEnigme3.setExit("answer1", vEnigme3Answer1);
     vEnigme3.setExit("answer2", vEnigme3Answer2);
     vEnigme3.setExit("answer3", vEnigme3Answer3);
     vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer1.setExit("enigma3", vEnigme3);
+    vEnigme3Answer2.setExit("enigma3", vEnigme3);
+    vEnigme3Answer4.setExit("enigma3", vEnigme3);
     vEnigme3Answer3.setExit("enigma4", vEnigme4);
 
     vEnigme4.setExit("answer1", vEnigme4Answer1);
     vEnigme4.setExit("answer2", vEnigme4Answer2);
     vEnigme4.setExit("answer3", vEnigme4Answer3);
     vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer1.setExit("enigma4", vEnigme4);
+    vEnigme4Answer2.setExit("enigma4", vEnigme4);
+    vEnigme4Answer3.setExit("enigma4", vEnigme4);
     vEnigme4Answer4.setExit("exit", vGuideStone4Solved);
 
     // L'item récompense de la stèle
@@ -1575,24 +1671,36 @@ public static Room createFakeGuideStone5()
     vEnigme1.setExit("answer2", vEnigme1Answer2);
     vEnigme1.setExit("answer3", vEnigme1Answer3);
     vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer1.setExit("enigma1", vEnigme1);
+    vEnigme1Answer2.setExit("enigma1", vEnigme1);
+    vEnigme1Answer3.setExit("enigma1", vEnigme1);
     vEnigme1Answer3.setExit("enigma2", vEnigme2);
 
     vEnigme2.setExit("answer1", vEnigme2Answer1);
     vEnigme2.setExit("answer2", vEnigme2Answer2);
     vEnigme2.setExit("answer3", vEnigme2Answer3);
     vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer2.setExit("enigma2", vEnigme2);
+    vEnigme2Answer3.setExit("enigma2", vEnigme2);
+    vEnigme2Answer4.setExit("enigma2", vEnigme2);
     vEnigme2Answer1.setExit("enigma3", vEnigme3);
 
     vEnigme3.setExit("answer1", vEnigme3Answer1);
     vEnigme3.setExit("answer2", vEnigme3Answer2);
     vEnigme3.setExit("answer3", vEnigme3Answer3);
     vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer1.setExit("enigma3", vEnigme3);
+    vEnigme3Answer2.setExit("enigma3", vEnigme3);
+    vEnigme3Answer4.setExit("enigma3", vEnigme3);
     vEnigme3Answer3.setExit("enigma4", vEnigme4);
 
     vEnigme4.setExit("answer1", vEnigme4Answer1);
     vEnigme4.setExit("answer2", vEnigme4Answer2);
     vEnigme4.setExit("answer3", vEnigme4Answer3);
     vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer1.setExit("enigma4", vEnigme4);
+    vEnigme4Answer2.setExit("enigma4", vEnigme4);
+    vEnigme4Answer3.setExit("enigma4", vEnigme4);
     vEnigme4Answer4.setExit("exit", vFakeGuideStone5Solved);
 
     // Les items récompense de la stèle
@@ -1614,7 +1722,7 @@ public static Room createFakeGuideStone5()
  * 
  * @return La stèle directrice
  */
-public static Room createGuideStone8()
+public static Room[] createGuideStone8()
 {
     Room vGuideStone8 = new Room("at the guide stone of Sanctum Ignis", "images/guide_stone/guide_stone_8.jpg");
     Room vGuideStone8Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_8_solved.jpg");
@@ -1654,24 +1762,36 @@ public static Room createGuideStone8()
     vEnigme1.setExit("answer2", vEnigme1Answer2);
     vEnigme1.setExit("answer3", vEnigme1Answer3);
     vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer1.setExit("enigma1", vEnigme1);
+    vEnigme1Answer2.setExit("enigma1", vEnigme1);
+    vEnigme1Answer4.setExit("enigma1", vEnigme1);
     vEnigme1Answer3.setExit("enigma2", vEnigme2);
 
     vEnigme2.setExit("answer1", vEnigme2Answer1);
     vEnigme2.setExit("answer2", vEnigme2Answer2);
     vEnigme2.setExit("answer3", vEnigme2Answer3);
     vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer2.setExit("enigma2", vEnigme2);
+    vEnigme2Answer3.setExit("enigma2", vEnigme2);
+    vEnigme2Answer4.setExit("enigma2", vEnigme2);
     vEnigme2Answer1.setExit("enigma3", vEnigme3);
 
     vEnigme3.setExit("answer1", vEnigme3Answer1);
     vEnigme3.setExit("answer2", vEnigme3Answer2);
     vEnigme3.setExit("answer3", vEnigme3Answer3);
     vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer1.setExit("enigma3", vEnigme3);
+    vEnigme3Answer2.setExit("enigma3", vEnigme3);
+    vEnigme3Answer3.setExit("enigma3", vEnigme3);
     vEnigme3Answer4.setExit("enigma4", vEnigme4);
 
     vEnigme4.setExit("answer1", vEnigme4Answer1);
     vEnigme4.setExit("answer2", vEnigme4Answer2);
     vEnigme4.setExit("answer3", vEnigme4Answer3);
     vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer2.setExit("enigma4", vEnigme4);
+    vEnigme4Answer3.setExit("enigma4", vEnigme4);
+    vEnigme4Answer4.setExit("enigma4", vEnigme4);
     vEnigme4Answer1.setExit("exit", vGuideStone8Solved);
 
     // L'item récompense de la stèle
@@ -1680,8 +1800,8 @@ public static Room createGuideStone8()
 
     vGuideStone8Solved.setItem(vMonsCaelestisMap);
 
-    // Pièce de départ
-    return vGuideStone8;
+    // Pièce de départ + solved pour connexions externes
+    return new Room[]{vGuideStone8, vGuideStone8Solved};
 } // createGuideStone8()
 
 /**
@@ -1690,7 +1810,7 @@ public static Room createGuideStone8()
  * 
  * @return La stèle directrice
  */
-public static Room createGuideStone9()
+public static Room[] createGuideStone9()
 {
     Room vGuideStone9 = new Room("at the guide stone of Mons Caelestis", "images/guide_stone/guide_stone_9.jpg");
     Room vGuideStone9Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_9_solved.jpg");
@@ -1730,24 +1850,36 @@ public static Room createGuideStone9()
     vEnigme1.setExit("answer2", vEnigme1Answer2);
     vEnigme1.setExit("answer3", vEnigme1Answer3);
     vEnigme1.setExit("answer4", vEnigme1Answer4);
+    vEnigme1Answer1.setExit("enigma1", vEnigme1);
+    vEnigme1Answer3.setExit("enigma1", vEnigme1);
+    vEnigme1Answer4.setExit("enigma1", vEnigme1);
     vEnigme1Answer2.setExit("enigma2", vEnigme2);
 
     vEnigme2.setExit("answer1", vEnigme2Answer1);
     vEnigme2.setExit("answer2", vEnigme2Answer2);
     vEnigme2.setExit("answer3", vEnigme2Answer3);
     vEnigme2.setExit("answer4", vEnigme2Answer4);
+    vEnigme2Answer1.setExit("enigma2", vEnigme2);
+    vEnigme2Answer2.setExit("enigma2", vEnigme2);
+    vEnigme2Answer4.setExit("enigma2", vEnigme2);
     vEnigme2Answer3.setExit("enigma3", vEnigme3);
 
     vEnigme3.setExit("answer1", vEnigme3Answer1);
     vEnigme3.setExit("answer2", vEnigme3Answer2);
     vEnigme3.setExit("answer3", vEnigme3Answer3);
     vEnigme3.setExit("answer4", vEnigme3Answer4);
+    vEnigme3Answer1.setExit("enigma3", vEnigme3);
+    vEnigme3Answer2.setExit("enigma3", vEnigme3);
+    vEnigme3Answer4.setExit("enigma3", vEnigme3);
     vEnigme3Answer3.setExit("enigma4", vEnigme4);
 
     vEnigme4.setExit("answer1", vEnigme4Answer1);
     vEnigme4.setExit("answer2", vEnigme4Answer2);
     vEnigme4.setExit("answer3", vEnigme4Answer3);
     vEnigme4.setExit("answer4", vEnigme4Answer4);
+    vEnigme4Answer1.setExit("enigma4", vEnigme4);
+    vEnigme4Answer2.setExit("enigma4", vEnigme4);
+    vEnigme4Answer3.setExit("enigma4", vEnigme4);
     vEnigme4Answer4.setExit("exit", vGuideStone9Solved);
 
     // L'item récompense de la stèle
@@ -1756,8 +1888,8 @@ public static Room createGuideStone9()
 
     vGuideStone9Solved.setItem(vUltimaSapientiaMap);
 
-    // Pièce de départ
-    return vGuideStone9;
+    // Pièce de départ + solved pour connexions externes
+    return new Room[]{vGuideStone9, vGuideStone9Solved};
 } // createGuideStone9()
 
 

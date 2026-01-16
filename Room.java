@@ -114,7 +114,7 @@ public class Room
         StringBuilder returnString = new StringBuilder("Exits:");
         Set<String> vKeys = this.aExits.keySet();
         for (String vExit : vKeys) {
-            returnString.append(" ").append(vExit);
+            returnString.append("\n - ").append(vExit);
         }
         return returnString.toString();
     } // getExitString()

@@ -1,43 +1,130 @@
-# Test pour se déplacer dans toutes les pièces du jeu
-# Vérifie que chaque pièce est accessible et contient les items corrects
+# Test d'exploration complète - Visite de toutes les pièces principales du jeu
 
-# Pièce 1: Boat
+# === BATEAU - Point de départ ===
 look
 take coin
 take cookie
+take key_cabin
 
-# Pièce 2: Deck
+# Deck (Est)
 go east
 look
-back
+take beamer
+go west
 
-# Pièce 3: Cockpit
+# Cockpit (Sud du bateau)
 go south
 look
 
-# Pièce 4: Cabin
+# Cabine (avec clé)
 go east
 look
 take book
 
-# Pièce 5: Cabin_floor_1
+# Étage cabine
 go up
 look
 take bed
-inventory
 
-# Pièce 6: Galley
+# Toboggan
+go slide
+look
+take insula_templum_map
+
+# Retour et galley
 go down
-back
-back
+go down
+go west
 go west
 look
 take chair1
 take chair2
 
-# Manger le cookie
-eat cookie
+# === PORTUS PRIMA - Île 1 ===
+go east
+go north
+go portus_prima
+look
+
+# Library
+go library
+look
+go checkout
+look
+go reading
+look
+go portus_prima
+
+# Tavern
+go tavern
+look
+go portus_prima
+
+# Hostel
+go hostel
+look
+go portus_prima
+
+# Sanctuary
+go sanctuary
+look
+go portus_prima
+
+# Seaport
+go seaport
+look
+go portus_prima
+
+# === INSULA TEMPLUM - Île 2 ===
+go boat
+go insula_templum
+look
+
+# Ancient Temple
+go ancient_temple
+look
+go entrance
+look
+go hall
+look
+go library
+look
+go hall
+go sanctuary
+look
+go hall
+go treasury
+look
+
+# Guide Stone 2
+go guidestone
+look
+go enigma1
+look
+go back
+go treasury
+
+# Seaport
+go hall
+go entrance
+go ancient_temple
+go insula_templum
+go seaport
+look
+
+# === CRYPTA MARINA - Île 3 (si map disponible) ===
+go insula_templum
+go boat
+# Note: Nécessite crypta_marina_map
+
+# === Test complet navigation bateau ===
+go portus_prima
+look
+go boat
+look
+
+# === Vérification inventaire final ===
 inventory
 
-# Fin
+# === Fin du test ===
 quit

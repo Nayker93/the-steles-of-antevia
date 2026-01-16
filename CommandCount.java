@@ -12,7 +12,7 @@ public class CommandCount
     /**
      * Nombre de commandes utilisable par le joueur
      */
-    private static final int COMMAND_LIMIT = 100;
+    private static final int COMMAND_LIMIT = 1000;
     /**
      * Le compteur de commandes
      */

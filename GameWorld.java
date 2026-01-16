@@ -36,7 +36,6 @@ public class GameWorld
 
         // Création des lieux principaux du jeu
         // 1 - Portus Prima
-        Room vBoat = createBoat();
         Room vLibrary1 = createLibrary();
         Room vTavern1 = createTavern();
         Room vHostel1 = createHostel();
@@ -44,10 +43,12 @@ public class GameWorld
         Room vSeaPort1 = createSeaPort();
         // 2 - Insula Templum
         Room[] vAncientTempleRooms = createAncientTemple();
-        Room vAncientTemple = vAncientTempleRooms[0];
+        Room vTempleEntrance = vAncientTempleRooms[0];
         Room vTreasuryAncientTemple = vAncientTempleRooms[1];
         Room vSeaPort2 = createSeaPort();
-        Room vGuideStone2 = createGuideStone2();
+        Room[] vGuideStone2Rooms = createGuideStone2();
+        Room vGuideStone2 = vGuideStone2Rooms[0];
+        Room vGuideStone2Solved = vGuideStone2Rooms[1];
         // 3 - Crypta Marina
         Room vSeaPort3 = createSeaPort();
         Room vSanctuaryOfTheOracle3 = createSanctuaryOfTheOracle();
@@ -58,7 +59,9 @@ public class GameWorld
         Room vRuinedPalaceRooms[] = createRuinedPalace();
         Room vRuinedPalace = vRuinedPalaceRooms[0];
         Room vTreasuryRuinedPalace = vRuinedPalaceRooms[1];
-        Room vGuideStone4 = createGuideStone4();
+        Room[] vGuideStone4Rooms = createGuideStone4();
+        Room vGuideStone4 = vGuideStone4Rooms[0];
+        Room vGuideStone4Solved = vGuideStone4Rooms[1];
         // 5 - Silva Mystica
         Room vSeaPort5 = createSeaPort();
         Room vSanctuaryOfTheOracle5 = createSanctuaryOfTheOracle();
@@ -98,179 +101,6 @@ public class GameWorld
         Room vSapientiaTemple = createSapientiaTemple();
 
 
-        
-        // Placement des îles que le bateau peut atteindre
-        vBoat.setExit("portus_prima", vPortusPrima);
-        vBoat.setExit("insula_templum", vInsulaTemplum);
-        vBoat.setExit("crypta_marina", vCryptaMarina);
-        vBoat.setExit("civitas_antiqua", vCivitasAntiqua);
-        vBoat.setExit("silva_mystica", vSilvaMystica);
-        vBoat.setExit("mercatus_flotilla", vMercatusFlotilla);
-        vBoat.setExit("labyrinthos", vLabyrinthos);
-        vBoat.setExit("sanctum_ignis", vSanctumIgnis);
-        vBoat.setExit("mons_caelestis", vMonsCaelestis);
-        vBoat.setExit("ultima_sapientia", vUltimaSapientia);
-
-        // Ajout des lieux principaux aux îles
-        // 1 - Portus Prima
-
-        vPortusPrima.setExit("boat", vBoat);
-        vPortusPrima.setExit("library", vLibrary1);
-        vPortusPrima.setExit("tavern", vTavern1);
-        vPortusPrima.setExit("hostel", vHostel1);
-        vPortusPrima.setExit("sanctuary", vSanctuaryOfTheOracle1);
-        vPortusPrima.setExit("seaport", vSeaPort1);
-        vLibrary1.setExit("portus_prima", vPortusPrima);
-        vTavern1.setExit("portus_prima", vPortusPrima);
-        vHostel1.setExit("portus_prima", vPortusPrima);
-        vSanctuaryOfTheOracle1.setExit("portus_prima", vPortusPrima);
-        vSeaPort1.setExit("portus_prima", vPortusPrima);
-
-        Item vInsulaTemplumMap = new Item("insula_templum_map", 
-                                       "A map of Insula Templum island", 0.2, 50);
-        Item vCryptaMarinaMap = new Item("crypta_marina_map", 
-                                       "A map of Crypta Marina island", 0.2, 50);
-        Item vCivitasAntiquaMap = new Item("civitas_antiqua_map", 
-                                       "A map of Civitas Antiqua island", 0.2, 50);
-        Item vSilvaMysticaMap = new Item("silva_mystica_map", 
-                                       "A map of Silva Mystica island", 0.2, 50);
-        Item vMercatusFlotillaMap = new Item("mercatus_flotilla_map", 
-                                       "A map of Mercatus Flotilla island", 0.2, 50);
-        Item vLabyrinthosMap = new Item("labyrinthos_map", 
-                                       "A map of Labyrinthos island", 0.2, 50);
-        Item vSanctumIgnisMap = new Item("sanctum_ignis_map", 
-                                       "A map of Sanctum Ignis cave", 0.2, 50);
-        Item vMonsCaelestisMap = new Item("mons_caelestis_map", 
-                                       "A map of Mons Caelestis mountain", 0.2, 50);
-        Item vUltimaSapientiaMap = new Item("ultima_sapientia_map",
-                                        "A map of Ultima Sapientia temple", 0.2, 50);
-
-        Door vDoorBoatInsulaTemplum = new Door(vInsulaTemplumMap, false);
-        vBoat.setDoor("boat", vDoorBoatInsulaTemplum);
-        vInsulaTemplum.setDoor("insula_templum", vDoorBoatInsulaTemplum);
-
-        Door vDoorBoatCryptaMarina = new Door(vCryptaMarinaMap, false);
-        vBoat.setDoor("crypta_marina", vDoorBoatCryptaMarina);
-        vCryptaMarina.setDoor("boat", vDoorBoatCryptaMarina);
-
-        Door vDoorBoatCivitasAntiqua = new Door(vCivitasAntiquaMap, false);
-        vBoat.setDoor("civitas_antiqua", vDoorBoatCivitasAntiqua);
-        vCivitasAntiqua.setDoor("boat", vDoorBoatCivitasAntiqua);
-
-        Door vDoorBoatSilvaMystica = new Door(vSilvaMysticaMap, false);
-        vBoat.setDoor("silva_mystica", vDoorBoatSilvaMystica);
-        vSilvaMystica.setDoor("boat", vDoorBoatSilvaMystica);
-
-        Door vDoorBoatMercatusFlotilla = new Door(vMercatusFlotillaMap, false);
-        vBoat.setDoor("mercatus_flotilla", vDoorBoatMercatusFlotilla);
-        vMercatusFlotilla.setDoor("boat", vDoorBoatMercatusFlotilla);
-
-        Door vDoorBoatLabyrinthos = new Door(vLabyrinthosMap, false);
-        vBoat.setDoor("labyrinthos", vDoorBoatLabyrinthos);
-        vLabyrinthos.setDoor("boat", vDoorBoatLabyrinthos);
-
-        Door vDoorBoatSanctumIgnis = new Door(vSanctumIgnisMap, false);
-        vBoat.setDoor("sanctum_ignis", vDoorBoatSanctumIgnis);
-        vSanctumIgnis.setDoor("boat", vDoorBoatSanctumIgnis);
-
-        Door vDoorBoatMonsCaelestis = new Door(vMonsCaelestisMap, false);
-        vBoat.setDoor("mons_caelestis", vDoorBoatMonsCaelestis);
-        vMonsCaelestis.setDoor("boat", vDoorBoatMonsCaelestis);
-
-        Door vDoorBoatUltimaSapientia = new Door(vUltimaSapientiaMap, false);
-        vBoat.setDoor("ultima_sapientia", vDoorBoatUltimaSapientia);
-        vUltimaSapientia.setDoor("boat", vDoorBoatUltimaSapientia);
-
-
-
-        // 2 - Insula Templum
-
-        vInsulaTemplum.setExit("boat", vBoat);
-        vInsulaTemplum.setExit("ancient_temple", vAncientTemple);
-        vInsulaTemplum.setExit("seaport", vSeaPort2);
-        vTreasuryAncientTemple.setExit("guidestone", vGuideStone2);
-        vGuideStone2.setExit("treasury", vTreasuryAncientTemple);
-
-        // 3 - Crypta Marina
-        
-        vCryptaMarina.setExit("boat", vBoat);
-        vCryptaMarina.setExit("sanctuary", vSanctuaryOfTheOracle3);
-        vCryptaMarina.setExit("tavern", vTavern3);
-        vCryptaMarina.setExit("guidestone", vFakeGuideStone3);
-        vCryptaMarina.setExit("seaport", vSeaPort3);
-
-        // 4 - Civitas Antiqua
-
-        vCivitasAntiqua.setExit("boat", vBoat);
-        vCivitasAntiqua.setExit("ruined_palace", vRuinedPalace);
-        vCivitasAntiqua.setExit("seaport", vSeaPort4);
-        vTreasuryRuinedPalace.setExit("guidestone", vGuideStone4);
-        vGuideStone4.setExit("treasury", vTreasuryRuinedPalace);
-
-        // 5 - Silva Mystica
-
-        vSilvaMystica.setExit("boat", vBoat);
-        vSilvaMystica.setExit("sanctuary", vSanctuaryOfTheOracle5);
-        vSilvaMystica.setExit("tavern", vTavern5);
-        vSilvaMystica.setExit("guidestone", vFakeGuideStone5);
-        vSilvaMystica.setExit("seaport", vSeaPort5);
-
-        // 6 - Mercatus Flotilla
-
-        vMercatusFlotilla.setExit("boat", vBoat);
-        vMercatusFlotilla.setExit("seaport", vSeaPort6);
-        vMercatusFlotilla.setExit("hostel", vHostel6);
-        vMercatusFlotilla.setExit("tavern", vTavern6);
-        vMercatusFlotilla.setExit("library", vLibrary6);
-
-        // 7 - Labyrinthos
-
-        vLabyrinthos.setExit("boat", vBoat);
-        vLabyrinthos.setExit("seaport", vSeaPort7);
-        vLabyrinthos.setExit("tavern", vTavern7);
-        vLabyrinthos.setExit("cave", vCave);
-
-        // Liaison grotte -> trou perdu -> temple souterrain
-        vNarrowPassage.setExit("hole", vLostHole);
-
-        // 8 - Sanctum Ignis
-
-        vLostHole.setExit("underground_temple", vUndergroundTemple);
-        vTreasureVaultUndergroundTemple.setExit("guidestone", vGuideStone8);
-        vGuideStone8.setExit("treasure_vault", vTreasureVaultUndergroundTemple);
-        vGuideStone8Solved.setExit("labyrinthos", vLabyrinthos);
-
-
-        // 9 - Mons Caelestis
-
-        vMonsCaelestis.setExit("boat", vBoat);
-        vMonsCaelestis.setExit("seaport", vSeaPort9);
-        vMonsCaelestis.setExit("sacred_mountain", vSacredMontain);
-        vWaterfall.setExit("observatory", vAncientObservatory);
-        vAncientObservatory.setExit("waterfall", vWaterfall);
-        vTelescopeRoom.setExit("guidestone", vGuideStone9);
-        vGuideStone9.setExit("telescope", vTelescopeRoom);
-        vGuideStone9Solved.setExit("telescope", vTelescopeRoom);
-
-        // 10 - Ultima Sapientia
-
-        vUltimaSapientia.setExit("boat", vBoat);
-        vUltimaSapientia.setExit("sapientia_temple", vSapientiaTemple);
-        
-        // Pièce de départ
-        return vBoat;
-    } // CreateWorld()
-
-
-    // Création des lieux principaux du jeu
-
-    /**
-     * Crée le bateau du jeu
-     * 
-     * @return La pièce du bateau
-     */
-    public static Room createBoat()
-    {
         // Les pièces du bateau
         Room vBoat = new Room("in the boat", "images/boat/boat.jpg");
         Room vDeck = new Room("on the deck", "images/boat/deck.jpg");
@@ -342,9 +172,169 @@ public class GameWorld
         vCockpit.setDoor("cabin", vDoorCockpitCabin);
         vCabin.setDoor("cockpit", vDoorCockpitCabin);
         
+        // Placement des îles que le bateau peut atteindre
+        vBoat.setExit("portus_prima", vPortusPrima);
+        vBoat.setExit("insula_templum", vInsulaTemplum);
+        vBoat.setExit("crypta_marina", vCryptaMarina);
+        vBoat.setExit("civitas_antiqua", vCivitasAntiqua);
+        vBoat.setExit("silva_mystica", vSilvaMystica);
+        vBoat.setExit("mercatus_flotilla", vMercatusFlotilla);
+        vBoat.setExit("labyrinthos", vLabyrinthos);
+        vBoat.setExit("mons_caelestis", vMonsCaelestis);
+        vBoat.setExit("ultima_sapientia", vUltimaSapientia);
+
+        // Ajout des lieux principaux aux îles
+        // 1 - Portus Prima
+
+        vPortusPrima.setExit("boat", vBoat);
+        vPortusPrima.setExit("library", vLibrary1);
+        vPortusPrima.setExit("tavern", vTavern1);
+        vPortusPrima.setExit("hostel", vHostel1);
+        vPortusPrima.setExit("sanctuary", vSanctuaryOfTheOracle1);
+        vPortusPrima.setExit("seaport", vSeaPort1);
+        vLibrary1.setExit("portus_prima", vPortusPrima);
+        vTavern1.setExit("portus_prima", vPortusPrima);
+        vHostel1.setExit("portus_prima", vPortusPrima);
+        vSanctuaryOfTheOracle1.setExit("portus_prima", vPortusPrima);
+        vSeaPort1.setExit("portus_prima", vPortusPrima);
+
+
+        Item vCryptaMarinaMap = new Item("crypta_marina_map", 
+                                       "A map of Crypta Marina island", 0.2, 50);
+        Item vCivitasAntiquaMap = new Item("civitas_antiqua_map", 
+                                       "A map of Civitas Antiqua island", 0.2, 50);
+        Item vSilvaMysticaMap = new Item("silva_mystica_map", 
+                                       "A map of Silva Mystica island", 0.2, 50);
+        Item vMercatusFlotillaMap = new Item("mercatus_flotilla_map", 
+                                       "A map of Mercatus Flotilla island", 0.2, 50);
+        Item vLabyrinthosMap = new Item("labyrinthos_map", 
+                                       "A map of Labyrinthos island", 0.2, 50);
+        Item vSanctumIgnisMap = new Item("sanctum_ignis_map", 
+                                       "A map of Sanctum Ignis cave", 0.2, 50);
+        Item vMonsCaelestisMap = new Item("mons_caelestis_map", 
+                                       "A map of Mons Caelestis mountain", 0.2, 50);
+        Item vUltimaSapientiaMap = new Item("ultima_sapientia_map",
+                                        "A map of Ultima Sapientia temple", 0.2, 50);
+
+        Door vDoorBoatInsulaTemplum = new Door(vInsulaTemplumMap, false);
+        vBoat.setDoor("insula_templum", vDoorBoatInsulaTemplum);
+        vInsulaTemplum.setDoor("boat", vDoorBoatInsulaTemplum);
+
+        Door vDoorBoatCryptaMarina = new Door(vCryptaMarinaMap, false);
+        vBoat.setDoor("crypta_marina", vDoorBoatCryptaMarina);
+        vCryptaMarina.setDoor("boat", vDoorBoatCryptaMarina);
+
+        Door vDoorBoatCivitasAntiqua = new Door(vCivitasAntiquaMap, false);
+        vBoat.setDoor("civitas_antiqua", vDoorBoatCivitasAntiqua);
+        vCivitasAntiqua.setDoor("boat", vDoorBoatCivitasAntiqua);
+
+        Door vDoorBoatSilvaMystica = new Door(vSilvaMysticaMap, false);
+        vBoat.setDoor("silva_mystica", vDoorBoatSilvaMystica);
+        vSilvaMystica.setDoor("boat", vDoorBoatSilvaMystica);
+
+        Door vDoorBoatMercatusFlotilla = new Door(vMercatusFlotillaMap, false);
+        vBoat.setDoor("mercatus_flotilla", vDoorBoatMercatusFlotilla);
+        vMercatusFlotilla.setDoor("boat", vDoorBoatMercatusFlotilla);
+
+        Door vDoorBoatLabyrinthos = new Door(vLabyrinthosMap, false);
+        vBoat.setDoor("labyrinthos", vDoorBoatLabyrinthos);
+        vLabyrinthos.setDoor("boat", vDoorBoatLabyrinthos);
+
+        Door vDoorBoatSanctumIgnis = new Door(vSanctumIgnisMap, false);
+        vBoat.setDoor("sanctum_ignis", vDoorBoatSanctumIgnis);
+        vSanctumIgnis.setDoor("boat", vDoorBoatSanctumIgnis);
+
+        Door vDoorBoatMonsCaelestis = new Door(vMonsCaelestisMap, false);
+        vBoat.setDoor("mons_caelestis", vDoorBoatMonsCaelestis);
+        vMonsCaelestis.setDoor("boat", vDoorBoatMonsCaelestis);
+
+        Door vDoorBoatUltimaSapientia = new Door(vUltimaSapientiaMap, false);
+        vBoat.setDoor("ultima_sapientia", vDoorBoatUltimaSapientia);
+        vUltimaSapientia.setDoor("boat", vDoorBoatUltimaSapientia);
+
+
+
+        // 2 - Insula Templum
+
+        vInsulaTemplum.setExit("boat", vBoat);
+        vInsulaTemplum.setExit("temple_entrance", vTempleEntrance);
+        vInsulaTemplum.setExit("seaport", vSeaPort2);
+        vTempleEntrance.setExit("insula_templum", vInsulaTemplum);
+        vTreasuryAncientTemple.setExit("guidestone", vGuideStone2);
+        vGuideStone2Solved.setExit("treasury", vTreasuryAncientTemple);
+
+        // 3 - Crypta Marina
+        
+        vCryptaMarina.setExit("boat", vBoat);
+        vCryptaMarina.setExit("sanctuary", vSanctuaryOfTheOracle3);
+        vCryptaMarina.setExit("tavern", vTavern3);
+        vCryptaMarina.setExit("guidestone", vFakeGuideStone3);
+        vCryptaMarina.setExit("seaport", vSeaPort3);
+
+        // 4 - Civitas Antiqua
+
+        vCivitasAntiqua.setExit("boat", vBoat);
+        vCivitasAntiqua.setExit("ruined_palace", vRuinedPalace);
+        vCivitasAntiqua.setExit("seaport", vSeaPort4);
+        vTreasuryRuinedPalace.setExit("guidestone", vGuideStone4);
+        vGuideStone4Solved.setExit("treasury", vTreasuryRuinedPalace);
+
+        // 5 - Silva Mystica
+
+        vSilvaMystica.setExit("boat", vBoat);
+        vSilvaMystica.setExit("sanctuary", vSanctuaryOfTheOracle5);
+        vSilvaMystica.setExit("tavern", vTavern5);
+        vSilvaMystica.setExit("guidestone", vFakeGuideStone5);
+        vSilvaMystica.setExit("seaport", vSeaPort5);
+
+        // 6 - Mercatus Flotilla
+
+        vMercatusFlotilla.setExit("boat", vBoat);
+        vMercatusFlotilla.setExit("seaport", vSeaPort6);
+        vMercatusFlotilla.setExit("hostel", vHostel6);
+        vMercatusFlotilla.setExit("tavern", vTavern6);
+        vMercatusFlotilla.setExit("library", vLibrary6);
+
+        // 7 - Labyrinthos
+
+        vLabyrinthos.setExit("boat", vBoat);
+        vLabyrinthos.setExit("seaport", vSeaPort7);
+        vLabyrinthos.setExit("tavern", vTavern7);
+        vLabyrinthos.setExit("cave", vCave);
+
+        // Liaison grotte -> trou perdu -> temple souterrain
+        vNarrowPassage.setExit("hole", vLostHole);
+
+        // 8 - Sanctum Ignis
+
+        vLostHole.setExit("underground_temple", vUndergroundTemple);
+        vTreasureVaultUndergroundTemple.setExit("guidestone", vGuideStone8);
+        vGuideStone8.setExit("treasure_vault", vTreasureVaultUndergroundTemple);
+        vGuideStone8Solved.setExit("labyrinthos", vLabyrinthos);
+
+
+        // 9 - Mons Caelestis
+
+        vMonsCaelestis.setExit("boat", vBoat);
+        vMonsCaelestis.setExit("seaport", vSeaPort9);
+        vMonsCaelestis.setExit("sacred_mountain", vSacredMontain);
+        vWaterfall.setExit("observatory", vAncientObservatory);
+        vAncientObservatory.setExit("waterfall", vWaterfall);
+        vTelescopeRoom.setExit("guidestone", vGuideStone9);
+        vGuideStone9.setExit("telescope", vTelescopeRoom);
+        vGuideStone9Solved.setExit("telescope", vTelescopeRoom);
+
+        // 10 - Ultima Sapientia
+
+        vUltimaSapientia.setExit("boat", vBoat);
+        vUltimaSapientia.setExit("sapientia_temple", vSapientiaTemple);
+        
         // Pièce de départ
-        return vBoat; 
-    } // createBoat()
+        return vBoat;
+    } // CreateWorld()
+
+
+    // Création des lieux principaux du jeu
 
     /**
      * Crée la bibliothèque du jeu
@@ -1365,9 +1355,9 @@ public static Room createSapientiaTemple()
  * Crée la stèle directrice de Insula Templum (thème : Connaissances fondamentales)
  * Permet de débloquer la carte de l'île de Crypta Marina (vCryptaMarinaMap)
  * 
- * @return La stèle directrice
+ * @return Un tableau contenant l'entrée [0] et la sortie solved [1]
  */
-public static Room createGuideStone2()
+public static Room[] createGuideStone2()
 {
     Room vGuideStone2 = new Room("at the guide stone of Insula Templum", "images/guide_stone/guide_stone_2.jpg");
     Room vGuideStone2Solved = new Room("in the exit of the guide stone", "images/guide_stone/guide_stone_2_solved.jpg");
@@ -1445,8 +1435,8 @@ public static Room createGuideStone2()
 
     vGuideStone2Solved.setItem(vCryptaMarinaMap);
 
-    // Pièce de départ
-    return vGuideStone2;
+    // Pièce de départ + solved pour connexions externes
+    return new Room[]{vGuideStone2, vGuideStone2Solved};
 } // createGuideStone2()
 
 /**
@@ -1541,9 +1531,9 @@ public static Room createFakeGuideStone3()
  * Crée la stèle directrice de Civitas Antiqua (thème : HashMap)
  * Permet de débloquer la carte de l'île de Silva Mystica (vSilvaMysticaMap)
  * 
- * @return La stèle directrice
+ * @return Un tableau contenant l'entrée [0] et la sortie solved [1]
  */
-public static Room createGuideStone4()
+public static Room[] createGuideStone4()
 {
     Room vGuideStone4 = new Room("at the guide stone of Civitas Antiqua", "images/guide_stone/guide_stone_4.jpg");
     Room vGuideStone4Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_4_solved.jpg");
@@ -1621,8 +1611,8 @@ public static Room createGuideStone4()
 
     vGuideStone4Solved.setItem(vSilvaMysticaMap);
 
-    // Pièce de départ
-    return vGuideStone4;
+    // Pièce de départ + solved pour connexions externes
+    return new Room[]{vGuideStone4, vGuideStone4Solved};
 } // createGuideStone4()
 
 /**

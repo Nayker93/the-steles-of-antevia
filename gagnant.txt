@@ -1,52 +1,48 @@
-# Chemin idéal du jeu
+# Chemin idéal du jeu - Gagner directement (aller à vEnd)
 
-# Démarrage
-help
-look
 
-# Items
-take coin
-take cookie
-inventory
-
-# Magic Cookie
-eat cookie
-inventory
-
-# Navigation
-go east
-look
-back
-
-# Cabin
-go south
-go east
-look
-take book
-inventory
-
-# Etage
-go up
-look
-take bed
-inventory
-
-# Galley
+# Obtenir la map d'Insula Templum dans le toboggan
+take key_cabin
+go cockpit
+unlock cabin
+go cabin
+go floor1
+go slide
+take insula_templum_map
 go down
-back
-back
-go west
-look
-take chair1
-inventory
+go cockpit
+go boat
 
-# Exploration complète
-go east
-back
-go east
-go up
-look
+# Obtenir la map de Crypta Marina
+unlock insula_templum
+go insula_templum
+go temple_entrance
+go hall
+go library
+take treasury_key
+go hall
+unlock treasury
+go treasury
+go guidestone
 
-# Fin
-inventory
-quit
+# Enigme d'Insula Templum
+
+go enigma1
+go answer2
+go enigma2
+go answer3
+go enigma3
+go answer3
+go enigma4
+go answer4
+go exit
+take crypta_marina_map
+go treasury
+go hall
+go entrance
+
+
+
+
+
+

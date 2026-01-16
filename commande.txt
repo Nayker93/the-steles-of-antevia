@@ -1,33 +1,106 @@
-# Test des fonctionnalités principales
+# Test des fonctionnalités principales du jeu
 
-# Aide et affichage
+# === Commandes de base ===
 help
 look
 
-# Navigation
+# === Navigation simple ===
+# Déplacement dans le bateau
 go east
-back
-go south
-go east
-go up
 look
-go down
+back
 
-# Items
+go south
+look
+
+go east
+look
+
+# Retour avec back
 back
 back
+
+# === Gestion des items ===
+# Prendre et lâcher des items
 take coin
 inventory
 drop coin
 inventory
+take coin
 
-# Magic Cookie
-back
-back
+# Magic Cookie (augmente la force)
 take cookie
 inventory
 eat cookie
 inventory
 
-# Fin
+# === Système de clés et portes ===
+# Essayer d'aller à la cabine sans clé (verrouillé)
+go south
+go east
+
+# Prendre la clé
+go west
+go north
+take key_cabin
+
+# Débloquer la cabine
+go south
+go east
+look
+take book
+inventory
+
+# === Navigation avancée ===
+# Explorer l'étage
+go up
+look
+take bed
+inventory
+
+# Toboggan
+go slide
+look
+take insula_templum_map
+inventory
+
+# === Test du Beamer ===
+go down
+go down
+go west
+go east
+take beamer
+inventory
+
+# Charger le beamer
+charge
+
+# Aller ailleurs
+go west
+go south
+go east
+
+# Utiliser le beamer pour revenir
+fire
+look
+
+# === Test ile principale ===
+go portus_prima
+look
+go library
+look
+go portus_prima
+
+# === Test système de verrouillage des îles ===
+# Essayer d'aller à une île sans map (devrait être bloqué)
+go boat
+go crypta_marina
+
+# Aller à une île avec la map
+go insula_templum
+look
+
+# === Fin du test ===
+go boat
+inventory
 quit

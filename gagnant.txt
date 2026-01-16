@@ -40,7 +40,13 @@ take crypta_marina_map
 go treasury
 go hall
 go entrance
+go insula_templum
+go boat
 
+# Obtenir la map de Civitas Antiqua
+
+unlock crypta_marina
+go crypta_marina
 
 
 

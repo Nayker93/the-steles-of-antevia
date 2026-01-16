@@ -30,7 +30,7 @@ public class GameWorld
         Room vSilvaMystica = new Room("in the Silva Mystica island", "images/island/5-silva-mystica.png");
         Room vMercatusFlotilla = new Room("at Mercatus Flotilla island", "images/island/6-mercatus-flotilla.png");
         Room vLabyrinthos = new Room("in the Labyrinthos island", "images/island/7-labyrinthos.png");
-        Room vMonsCaelestis = new Room("at Mons Caelestis mountain", "images/island/9-mons-caelestis.png");
+        Room vMonsCaelestis = new Room("at Mons Caelestis montain", "images/island/9-mons-caelestis.png");
         Room vUltimaSapientia = new Room("in the Ultima Sapientia temple", "images/island/10-ultima-sapientia.png");
 
         // Création des lieux principaux du jeu
@@ -80,7 +80,7 @@ public class GameWorld
         Room vAncientObservatory = vAncientObservatoryRooms[0];
         Room vTelescopeRoom = vAncientObservatoryRooms[1];
         Room[] vSacredMontainRooms = createSacredMontain();
-        Room vMountainBase = vSacredMontainRooms[0];
+        Room vMontainBase = vSacredMontainRooms[0];
         Room vWaterfall = vSacredMontainRooms[1];
         // 10 - Ultima Sapientia
         Room vSapientiaTemple = createSapientiaTemple();
@@ -471,7 +471,7 @@ public class GameWorld
 
         // L'item récompense de la stèle
         Item vMonsCaelestisMap = new Item("mons_caelestis_map", 
-                                        "A map of Mons Caelestis mountain", 0.2, 50);
+                                        "A map of Mons Caelestis montain", 0.2, 50);
 
         vGuideStone8Solved.setItem(vMonsCaelestisMap);
 
@@ -750,8 +750,8 @@ public class GameWorld
 
         vMonsCaelestis.setExit("boat", vBoat);
         vMonsCaelestis.setExit("seaport", vSeaPort9);
-        vMonsCaelestis.setExit("mountain_base", vMountainBase);
-        vMountainBase.setExit("mons_caelestis", vMonsCaelestis);
+        vMonsCaelestis.setExit("montain_base", vMontainBase);
+        vMontainBase.setExit("mons_caelestis", vMonsCaelestis);
         vWaterfall.setExit("observatory", vAncientObservatory);
         vAncientObservatory.setExit("waterfall", vWaterfall);
         vTelescopeRoom.setExit("guidestone", vGuideStone9);
@@ -778,13 +778,13 @@ public class GameWorld
     public static Room createLibrary()
     {
         // Les pièces de la bibliothèque
-        Room vLibrary = new Room("in the library", "images/library/library.jpg");
-        Room vCheckoutDesk = new Room("at the checkout desk", "images/library/checkout_desk.jpg");
-        Room vReadingRoom = new Room("in the reading room", "images/library/reading_room.jpg");
-        Room vPrivateStudyRoom = new Room("in the private study room", "images/library/private_study_room.jpg");
-        Room vComputerLab = new Room("in the computer lab", "images/library/computer_lab.jpg");
-        Room vRestRoom = new Room("in the rest room", "images/library/rest_room.jpg");
-        Room vConferenceRoom = new Room("in the conference room", "images/library/conference_room.jpg");
+        Room vLibrary = new Room("in the library", "images/library.jpg");
+        Room vCheckoutDesk = new Room("at the checkout desk", "images/library.jpg");
+        Room vReadingRoom = new Room("in the reading room", "images/library.jpg");
+        Room vPrivateStudyRoom = new Room("in the private study room", "images/library.jpg");
+        Room vComputerLab = new Room("in the computer lab", "images/library.jpg");
+        Room vRestRoom = new Room("in the rest room", "images/library.jpg");
+        Room vConferenceRoom = new Room("in the conference room", "images/library.jpg");
 
         // Le placement des pièces
 
@@ -859,12 +859,12 @@ public class GameWorld
     public static Room createTavern()
     {
         // Les pièces de la taverne
-        Room vTavern = new Room("in the main tavern hall", "images/tavern/main_hall.jpg");
-        Room vKitchen = new Room("in the tavern kitchen", "images/tavern/kitchen.jpg");
-        Room vCellar = new Room("in the tavern cellar", "images/tavern/cellar.jpg");
-        Room vRoom = new Room("in the tavern rooms", "images/tavern/rooms.jpg");
-        Room vBackRoom = new Room("in the tavern back room", "images/tavern/back_room.jpg");
-        Room vStables = new Room("in the stables", "images/tavern/stables.jpg");
+        Room vTavern = new Room("in the main tavern hall", "images/taverne.jpg");
+        Room vKitchen = new Room("in the tavern kitchen", "images/taverne.jpg");
+        Room vCellar = new Room("in the tavern cellar", "images/taverne.jpg");
+        Room vRoom = new Room("in the tavern rooms", "images/taverne.jpg");
+        Room vBackRoom = new Room("in the tavern back room", "images/taverne.jpg");
+        Room vStables = new Room("in the stables", "images/taverne.jpg");
 
         // Le placement des pièces
 
@@ -930,12 +930,12 @@ public class GameWorld
     public static Room createHostel()
     {
         // Les pièces de l'auberge
-        Room vHostelReception = new Room("at the hostel reception", "images/hostel/reception.jpg");
-        Room vCommonRoom = new Room("in the hostel common room", "images/hostel/common_room.jpg");
-        Room vDormitory = new Room("in the hostel dormitory", "images/hostel/dormitory.jpg");
-        Room vKitchen = new Room("in the hostel kitchen", "images/hostel/kitchen.jpg");
-        Room vDiningRoom = new Room("in the hostel dining room", "images/hostel/dining_room.jpg");
-        Room vTerrasse = new Room("on the hostel terrace", "images/hostel/terrace.jpg");
+        Room vHostelReception = new Room("at the hostel reception", "images/auberge.jpg");
+        Room vCommonRoom = new Room("in the hostel common room", "images/auberge.jpg");
+        Room vDormitory = new Room("in the hostel dormitory", "images/auberge.jpg");
+        Room vKitchen = new Room("in the hostel kitchen", "images/auberge.jpg");
+        Room vDiningRoom = new Room("in the hostel dining room", "images/auberge.jpg");
+        Room vTerrasse = new Room("on the hostel terrace", "images/auberge.jpg");
 
         // Le placement des pièces
 
@@ -1015,14 +1015,13 @@ public class GameWorld
     public static Room createSanctuaryOfTheOracle()
     {
         // Les pièces du sanctuaire
-        Room vSanctuaryEntrance = new Room("at the sanctuary entrance", "images/sanctuary/entrance.jpg");
-        Room vHall = new Room("in the sanctuary hall", "images/sanctuary/hall.jpg");
-        Room vPrayerRoom = new Room("in the prayer room", "images/sanctuary/prayer_room.jpg");
-        Room vOracleRoom = new Room("in the oracle's chamber", "images/sanctuary/oracle_room.jpg");
-        Room vLibrary = new Room("in the sanctuary library", "images/sanctuary/library.jpg");
-        Room vTreasuryOracle = new Room("in the sanctuary treasury", "images/sanctuary/treasury.jpg");
-        Room vGarden = new Room("in the sacred garden", "images/sanctuary/garden.jpg");
-
+        Room vSanctuaryEntrance = new Room("at the sanctuary entrance", "images/sanctuaire.jpg");
+        Room vHall = new Room("in the sanctuary hall", "images/sanctuaire.jpg");
+        Room vPrayerRoom = new Room("in the prayer room", "images/sanctuaire.jpg");
+        Room vOracleRoom = new Room("in the oracle's chamber", "images/sanctuaire.jpg");
+        Room vLibrary = new Room("in the sanctuary library", "images/sanctuaire.jpg");
+        Room vTreasuryOracle = new Room("in the sanctuary treasury", "images/sanctuaire.jpg");
+        Room vGarden = new Room("in the sacred garden", "images/sanctuaire.jpg");
         // Le placement des pièces
 
         vSanctuaryEntrance.setExit("hall", vHall);
@@ -1105,13 +1104,13 @@ public class GameWorld
     public static Room createSeaPort()
     {
         // Les pièces du port
-        Room vPortEntrance = new Room("at the port entrance", "images/port/entrance.jpg");
-        Room vHarbor = new Room("at the harbor", "images/port/harbor.jpg");
-        Room vDocks = new Room("on the docks", "images/port/docks.jpg");
-        Room vShipyard = new Room("in the shipyard", "images/port/shipyard.jpg");
-        Room vCustomsOffice = new Room("in the customs office", "images/port/customs.jpg");
-        Room vMarket = new Room("at the fish market", "images/port/market.jpg");
-        Room vLighthouse = new Room("in the lighthouse", "images/port/lighthouse.jpg");
+        Room vPortEntrance = new Room("at the port entrance", "images/port-maritime.jpg");
+        Room vHarbor = new Room("at the harbor", "images/port-maritime.jpg");
+        Room vDocks = new Room("on the docks", "images/port-maritime.jpg");
+        Room vShipyard = new Room("in the shipyard", "images/port-maritime.jpg");
+        Room vCustomsOffice = new Room("in the customs office", "images/port-maritime.jpg");
+        Room vMarket = new Room("at the fish market", "images/port-maritime.jpg");
+        Room vLighthouse = new Room("in the lighthouse", "images/port-maritime.jpg");
 
         // Le placement des pièces
         vPortEntrance.setExit("harbor", vHarbor);
@@ -1174,14 +1173,14 @@ public class GameWorld
     public static Room[] createAncientTemple()
     {
         // Les pièces du temple
-        Room vTempleEntrance = new Room("at the ancient temple entrance", "images/temple/entrance.jpg");
-        Room vHall = new Room("in the temple hall", "images/temple/hall.jpg");
-        Room vShrine = new Room("at the temple shrine", "images/temple/shrine.jpg");
-        Room vChapel = new Room("in the temple chapel", "images/temple/chapel.jpg");
-        Room vTreasuryAncientTemple = new Room("in the temple treasury", "images/temple/treasury.jpg");
-        Room vLibrary = new Room("in the temple library", "images/temple/library.jpg");
-        Room vPriestChamber = new Room("in the priest's chamber", "images/temple/priest_chamber.jpg");
-        Room vGarden = new Room("in the temple garden", "images/temple/garden.jpg");
+        Room vTempleEntrance = new Room("at the ancient temple entrance", "images/temple-antique.jpg");
+        Room vHall = new Room("in the temple hall", "images/temple-antique.jpg");
+        Room vShrine = new Room("at the temple shrine", "images/temple-antique.jpg");
+        Room vChapel = new Room("in the temple chapel", "images/temple-antique.jpg");
+        Room vTreasuryAncientTemple = new Room("in the temple treasury", "images/temple-antique.jpg");
+        Room vLibrary = new Room("in the temple library", "images/temple-antique.jpg");
+        Room vPriestChamber = new Room("in the priest's chamber", "images/temple-antique.jpg");
+        Room vGarden = new Room("in the temple garden", "images/temple-antique.jpg");
 
         // Le placement des pièces
         vTempleEntrance.setExit("hall", vHall);
@@ -1269,15 +1268,15 @@ public class GameWorld
     public static Room[] createRuinedPalace() 
     {
         // Les pièces du palais en ruines
-        Room vPalaceEntrance = new Room("at the ruined palace entrance", "images/palace/entrance.jpg");
-        Room vGreatHall = new Room("in the great hall", "images/palace/great_hall.jpg");
-        Room vThroneRoom = new Room("in the throne room", "images/palace/throne_room.jpg");
-        Room vBanquetHall = new Room("in the banquet hall", "images/palace/banquet_hall.jpg");
-        Room vTreasuryRuinedPalace = new Room("in the palace treasury", "images/palace/treasury.jpg");
-        Room vLibrary = new Room("in the palace library", "images/palace/library.jpg");
-        Room vRoyalChamber = new Room("in the royal chamber", "images/palace/royal_chamber.jpg");
-        Room vCourtyard = new Room("in the palace courtyard", "images/palace/courtyard.jpg");
-        Room vDungeon = new Room("in the palace dungeon", "images/palace/dungeon.jpg");
+        Room vPalaceEntrance = new Room("at the ruined palace entrance", "images/palais-ruine.jpg");
+        Room vGreatHall = new Room("in the great hall", "images/palais-ruine.jpg");
+        Room vThroneRoom = new Room("in the throne room", "images/palais-ruine.jpg");
+        Room vBanquetHall = new Room("in the banquet hall", "images/palais-ruine.jpg");
+        Room vTreasuryRuinedPalace = new Room("in the palace treasury", "images/palais-ruine.jpg");
+        Room vLibrary = new Room("in the palace library", "images/palais-ruine.jpg");
+        Room vRoyalChamber = new Room("in the royal chamber", "images/palais-ruine.jpg");
+        Room vCourtyard = new Room("in the palace courtyard", "images/palais-ruine.jpg");
+        Room vDungeon = new Room("in the palace dungeon", "images/palais-ruine.jpg");
 
         // Le placement des pièces
         vPalaceEntrance.setExit("hall", vGreatHall);
@@ -1366,11 +1365,11 @@ public class GameWorld
     public static Room[] createCave()
     {
         // Les pièces de la grotte
-        Room vCaveEntrance = new Room("at the cave entrance", "images/cave/entrance.jpg");
-        Room vMainCavern = new Room("in the main cavern", "images/cave/main_cavern.jpg");
-        Room vUndergroundLake = new Room("at the underground lake", "images/cave/underground_lake.jpg");
-        Room vNarrowPassage = new Room("in a narrow passage", "images/cave/narrow_passage.jpg");
-        Room vDarkTunnel = new Room("in a dark tunnel", "images/cave/dark_tunnel.jpg");
+        Room vCaveEntrance = new Room("at the cave entrance", "images/grotte.jpg");
+        Room vMainCavern = new Room("in the main cavern", "images/grotte.jpg");
+        Room vUndergroundLake = new Room("at the underground lake", "images/grotte.jpg");
+        Room vNarrowPassage = new Room("in a narrow passage", "images/grotte.jpg");
+        Room vDarkTunnel = new Room("in a dark tunnel", "images/grotte.jpg");
 
         // Le placement des pièces
         vCaveEntrance.setExit("cavern", vMainCavern);
@@ -1424,14 +1423,14 @@ public class GameWorld
     public static Room[] createUndergroundTemple()
     {
         // Les pièces du temple souterrain
-        Room vTempleEntrance = new Room("at the underground temple entrance", "images/underground_temple/entrance.jpg");
-        Room vMainHall = new Room("in the main hall of the underground temple", "images/underground_temple/main_hall.jpg");
-        Room vAltarRoom = new Room("in the altar room", "images/underground_temple/altar_room.jpg");
-        Room vCrypt = new Room("in the ancient crypt", "images/underground_temple/crypt.jpg");
-        Room vTreasureVault = new Room("in the treasure vault", "images/underground_temple/treasure_vault.jpg");
-        Room vRitualChamber = new Room("in the ritual chamber", "images/underground_temple/ritual_chamber.jpg");
-        Room vLibrary = new Room("in the underground library", "images/underground_temple/library.jpg");
-        Room vSecretPassage = new Room("in a secret passage", "images/underground_temple/secret_passage.jpg");
+        Room vTempleEntrance = new Room("at the underground temple entrance", "images/temple-souterrain.jpg");
+        Room vMainHall = new Room("in the main hall of the underground temple", "images/temple-souterrain.jpg");
+        Room vAltarRoom = new Room("in the altar room", "images/temple-souterrain.jpg");
+        Room vCrypt = new Room("in the ancient crypt", "images/temple-souterrain.jpg");
+        Room vTreasureVault = new Room("in the treasure vault", "images/temple-souterrain.jpg");
+        Room vRitualChamber = new Room("in the ritual chamber", "images/temple-souterrain.jpg");
+        Room vLibrary = new Room("in the underground library", "images/temple-souterrain.jpg");
+        Room vSecretPassage = new Room("in a secret passage", "images/temple-souterrain.jpg");
 
         // Le placement des pièces
         vTempleEntrance.setExit("hall", vMainHall);
@@ -1516,14 +1515,14 @@ public class GameWorld
     public static Room[] createAncientObservatory()
     {
         // Les pièces de l'observatoire
-        Room vObservatoryEntrance = new Room("at the ancient observatory entrance", "images/observatory/entrance.jpg");
-        Room vMainHall = new Room("in the main hall of the observatory", "images/observatory/main_hall.jpg");
-        Room vTelescopeRoom = new Room("in the telescope room", "images/observatory/telescope_room.jpg");
-        Room vPlanetarium = new Room("in the planetarium", "images/observatory/planetarium.jpg");
-        Room vLibrary = new Room("in the astronomy library", "images/observatory/library.jpg");
-        Room vStarCharts = new Room("in the star charts room", "images/observatory/star_charts.jpg");
-        Room vRoofDeck = new Room("on the observatory roof deck", "images/observatory/roof_deck.jpg");
-        Room vInstrumentRoom = new Room("in the instrument room", "images/observatory/instrument_room.jpg");
+        Room vObservatoryEntrance = new Room("at the ancient observatory entrance", "images/observatoire-antique.jpg");
+        Room vMainHall = new Room("in the main hall of the observatory", "images/observatoire-antique.jpg");
+        Room vTelescopeRoom = new Room("in the telescope room", "images/observatoire-antique.jpg");
+        Room vPlanetarium = new Room("in the planetarium", "images/observatoire-antique.jpg");
+        Room vLibrary = new Room("in the astronomy library", "images/observatoire-antique.jpg");
+        Room vStarCharts = new Room("in the star charts room", "images/observatoire-antique.jpg");
+        Room vRoofDeck = new Room("on the observatory roof deck", "images/observatoire-antique.jpg");
+        Room vInstrumentRoom = new Room("in the instrument room", "images/observatoire-antique.jpg");
 
         // Le placement des pièces
         vObservatoryEntrance.setExit("hall", vMainHall);
@@ -1607,24 +1606,24 @@ public class GameWorld
     public static Room[] createSacredMontain()
     {
         // Les pièces de la montagne sacrée
-        Room vMountainBase = new Room("at the base of the sacred mountain", "images/mountain/base.jpg");
-        Room vForestPath = new Room("on a forest path", "images/mountain/forest_path.jpg");
-        Room vRockyTrail = new Room("on the rocky trail", "images/mountain/rocky_trail.jpg");
-        Room vCavern = new Room("in a mountain cavern", "images/mountain/cavern.jpg");
-        Room vWaterfall = new Room("near a sacred waterfall", "images/mountain/waterfall.jpg");
-        Room vMeditation = new Room("in the meditation clearing", "images/mountain/meditation.jpg");
-        Room vSummit = new Room("at the mountain summit", "images/mountain/summit.jpg");
-        Room vShrine = new Room("in the mountain shrine", "images/mountain/shrine.jpg");
+        Room vMontainBase = new Room("at the base of the sacred montain", "images/sacred-montain.jpg");
+        Room vForestPath = new Room("on a forest path", "images/sacred-montain.jpg");
+        Room vRockyTrail = new Room("on the rocky trail", "images/sacred-montain.jpg");
+        Room vCavern = new Room("in a montain cavern", "images/sacred-montain.jpg");
+        Room vWaterfall = new Room("near a sacred waterfall", "images/sacred-montain.jpg");
+        Room vMeditation = new Room("in the meditation clearing", "images/sacred-montain.jpg");
+        Room vSummit = new Room("at the montain summit", "images/sacred-montain.jpg");
+        Room vShrine = new Room("in the montain shrine", "images/sacred-montain.jpg");
 
         // Le placement des pièces
-        vMountainBase.setExit("forest", vForestPath);
-        vMountainBase.setExit("trail", vRockyTrail);
+        vMontainBase.setExit("forest", vForestPath);
+        vMontainBase.setExit("trail", vRockyTrail);
         
-        vForestPath.setExit("base", vMountainBase);
+        vForestPath.setExit("base", vMontainBase);
         vForestPath.setExit("waterfall", vWaterfall);
         vForestPath.setExit("meditation", vMeditation);
         
-        vRockyTrail.setExit("base", vMountainBase);
+        vRockyTrail.setExit("base", vMontainBase);
         vRockyTrail.setExit("cavern", vCavern);
         vRockyTrail.setExit("summit", vSummit);
         
@@ -1643,22 +1642,22 @@ public class GameWorld
         Item vRope = new Item("climbing_rope", "Strong climbing rope", 3, 50);
         Item vPickaxe = new Item("ice_pickaxe", "Ice climbing pickaxe", 4, 80);
         Item vTorch = new Item("torch", "Burning torch", 1, 15);
-        Item vWaterBottle = new Item("holy_water", "Sacred mountain water", 0.5, 30);
-        Item vHerb = new Item("mountain_herb", "Rare healing mountain herb", 0.2, 150);
-        Item vFlower = new Item("sacred_flower", "Sacred mountain flower", 0.1, 200);
-        Item vCrystal = new Item("mountain_crystal", "Pure mountain crystal", 0.5, 500);
+        Item vWaterBottle = new Item("holy_water", "Sacred montain water", 0.5, 30);
+        Item vHerb = new Item("montain_herb", "Rare healing montain herb", 0.2, 150);
+        Item vFlower = new Item("sacred_flower", "Sacred montain flower", 0.1, 200);
+        Item vCrystal = new Item("montain_crystal", "Pure montain crystal", 0.5, 500);
         Item vStatue = new Item("stone_statue", "Ancient stone statue", 30, 800);
-        Item vIncense = new Item("incense", "Sacred mountain incense", 0.2, 40);
+        Item vIncense = new Item("incense", "Sacred montain incense", 0.2, 40);
         Item vCandle = new Item("prayer_candle", "Prayer candle", 0.3, 20);
         Item vBell = new Item("meditation_bell", "Sacred meditation bell", 1, 250);
         Item vScroll = new Item("wisdom_scroll", "Scroll of ancient wisdom", 0.3, 400);
-        Item vAmulet = new Item("mountain_amulet", "Protective mountain amulet", 0.2, 600);
-        Item vGem = new Item("sapphire", "Blue mountain sapphire", 0.15, 1000);
-        Item vShrineKey = new Item("shrine_key", "Key to the mountain shrine", 0.1, 300);
+        Item vAmulet = new Item("montain_amulet", "Protective montain amulet", 0.2, 600);
+        Item vGem = new Item("sapphire", "Blue montain sapphire", 0.15, 1000);
+        Item vShrineKey = new Item("shrine_key", "Key to the montain shrine", 0.1, 300);
 
         // Ajouter les items aux pièces
-        vMountainBase.setItem(vRope);
-        vMountainBase.setItem(vPickaxe);
+        vMontainBase.setItem(vRope);
+        vMontainBase.setItem(vPickaxe);
         
         vForestPath.setItem(vHerb);
         vForestPath.setItem(vFlower);
@@ -1686,7 +1685,7 @@ public class GameWorld
         vShrine.setDoor("summit", vDoorShrine);
 
         // Pièce de départ + waterfall pour connexions externes
-        return new Room[]{vMountainBase, vWaterfall};
+        return new Room[]{vMontainBase, vWaterfall};
     } // createSacredMontain()
 
     /**
@@ -1698,15 +1697,15 @@ public class GameWorld
     public static Room createSapientiaTemple()
     {
         // Les pièces du temple Sapientia
-        Room vTempleGate = new Room("at the gate of Ultima Sapientia temple", "images/sapientia_temple/gate.jpg");
-        Room vMainHall = new Room("in the grand hall of wisdom", "images/sapientia_temple/main_hall.jpg");
-        Room vHallOfTruth = new Room("in the hall of truth", "images/sapientia_temple/hall_of_truth.jpg");
-        Room vHallOfKnowledge = new Room("in the hall of knowledge", "images/sapientia_temple/hall_of_knowledge.jpg");
-        Room vSacredLibrary = new Room("in the sacred library of ancients", "images/sapientia_temple/sacred_library.jpg");
-        Room vChamberOfSecrets = new Room("in the chamber of secrets", "images/sapientia_temple/chamber_of_secrets.jpg");
-        Room vInnerSanctum = new Room("in the inner sanctum", "images/sapientia_temple/inner_sanctum.jpg");
-        Room vTreasureVault = new Room("in the vault of eternal treasures", "images/sapientia_temple/treasure_vault.jpg");
-        Room vEnd = new Room("You have discovered the truth! YOU WIN!", "images/sapientia_temple/victory.jpg");
+        Room vTempleGate = new Room("at the gate of Ultima Sapientia temple", "images/sapientia-temple.jpg");
+        Room vMainHall = new Room("in the grand hall of wisdom", "images/sapientia-temple.jpg");
+        Room vHallOfTruth = new Room("in the hall of truth", "images/sapientia-temple.jpg");
+        Room vHallOfKnowledge = new Room("in the hall of knowledge", "images/sapientia-temple.jpg");
+        Room vSacredLibrary = new Room("in the sacred library of ancients", "images/sapientia-temple.jpg");
+        Room vChamberOfSecrets = new Room("in the chamber of secrets", "images/sapientia-temple.jpg");
+        Room vInnerSanctum = new Room("in the inner sanctum", "images/sapientia-temple.jpg");
+        Room vTreasureVault = new Room("in the vault of eternal treasures", "images/sapientia-temple.jpg");
+        Room vEnd = new Room("You have discovered the truth! YOU WIN!", "images/sapientia-temple.jpg");
 
         // Le placement des pièces
         vTempleGate.setExit("hall", vMainHall);

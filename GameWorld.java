@@ -23,16 +23,16 @@ public class GameWorld
     public static Room createWorld()
     {
         // Création des îles du jeu
-        Room vPortusPrima = new Room("at Portus Prima island", "images/islands/portus_prima.jpg");
-        Room vInsulaTemplum  = new Room("at Insula Templum island", "images/islands/insula_templum.jpg");
-        Room vCryptaMarina = new Room("at Crypta Marina island", "images/islands/crypta_marina.jpg");
-        Room vCivitasAntiqua = new Room("at Civitas Antiqua island", "images/islands/civitas_antiqua.jpg");
-        Room vSilvaMystica = new Room("in the Silva Mystica island", "images/islands/silva_mystica.jpg");
-        Room vMercatusFlotilla = new Room("at Mercatus Flotilla island", "images/islands/mercatus_flotilla.jpg");
-        Room vLabyrinthos = new Room("in the Labyrinthos island", "images/islands/labyrinthos.jpg");
-        Room vSanctumIgnis = new Room("in the Sanctum Ignis cave", "images/islands/sanctum_ignis.jpg");
-        Room vMonsCaelestis = new Room("at Mons Caelestis mountain", "images/islands/mons_caelestis.jpg");
-        Room vUltimaSapientia = new Room("in the Ultima Sapientia temple", "images/islands/ultima_sapientia.jpg");
+        Room vPortusPrima = new Room("at Portus Prima island", "images/island/1-portus-prima.png");
+        Room vInsulaTemplum  = new Room("at Insula Templum island", "images/island/2-insula-templum.png");
+        Room vCryptaMarina = new Room("at Crypta Marina island", "images/island/3-cripta-marina.png");
+        Room vCivitasAntiqua = new Room("at Civitas Antiqua island", "images/island/4-civitas-antiqua.png");
+        Room vSilvaMystica = new Room("in the Silva Mystica island", "images/island/5-silva-mystica.png");
+        Room vMercatusFlotilla = new Room("at Mercatus Flotilla island", "images/island/6-mercatus-flotilla.png");
+        Room vLabyrinthos = new Room("in the Labyrinthos island", "images/island/7-labyrinthos.png");
+        Room vSanctumIgnis = new Room("in the Sanctum Ignis cave", "images/island/8-sanctum-ignis.png");
+        Room vMonsCaelestis = new Room("at Mons Caelestis mountain", "images/island/9-mons-caelestis.png");
+        Room vUltimaSapientia = new Room("in the Ultima Sapientia temple", "images/island/10-ultima-sapientia.png");
 
         // Création des lieux principaux du jeu
         // 1 - Portus Prima

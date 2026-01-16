@@ -1,130 +1,693 @@
 # Test d'exploration complète - Visite de toutes les pièces principales du jeu
 
-# === BATEAU - Point de départ ===
+
+# === BATEAU (point de départ) ===
 look
-take coin
-take cookie
+go deck
+look
+go boat
+go galley
+look
+go boat
+go cockpit
+look
+
+# Déverrouiller la cabine
+go boat
 take key_cabin
-
-# Deck (Est)
-go east
+go cockpit
+unlock cabin
+go cabin
 look
-take beamer
-go west
-
-# Cockpit (Sud du bateau)
-go south
+go floor1
 look
-
-# Cabine (avec clé)
-go east
-look
-take book
-
-# Étage cabine
-go up
-look
-take bed
-
-# Toboggan
 go slide
 look
 take insula_templum_map
-
-# Retour et galley
 go down
-go down
-go west
-go west
 look
-take chair1
-take chair2
+go cockpit
+go boat
 
-# === PORTUS PRIMA - Île 1 ===
-go east
-go north
+# === 1 - PORTUS PRIMA ===
 go portus_prima
 look
 
-# Library
+# Library - Explorer toutes les pièces
 go library
 look
 go checkout
 look
 go reading
 look
+go privatestudy
+look
+go reading
+go computerlab
+look
+go reading
+go conferenceroom
+look
+go reading
+go checkout
+go restroom
+look
+go checkout
+go library
 go portus_prima
 
-# Tavern
+# Tavern - Explorer toutes les pièces
 go tavern
 look
+go bar
+look
+go tavern
+go kitchen
+look
+go tavern
+go dining
+look
+go tavern
+go cellar
+look
+go tavern
+go courtyard
+look
+go tavern
 go portus_prima
 
-# Hostel
+# Hostel - Explorer toutes les pièces
 go hostel
 look
+go common
+look
+go reception
+go dormitory
+look
+go reception
+go kitchen
+look
+go dining
+look
+go kitchen
+go reception
+go dining
+go reception
+go reception
 go portus_prima
 
-# Sanctuary
+# Sanctuary - Explorer toutes les pièces
 go sanctuary
-look
-go portus_prima
-
-# Seaport
-go seaport
-look
-go portus_prima
-
-# === INSULA TEMPLUM - Île 2 ===
-go boat
-go insula_templum
-look
-
-# Ancient Temple
-go ancient_temple
-look
-go entrance
 look
 go hall
 look
+go prayer
+look
+go hall
+go oracle
+look
+go hall
 go library
 look
 go hall
-go sanctuary
-look
-go hall
 go treasury
 look
+go hall
+go entrance
+go garden
+look
+go entrance
+go portus_prima
 
-# Guide Stone 2
+# Seaport - Explorer toutes les pièces
+go seaport
+look
+go harbor
+look
+go entrance
+go docks
+look
+go entrance
+go shipyard
+look
+go entrance
+go customs
+look
+go entrance
+go market
+look
+go entrance
+go lighthouse
+look
+go entrance
+go portus_prima
+go boat
+
+# === 2 - INSULA TEMPLUM ===
+# Obtenir la map dans le toboggan
+go cockpit
+go cabin
+go floor1
+go slide
+take insula_templum_map
+go down
+go cockpit
+go boat
+
+unlock insula_templum
+go insula_templum
+look
+go temple_entrance
+look
+go hall
+look
+go shrine
+look
+go hall
+go chapel
+look
+go hall
+go library
+look
+take treasury_key
+go hall
+unlock treasury
+go treasury
+look
+go hall
+go priest
+look
+go hall
+go entrance
+go garden
+look
+go entrance
+go insula_templum
+look
+go seaport
+look
+go insula_templum
+
+# Guide Stone 2 - Insula Templum
+go temple_entrance
+go hall
+go treasury
 go guidestone
 look
 go enigma1
+go answer2
+go enigma2
+go answer3
+go enigma3
+go answer3
+go enigma4
+go answer4
+go exit
+take crypta_marina_map
 look
-go back
 go treasury
-
-# Seaport
 go hall
 go entrance
-go ancient_temple
 go insula_templum
+go boat
+
+# === 3 - CRYPTA MARINA ===
+unlock crypta_marina
+go crypta_marina
+look
+
+# Sanctuary - Explorer toutes les pièces
+go sanctuary
+look
+go hall
+look
+go prayer
+look
+go hall
+go oracle
+look
+go hall
+go library
+look
+go hall
+go entrance
+go crypta_marina
+
+# Tavern - Explorer toutes les pièces
+go tavern
+look
+go bar
+look
+go tavern
+go kitchen
+look
+go tavern
+go dining
+look
+go tavern
+go crypta_marina
+
+# Seaport - Explorer toutes les pièces
 go seaport
 look
+go harbor
+look
+go entrance
+go docks
+look
+go entrance
+go crypta_marina
 
-# === CRYPTA MARINA - Île 3 (si map disponible) ===
-go insula_templum
+# Guide Stone 3 (Fake) - Crypta Marina
+go guidestone
+look
+go enigma1
+go answer2
+go enigma2
+go answer1
+go enigma3
+go answer4
+go enigma4
+go answer3
+go exit
+take civitas_antiqua_map
+look
+go crypta_marina
 go boat
-# Note: Nécessite crypta_marina_map
 
-# === Test complet navigation bateau ===
-go portus_prima
+# === 4 - CIVITAS ANTIQUA ===
+unlock civitas_antiqua
+go civitas_antiqua
+look
+go seaport
+look
+go civitas_antiqua
+go palace_entrance
+look
+go hall
+look
+go throne
+look
+go royal
+look
+take treasury_key
+go throne
+go hall
+go banquet
+look
+go hall
+go library
+look
+go hall
+unlock treasury
+go treasury
+look
+go hall
+go dungeon
+look
+go hall
+
+# Sanctuary - Explorer toutes les pièces
+go sanctuary
+look
+go hall
+look
+go prayer
+look
+go hall
+go oracle
+look
+go hall
+go library
+look
+go hall
+go entrance
+go silva_mystica
+
+# Tavern - Explorer toutes les pièces
+go tavern
+look
+go bar
+look
+go tavern
+go kitchen
+look
+go tavern
+go dining
+look
+go tavernivitas_antiqua
+
+# Guide Stone 4 - Civitas Antiqua
+go palace_entrance
+go hall
+go treasury
+go guidestone
+look
+go enigma1
+go answer4
+go enigma2
+go answer2
+go enigma3
+go answer3
+go enigma4
+go answer4
+go exit
+take silva_mystica_map
+look
+go treasury
+go hall
+go entrance
+go civitas_antiqua
+go boat
+
+# === 5 - SILVA MYSTICA ===
+unlock silva_mystica
+go silva_mystica
+look
+go sanctuary
+look
+go silva_mystica
+go tavern
+
+# Seaport - Explorer toutes les pièces
+go seaport
+look
+go harbor
+look
+go entrance
+go docks
+look
+go entrance
+go shipyard
+look
+go entrance
+go customs
+look
+go entrance
+go market
+look
+
+# Seaport - Explorer toutes les pièces
+go seaport
+look
+go harbor
+look
+go entrance
+go docks
+look
+go entrance
+go shipyard
+look
+go entrance
+go customs
+look
+go entrance
+go market
+look
+go entrance
+go labyrinthos
+
+# Tavern - Explorer toutes les pièces
+go tavern
+look
+go bar
+look
+go tavern
+go kitchen
+look
+go tavern
+go dining
+look
+go tavern
+go labyrinthos
+
+# Cave et Underground Temple
+# Hostel - Explorer toutes les pièces
+go hostel
+look
+go common
+look
+go reception
+go dormitory
+look
+go reception
+go kitchen
+look
+go dining
+look
+go kitchen
+go reception
+go mercatus_flotilla
+
+# Tavern - Explorer toutes les pièces
+go tavern
+look
+go bar
+look
+go tavern
+go kitchen
+look
+go tavern
+go dining
+look
+go tavern
+go mercatus_flotilla
+
+# Library - Explorer toutes les pièces
+go library
+look
+go checkout
+look
+go reading
+look
+go privatestudy
+look
+go reading
+go computerlab
+look
+go reading
+go checkout
+go librarynigma3
+go answer3
+go enigma4
+go answer4
+go exit
+take mercatus_flotilla_map
+take labyrinthos_map
+look
+go silva_mystica
+go boat
+
+# === 6 - MERCATUS FLOTILLA ===
+unlock mercatus_flotilla
+go mercatus_flotilla
+look
+go seaport
+look
+go mercatus_flotilla
+go hostel
+look
+
+# Seaport - Explorer toutes les pièces
+go seaport
+look
+go harbor
+look
+go entrance
+go docks
+look
+go entrance
+go shipyard
+look
+go entrance
+go customs
+look
+go entrance
+go market
+look
+go entrance
+go lighthouse
+look
+go entrance
+go mons_caelestis
+
+# Mountain Base et parcours complet
+go mercatus_flotilla
+go library
+look
+go mercatus_flotilla
+go boat
+
+# === 7 - LABYRINTHOS ===
+unlock labyrinthos
+go labyrinthos
+look
+go seaport
+look
+go labyrinthos
+go tavern
+look
+go labyrinthos
+go cave
+look
+go cavern
+look
+go passage
+look
+go down
+look
+go underground_temple
+look
+go hall
+look
+go shrine
+look
+go hall
+go ritual
+look
+take vault_key
+go hall
+go altar
+look
+go secret
+look
+unlock vault
+go vault
+look
+go hall
+go entrance
+go underground_temple
+go up
+go passage
+go cavern
+go cave
+go labyrinthos
+
+# Guide Stone 8 - Sanctum Ignis
+go cave
+go cavern
+go passage
+go down
+go underground_temple
+go hall
+go vault
+go guidestone
+look
+go enigma1
+go answer3
+go enigma2
+go answer1
+go enigma3
+go answer4
+go enigma4
+go answer1
+go exit
+take mons_caelestis_map
+look
+go labyrinthos
+go boat
+
+# === 8 - SANCTUM IGNIS ===
+unlock sanctum_ignis
+go sanctum_ignis
 look
 go boat
+
+# === 9 - MONS CAELESTIS ===
+unlock mons_caelestis
+go mons_caelestis
+look
+go seaport
+look
+go mons_caelestis
+go mountain_base
+look
+go forest
+look
+go meditation
+look
+go forest
+go waterfall
+look
+go forest
+go base
+go trail
+look
+go cavern
+look
+go trail
+go summit
+look
+go shrine
+look
+go summit
+go trail
+go base
+go forest
+go waterfall
+go observatory
+look
+go hall
+look
+go telescope
+look
+go hall
+go entrance
+go waterfall
+
+# Guide Stone 9 - Mons Caelestis
+go observatory
+go hall
+go telescope
+go guidestone
+look
+go enigma1
+go answer2
+go enigma2
+go answer3
+go enigma3
+go answer3
+go enigma4
+go answer4
+go exit
+take ultima_sapientia_map
+look
+go telescope
+go hall
+go entrance
+go waterfall
+go forest
+go base
+go mons_caelestis
+go boat
+
+# === 10 - ULTIMA SAPIENTIA ===
+unlock ultima_sapientia
+go ultima_sapientia
+look
+go sapientia_temple
+look
+go hall
+look
+go knowledge
+look
+take chamber_key
+unlock chamber
+go chamber
+look
+take the_truth
+go knowledge
+go hall
+go meditation
+look
+go hall
+go library
+look
+go hall
+go inner
+look
+unlock end
+go end
 look
 
-# === Vérification inventaire final ===
-inventory
-
-# === Fin du test ===
-quit
+# fin du test

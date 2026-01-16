@@ -1,106 +1,166 @@
-# Test des fonctionnalités principales du jeu
+# Test des commandes principales du jeu
 
-# === Commandes de base ===
+
+# === TEST COMMANDES DE BASE ===
+
+# Help - Afficher l'aide
 help
+
+# Look - Observer la pièce actuelle
 look
 
-# === Navigation simple ===
-# Déplacement dans le bateau
-go east
-look
-back
-
-go south
-look
-
-go east
-look
-
-# Retour avec back
-back
-back
-
-# === Gestion des items ===
-# Prendre et lâcher des items
-take coin
+# Inventory - Afficher l'inventaire (vide au début)
 inventory
-drop coin
-inventory
-take coin
 
-# Magic Cookie (augmente la force)
+# === TEST COMMANDES DE DÉPLACEMENT ===
+
+# Go - Se déplacer (deck)
+go deck
+look
+go boat
+
+# Go - Se déplacer (galley)
+go galley
+look
+go boat
+
+# Go - Se déplacer (cockpit)
+go cockpit
+look
+
+# Back - Retour en arrière
+back
+look
+
+# === TEST COMMANDES D'OBJETS ===
+
+# Take - Prendre un objet (pièce)
+take silver_coin
+inventory
+
+# Take - Prendre un autre objet (cookie)
 take cookie
 inventory
+
+# Drop - Déposer un objet
+drop silver_coin
+look
+inventory
+
+# Take - Reprendre l'objet
+take silver_coin
+inventory
+
+# === TEST COMMANDE EAT ===
+
+# Eat - Manger le cookie magique
 eat cookie
 inventory
 
-# === Système de clés et portes ===
-# Essayer d'aller à la cabine sans clé (verrouillé)
-go south
-go east
+# === TEST COMMANDES PORTE ===
 
-# Prendre la clé
-go west
-go north
+# Unlock - Déverrouiller sans clé (devrait échouer)
+unlock cabin
+
+# Take - Prendre la clé de la cabine
 take key_cabin
-
-# Débloquer la cabine
-go south
-go east
-look
-take book
 inventory
 
-# === Navigation avancée ===
-# Explorer l'étage
-go up
-look
-take bed
-inventory
+# Unlock - Déverrouiller avec la clé
+unlock cabin
 
-# Toboggan
-go slide
+# Go - Entrer dans la cabine déverrouillée
+go cabin
 look
-take insula_templum_map
-inventory
 
-# === Test du Beamer ===
-go down
-go down
-go west
-go east
+# === TEST BEAMER ===
+
+# Go - Aller chercher le beamer
+go cockpit
+go boat
+go deck
+look
+
+# Take - Prendre le beamer
 take beamer
 inventory
 
-# Charger le beamer
+# Charge - Charger le beamer dans la pièce actuelle (deck)
 charge
+inventory
 
-# Aller ailleurs
-go west
-go south
-go east
+# Go - Se déplacer ailleurs
+go boat
+go galley
+look
 
-# Utiliser le beamer pour revenir
+# Fire - Se téléporter au beamer
 fire
 look
 
-# === Test ile principale ===
-go portus_prima
-look
-go library
-look
-go portus_prima
+# === TEST ITEMS LOURDS ===
 
-# === Test système de verrouillage des îles ===
-# Essayer d'aller à une île sans map (devrait être bloqué)
+# Go - Aller à la galley pour tester les chaises
 go boat
-go crypta_marina
+go galley
+look
 
-# Aller à une île avec la map
+# Take - Essayer de prendre une chaise lourde
+take chair3
+inventory
+
+# Eat - Manger un cookie pour augmenter la force (mais déjà mangé)
+# Note: Le cookie a déjà été mangé plus tôt
+
+# Drop - Déposer des objets pour alléger l'inventaire
+drop silver_coin
+drop beamer
+inventory
+
+# Take - Reprendre la chaise maintenant
+take chair3
+inventory
+
+# === TEST TRAPDOOR ===
+
+# Go - Aller au toboggan
+go boat
+go cockpit
+go cabin
+go floor1
+go slide
+look
+
+# === TEST MAP ET PROGRESSION ===
+
+# Take - Prendre la map dans le slide
+take insula_templum_map
+inventory
+
+# Down - Descendre par le toboggan (trapdoor)
+go down
+look
+
+# Up - Essayer de remonter (devrait échouer - trapdoor à sens unique)
+go up
+look
+
+# Go - Retourner au bateau depuis cabin
+go cockpit
+go boat
+look
+
+# Unlock - Déverrouiller Insula Templum avec la map
+unlock insula_templum
+
+# Go - Visiter Insula Templum
 go insula_templum
 look
 
-# === Fin du test ===
-go boat
-inventory
-quit
+# === TEST COMMANDES DIVERSES ===
+
+# Test - Afficher le nombre de commandes
+test
+
+# Look - Dernière vérification de la pièce
+look

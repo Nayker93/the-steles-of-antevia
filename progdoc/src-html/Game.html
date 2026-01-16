@@ -24,16 +24,25 @@
 <span class="source-line-no">011</span><span id="line-11">public class Game</span>
 <span class="source-line-no">012</span><span id="line-12">{</span>
 <span class="source-line-no">013</span><span id="line-13">    /**</span>
-<span class="source-line-no">014</span><span id="line-14">     * Lance le jeu en créant GameEngine et UserInterface.</span>
-<span class="source-line-no">015</span><span id="line-15">     */</span>
-<span class="source-line-no">016</span><span id="line-16">    public Game()</span>
-<span class="source-line-no">017</span><span id="line-17">    {</span>
-<span class="source-line-no">018</span><span id="line-18">        GameEngine vEngine = new GameEngine();</span>
-<span class="source-line-no">019</span><span id="line-19">        UserInterface vUI = new UserInterface(vEngine);</span>
-<span class="source-line-no">020</span><span id="line-20">        vEngine.setGUI(vUI);</span>
-<span class="source-line-no">021</span><span id="line-21">    } // Game()</span>
-<span class="source-line-no">022</span><span id="line-22">} // Game</span>
-<span class="source-line-no">023</span><span id="line-23"></span>
+<span class="source-line-no">014</span><span id="line-14">     * Lancement du jeu.</span>
+<span class="source-line-no">015</span><span id="line-15">     * </span>
+<span class="source-line-no">016</span><span id="line-16">     * @param pArgs Arguments de la ligne de commande (non utilisés)</span>
+<span class="source-line-no">017</span><span id="line-17">     */</span>
+<span class="source-line-no">018</span><span id="line-18">    public static void main(final String[] pArgs)</span>
+<span class="source-line-no">019</span><span id="line-19">    {</span>
+<span class="source-line-no">020</span><span id="line-20">        new Game();</span>
+<span class="source-line-no">021</span><span id="line-21">    } // main(final String[] pArgs)</span>
+<span class="source-line-no">022</span><span id="line-22">    /**</span>
+<span class="source-line-no">023</span><span id="line-23">     * Lance le jeu en créant GameEngine et UserInterface.</span>
+<span class="source-line-no">024</span><span id="line-24">     */</span>
+<span class="source-line-no">025</span><span id="line-25">    public Game()</span>
+<span class="source-line-no">026</span><span id="line-26">    {</span>
+<span class="source-line-no">027</span><span id="line-27">        GameEngine vEngine = new GameEngine();</span>
+<span class="source-line-no">028</span><span id="line-28">        UserInterface vUI = new UserInterface(vEngine);</span>
+<span class="source-line-no">029</span><span id="line-29">        vEngine.setGUI(vUI);</span>
+<span class="source-line-no">030</span><span id="line-30">    } // Game()</span>
+<span class="source-line-no">031</span><span id="line-31">} // Game</span>
+<span class="source-line-no">032</span><span id="line-32"></span>
 
 
 

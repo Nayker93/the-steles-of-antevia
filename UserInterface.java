@@ -101,7 +101,11 @@ public class UserInterface implements ActionListener
             System.out.println( "Image not found : " + vImagePath );
         else {
             ImageIcon vIcon = new ImageIcon( vImageURL );
-            this.aImage.setIcon( vIcon );
+            // Redimensionner l'image à une taille fixe
+            Image vImage = vIcon.getImage();
+            Image vScaledImage = vImage.getScaledInstance(400, 300, Image.SCALE_SMOOTH);
+            ImageIcon vScaledIcon = new ImageIcon(vScaledImage);
+            this.aImage.setIcon( vScaledIcon );
             this.aMyFrame.pack();
         }
     } // showImage(.)

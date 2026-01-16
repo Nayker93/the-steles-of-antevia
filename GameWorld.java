@@ -69,7 +69,6 @@ public class GameWorld
         Room vSeaPort7 = createSeaPort();
         Room vTavern7 = createTavern();
         Room vCave = createCave();
-        Room vLostHole = createLostHole();
         // 8 - Sanctum Ignis
         Room vUndergroundTemple = createUndergroundTemple();
         Room vGuideStone8 = createGuideStone8();
@@ -196,9 +195,6 @@ public class GameWorld
         vMonsCaelestis.setExit("boat", vBoat);
 
         // 10 - Ultima Sapientia
-
-        
-
 
         
         // Pièce de départ
@@ -781,26 +777,537 @@ public class GameWorld
     } // createAncientTemple()
 
 
-
-
-
-
-
-
-
-
-
-
-
-    // Création des vraies/fausses stèles directrices
-
     /**
-     * Crée la stèle directrice de Insula Templum (thème : Connaissances fondamentales)
-     * Permet de débloquer la carte de l'île de Crypta Marina (vCryptaMarinaMap)
-     * 
-     * @return La stèle directrice
-     */
-    public static Room createGuideStone2()
+ * Crée le palais en ruines
+ * 
+ * @return La pièce d'entrée du palais en ruines
+ */
+public static Room createRuinedPalace()
+{
+    // Les pièces du palais en ruines
+    Room vPalaceEntrance = new Room("at the ruined palace entrance", "images/palace/entrance.jpg");
+    Room vGreatHall = new Room("in the great hall", "images/palace/great_hall.jpg");
+    Room vThroneRoom = new Room("in the throne room", "images/palace/throne_room.jpg");
+    Room vBanquetHall = new Room("in the banquet hall", "images/palace/banquet_hall.jpg");
+    Room vTreasury = new Room("in the palace treasury", "images/palace/treasury.jpg");
+    Room vLibrary = new Room("in the palace library", "images/palace/library.jpg");
+    Room vRoyalChamber = new Room("in the royal chamber", "images/palace/royal_chamber.jpg");
+    Room vCourtyard = new Room("in the palace courtyard", "images/palace/courtyard.jpg");
+    Room vDungeon = new Room("in the palace dungeon", "images/palace/dungeon.jpg");
+
+    // Le placement des pièces
+    vPalaceEntrance.setExit("hall", vGreatHall);
+    vPalaceEntrance.setExit("courtyard", vCourtyard);
+
+    vGreatHall.setExit("entrance", vPalaceEntrance);
+    vGreatHall.setExit("throne", vThroneRoom);
+    vGreatHall.setExit("banquet", vBanquetHall);
+    vGreatHall.setExit("library", vLibrary);
+    vGreatHall.setExit("treasury", vTreasury);
+    vGreatHall.setExit("dungeon", vDungeon);
+
+    vThroneRoom.setExit("hall", vGreatHall);
+    vThroneRoom.setExit("royal", vRoyalChamber);
+
+    vBanquetHall.setExit("hall", vGreatHall);
+
+    vTreasury.setExit("hall", vGreatHall);
+
+    vLibrary.setExit("hall", vGreatHall);
+
+    vRoyalChamber.setExit("throne", vThroneRoom);
+
+    vCourtyard.setExit("entrance", vPalaceEntrance);
+
+    vDungeon.setExit("hall", vGreatHall);
+
+    // Créer les items
+    Item vCrown = new Item("royal_crown", "Ancient royal crown encrusted with jewels", 3, 2000);
+    Item vThrone = new Item("throne", "Magnificent golden throne", 100, 5000);
+    Item vGoldCoin = new Item("gold_coin", "Ancient gold coins, 200 Jerries", 0.1, 200);
+    Item vJewel = new Item("ruby", "Large precious ruby", 0.2, 1000);
+    Item vDiamond = new Item("diamond", "Flawless diamond", 0.1, 1500);
+    Item vPainting = new Item("painting", "Royal family portrait", 10, 600);
+    Item vScroll = new Item("royal_decree", "Ancient royal decree", 0.3, 250);
+    Item vBook = new Item("history_book", "Book of palace history", 1, 150);
+    Item vManuscript = new Item("manuscript", "Royal manuscript", 0.5, 400);
+    Item vBed = new Item("royal_bed", "Luxurious royal bed", 80, 1200);
+    Item vMirror = new Item("mirror", "Ornate golden mirror", 15, 500);
+    Item vStatue = new Item("statue", "Marble statue of ancient king", 50, 800);
+    Item vFountain = new Item("fountain", "Decorative stone fountain", 200, 1000);
+    Item vChain = new Item("chain", "Heavy iron chains", 5, 20);
+
+    // Ajouter les items aux pièces
+    vGreatHall.setItem(vStatue);
+
+    vThroneRoom.setItem(vThrone);
+    vThroneRoom.setItem(vCrown);
+    vThroneRoom.setItem(vPainting);
+
+    vBanquetHall.setItem(vPainting);
+
+    vTreasury.setItem(vGoldCoin);
+    vTreasury.setItem(vJewel);
+    vTreasury.setItem(vDiamond);
+
+    vLibrary.setItem(vScroll);
+    vLibrary.setItem(vBook);
+    vLibrary.setItem(vManuscript);
+
+    vRoyalChamber.setItem(vBed);
+    vRoyalChamber.setItem(vMirror);
+
+    vCourtyard.setItem(vFountain);
+    vCourtyard.setItem(vStatue);
+
+    vDungeon.setItem(vChain);
+
+    // Les portes verrouillées
+    Item vTreasuryKey = new Item("treasury_key", "Golden key to the treasury", 0.1, 300);
+    vRoyalChamber.setItem(vTreasuryKey);
+    Door vDoorTreasury = new Door(vTreasuryKey, false);
+    vGreatHall.setDoor("treasury", vDoorTreasury);
+    vTreasury.setDoor("hall", vDoorTreasury);
+
+    // Pièce de départ
+    return vPalaceEntrance;
+} // createRuinedPalace()
+
+
+/**
+ * Crée la grotte du jeu
+ * 
+ * @return La pièce d'entrée de la grotte
+ */
+public static Room createCave()
+{
+    // Les pièces de la grotte
+    Room vCaveEntrance = new Room("at the cave entrance", "images/cave/entrance.jpg");
+    Room vMainCavern = new Room("in the main cavern", "images/cave/main_cavern.jpg");
+    Room vUndergroundLake = new Room("at the underground lake", "images/cave/underground_lake.jpg");
+    Room vNarrowPassage = new Room("in a narrow passage", "images/cave/narrow_passage.jpg");
+    Room vDarkTunnel = new Room("in a dark tunnel", "images/cave/dark_tunnel.jpg");
+
+    // Le placement des pièces
+    vCaveEntrance.setExit("cavern", vMainCavern);
+    
+    vMainCavern.setExit("entrance", vCaveEntrance);
+    vMainCavern.setExit("lake", vUndergroundLake);
+    vMainCavern.setExit("passage", vNarrowPassage);
+        
+    vUndergroundLake.setExit("cavern", vMainCavern);
+    vUndergroundLake.setExit("tunnel", vDarkTunnel);
+    
+    vNarrowPassage.setExit("cavern", vMainCavern);
+    
+    vDarkTunnel.setExit("lake", vUndergroundLake);
+
+    // Créer les items
+    Item vTorch = new Item("torch", "Burning torch for light", 1, 15);
+    Item vLantern = new Item("lantern", "Oil lantern", 2, 30);
+    Item vMap = new Item("treasure_map", "Old treasure map", 0.2, 80);
+    Item vPickaxe = new Item("pickaxe", "Mining pickaxe", 3, 40);
+    Item vRope = new Item("rope", "Strong climbing rope", 2, 25);
+    Item vWaterBottle = new Item("water_bottle", "Fresh underground water", 0.5, 10);
+    Item vFossil = new Item("fossil", "Ancient fossil", 1, 120);
+
+    // Ajouter les items aux pièces
+    vCaveEntrance.setItem(vTorch);
+    vCaveEntrance.setItem(vRope);
+    
+    vMainCavern.setItem(vLantern);
+    vMainCavern.setItem(vPickaxe);
+    vMainCavern.setItem(vMap);
+    
+    vUndergroundLake.setItem(vWaterBottle);
+    vUndergroundLake.setItem(vFossil);
+    
+    vNarrowPassage.setItem(vTorch);
+    
+    vDarkTunnel.setItem(vTorch);
+
+    // Pièce de départ
+    return vCaveEntrance;
+} // createCave()
+
+
+/**
+ * Crée le temple souterrain
+ * Le joueur arrive ici après être tombé dans le trou perdu de la grotte
+ * 
+ * @return La pièce d'entrée du temple souterrain
+ */
+public static Room createUndergroundTemple()
+{
+    // Les pièces du temple souterrain
+    Room vTempleEntrance = new Room("at the underground temple entrance", "images/underground_temple/entrance.jpg");
+    Room vMainHall = new Room("in the main hall of the underground temple", "images/underground_temple/main_hall.jpg");
+    Room vAltarRoom = new Room("in the altar room", "images/underground_temple/altar_room.jpg");
+    Room vCrypt = new Room("in the ancient crypt", "images/underground_temple/crypt.jpg");
+    Room vTreasureVault = new Room("in the treasure vault", "images/underground_temple/treasure_vault.jpg");
+    Room vRitualChamber = new Room("in the ritual chamber", "images/underground_temple/ritual_chamber.jpg");
+    Room vLibrary = new Room("in the underground library", "images/underground_temple/library.jpg");
+    Room vSecretPassage = new Room("in a secret passage", "images/underground_temple/secret_passage.jpg");
+
+    // Le placement des pièces
+    vTempleEntrance.setExit("hall", vMainHall);
+    
+    vMainHall.setExit("entrance", vTempleEntrance);
+    vMainHall.setExit("altar", vAltarRoom);
+    vMainHall.setExit("crypt", vCrypt);
+    vMainHall.setExit("library", vLibrary);
+    vMainHall.setExit("ritual", vRitualChamber);
+    
+    vAltarRoom.setExit("hall", vMainHall);
+    vAltarRoom.setExit("secret", vSecretPassage);
+    
+    vCrypt.setExit("hall", vMainHall);
+    
+    vTreasureVault.setExit("secret", vSecretPassage);
+    
+    vRitualChamber.setExit("hall", vMainHall);
+    
+    vLibrary.setExit("hall", vMainHall);
+    
+    vSecretPassage.setExit("altar", vAltarRoom);
+    vSecretPassage.setExit("vault", vTreasureVault);
+
+    // Créer les items
+    Item vTorch = new Item("torch", "Ancient burning torch", 1, 20);
+    Item vStatue = new Item("deity_statue", "Large stone statue of an ancient deity", 100, 1500);
+    Item vCandle = new Item("ritual_candle", "Black ritual candle", 0.3, 15);
+    Item vIncense = new Item("dark_incense", "Mysterious dark incense", 0.2, 25);
+    Item vRitualDagger = new Item("ritual_dagger", "Ceremonial dagger with runes", 0.8, 400);
+    Item vGoldCoin = new Item("ancient_gold", "Ancient gold coins, 500 Jerries", 0.5, 500);
+    Item vCrown = new Item("ancient_crown", "Crown of an ancient priest", 3, 2500);
+    Item vAmulet = new Item("mystical_amulet", "Powerful mystical amulet", 0.3, 1200);
+    Item vJewel = new Item("sapphire", "Large sapphire gemstone", 0.2, 1000);
+    Item vDiamond = new Item("black_diamond", "Rare black diamond", 0.15, 1800);
+    Item vScroll = new Item("ancient_prophecy", "Scroll with ancient prophecies", 0.3, 600);
+    Item vGrimoire = new Item("dark_grimoire", "Ancient dark grimoire", 2, 1500);
+    Item vManuscript = new Item("ritual_manuscript", "Manuscript of dark rituals", 1, 800);
+    Item vVaultKey = new Item("vault_key", "Key to the treasure vault", 0.1, 300);
+
+    // Ajouter les items aux pièces
+    vTempleEntrance.setItem(vTorch);
+    
+    vMainHall.setItem(vStatue);
+    vMainHall.setItem(vTorch);
+    vMainHall.setItem(vCandle);
+    
+    vAltarRoom.setItem(vRitualDagger);
+    vAltarRoom.setItem(vIncense);
+    
+    vTreasureVault.setItem(vGoldCoin);
+    vTreasureVault.setItem(vCrown);
+    vTreasureVault.setItem(vAmulet);
+    vTreasureVault.setItem(vJewel);
+    vTreasureVault.setItem(vDiamond);
+    
+    vRitualChamber.setItem(vCandle);
+    vRitualChamber.setItem(vIncense);
+    vRitualChamber.setItem(vVaultKey);
+    
+    vLibrary.setItem(vScroll);
+    vLibrary.setItem(vGrimoire);
+    vLibrary.setItem(vManuscript);
+    
+    vSecretPassage.setItem(vTorch);
+
+    // Les portes verrouillées
+    Door vDoorVault = new Door(vVaultKey, false);
+    vSecretPassage.setDoor("vault", vDoorVault);
+    vTreasureVault.setDoor("secret", vDoorVault);
+
+    // Pièce de départ
+    return vTempleEntrance;
+} // createUndergroundTemple()
+
+
+/**
+ * Crée l'observatoire antique
+ * 
+ * @return La pièce d'entrée de l'observatoire antique
+ */
+public static Room createAncientObservatory()
+{
+    // Les pièces de l'observatoire
+    Room vObservatoryEntrance = new Room("at the ancient observatory entrance", "images/observatory/entrance.jpg");
+    Room vMainHall = new Room("in the main hall of the observatory", "images/observatory/main_hall.jpg");
+    Room vTelescopeRoom = new Room("in the telescope room", "images/observatory/telescope_room.jpg");
+    Room vPlanetarium = new Room("in the planetarium", "images/observatory/planetarium.jpg");
+    Room vLibrary = new Room("in the astronomy library", "images/observatory/library.jpg");
+    Room vStarCharts = new Room("in the star charts room", "images/observatory/star_charts.jpg");
+    Room vRoofDeck = new Room("on the observatory roof deck", "images/observatory/roof_deck.jpg");
+    Room vInstrumentRoom = new Room("in the instrument room", "images/observatory/instrument_room.jpg");
+
+    // Le placement des pièces
+    vObservatoryEntrance.setExit("hall", vMainHall);
+    
+    vMainHall.setExit("entrance", vObservatoryEntrance);
+    vMainHall.setExit("telescope", vTelescopeRoom);
+    vMainHall.setExit("planetarium", vPlanetarium);
+    vMainHall.setExit("library", vLibrary);
+    vMainHall.setExit("charts", vStarCharts);
+    vMainHall.setExit("instruments", vInstrumentRoom);
+    
+    vTelescopeRoom.setExit("hall", vMainHall);
+    vTelescopeRoom.setExit("roof", vRoofDeck);
+    
+    vPlanetarium.setExit("hall", vMainHall);
+    
+    vLibrary.setExit("hall", vMainHall);
+    
+    vStarCharts.setExit("hall", vMainHall);
+    
+    vRoofDeck.setExit("telescope", vTelescopeRoom);
+    
+    vInstrumentRoom.setExit("hall", vMainHall);
+
+    // Créer les items
+    Item vTelescope = new Item("telescope", "Ancient astronomical telescope", 50, 2000);
+    Item vCompass = new Item("astral_compass", "Mystical astral compass", 0.5, 500);
+    Item vSextant = new Item("sextant", "Navigation sextant", 1, 300);
+    Item vAstrolabe = new Item("astrolabe", "Ancient astrolabe", 2, 800);
+    Item vStarMap = new Item("star_map", "Detailed star map", 0.3, 250);
+    Item vCelestialGlobe = new Item("celestial_globe", "Ancient celestial globe", 15, 1200);
+    Item vLens = new Item("crystal_lens", "Polished crystal lens", 0.2, 400);
+    Item vScrolls = new Item("astronomy_scrolls", "Ancient astronomy scrolls", 0.5, 350);
+    Item vBook = new Item("astronomy_book", "Book of celestial mechanics", 1, 200);
+    Item vManuscript = new Item("star_manuscript", "Manuscript on stars", 0.8, 450);
+    Item vMeteor = new Item("meteorite", "Fragment of a meteorite", 3, 600);
+    Item vCrystal = new Item("star_crystal", "Glowing star crystal", 0.3, 1000);
+    Item vSundial = new Item("sundial", "Ancient sundial", 5, 150);
+    Item vQuadrant = new Item("quadrant", "Measuring quadrant", 2, 250);
+    Item vRoofKey = new Item("roof_key", "Key to the roof deck", 0.1, 100);
+
+    // Ajouter les items aux pièces
+    vObservatoryEntrance.setItem(vCompass);
+    
+    vMainHall.setItem(vCelestialGlobe);
+    vMainHall.setItem(vSundial);
+    
+    vTelescopeRoom.setItem(vTelescope);
+    vTelescopeRoom.setItem(vLens);
+    
+    vPlanetarium.setItem(vStarMap);
+    vPlanetarium.setItem(vCrystal);
+    
+    vLibrary.setItem(vScrolls);
+    vLibrary.setItem(vBook);
+    vLibrary.setItem(vManuscript);
+    vLibrary.setItem(vRoofKey);
+    
+    vStarCharts.setItem(vStarMap);
+    
+    vRoofDeck.setItem(vMeteor);
+    
+    vInstrumentRoom.setItem(vSextant);
+    vInstrumentRoom.setItem(vAstrolabe);
+    vInstrumentRoom.setItem(vQuadrant);
+
+    // Les portes verrouillées
+    Door vDoorRoof = new Door(vRoofKey, false);
+    vTelescopeRoom.setDoor("roof", vDoorRoof);
+    vRoofDeck.setDoor("telescope", vDoorRoof);
+
+    // Pièce de départ
+    return vObservatoryEntrance;
+} // createAncientObservatory()
+
+/**
+ * Crée la montagne sacrée
+ * 
+ * @return La pièce d'entrée de la montagne sacrée
+ */
+public static Room createSacredMontain()
+{
+    // Les pièces de la montagne sacrée
+    Room vMountainBase = new Room("at the base of the sacred mountain", "images/mountain/base.jpg");
+    Room vForestPath = new Room("on a forest path", "images/mountain/forest_path.jpg");
+    Room vRockyTrail = new Room("on the rocky trail", "images/mountain/rocky_trail.jpg");
+    Room vCavern = new Room("in a mountain cavern", "images/mountain/cavern.jpg");
+    Room vWaterfall = new Room("near a sacred waterfall", "images/mountain/waterfall.jpg");
+    Room vMeditation = new Room("in the meditation clearing", "images/mountain/meditation.jpg");
+    Room vSummit = new Room("at the mountain summit", "images/mountain/summit.jpg");
+    Room vShrine = new Room("in the mountain shrine", "images/mountain/shrine.jpg");
+
+    // Le placement des pièces
+    vMountainBase.setExit("forest", vForestPath);
+    vMountainBase.setExit("trail", vRockyTrail);
+    
+    vForestPath.setExit("base", vMountainBase);
+    vForestPath.setExit("waterfall", vWaterfall);
+    vForestPath.setExit("meditation", vMeditation);
+    
+    vRockyTrail.setExit("base", vMountainBase);
+    vRockyTrail.setExit("cavern", vCavern);
+    vRockyTrail.setExit("summit", vSummit);
+    
+    vCavern.setExit("trail", vRockyTrail);
+    
+    vWaterfall.setExit("forest", vForestPath);
+    
+    vMeditation.setExit("forest", vForestPath);
+    
+    vSummit.setExit("trail", vRockyTrail);
+    vSummit.setExit("shrine", vShrine);
+    
+    vShrine.setExit("summit", vSummit);
+
+    // Créer les items
+    Item vRope = new Item("climbing_rope", "Strong climbing rope", 3, 50);
+    Item vPickaxe = new Item("ice_pickaxe", "Ice climbing pickaxe", 4, 80);
+    Item vTorch = new Item("torch", "Burning torch", 1, 15);
+    Item vWaterBottle = new Item("holy_water", "Sacred mountain water", 0.5, 30);
+    Item vHerb = new Item("mountain_herb", "Rare healing mountain herb", 0.2, 150);
+    Item vFlower = new Item("sacred_flower", "Sacred mountain flower", 0.1, 200);
+    Item vCrystal = new Item("mountain_crystal", "Pure mountain crystal", 0.5, 500);
+    Item vStatue = new Item("stone_statue", "Ancient stone statue", 30, 800);
+    Item vIncense = new Item("incense", "Sacred mountain incense", 0.2, 40);
+    Item vCandle = new Item("prayer_candle", "Prayer candle", 0.3, 20);
+    Item vBell = new Item("meditation_bell", "Sacred meditation bell", 1, 250);
+    Item vScroll = new Item("wisdom_scroll", "Scroll of ancient wisdom", 0.3, 400);
+    Item vAmulet = new Item("mountain_amulet", "Protective mountain amulet", 0.2, 600);
+    Item vGem = new Item("sapphire", "Blue mountain sapphire", 0.15, 1000);
+    Item vShrineKey = new Item("shrine_key", "Key to the mountain shrine", 0.1, 300);
+
+    // Ajouter les items aux pièces
+    vMountainBase.setItem(vRope);
+    vMountainBase.setItem(vPickaxe);
+    
+    vForestPath.setItem(vHerb);
+    vForestPath.setItem(vFlower);
+    
+    vRockyTrail.setItem(vTorch);
+    
+    vCavern.setItem(vCrystal);
+    vCavern.setItem(vGem);
+    vCavern.setItem(vShrineKey);
+    
+    vWaterfall.setItem(vWaterBottle);
+    
+    vMeditation.setItem(vBell);
+    vMeditation.setItem(vIncense);
+    
+    vSummit.setItem(vScroll);
+    
+    vShrine.setItem(vStatue);
+    vShrine.setItem(vCandle);
+    vShrine.setItem(vAmulet);
+
+    // Les portes verrouillées
+    Door vDoorShrine = new Door(vShrineKey, false);
+    vSummit.setDoor("shrine", vDoorShrine);
+    vShrine.setDoor("summit", vDoorShrine);
+
+    // Pièce de départ
+    return vMountainBase;
+} // createSacredMontain()
+
+/**
+ * Crée le temple de la sagesse ultime (Ultima Sapientia)
+ * C'est la dernière île du jeu où le joueur découvre la vérité
+ * 
+ * @return La pièce d'entrée du temple Sapientia
+ */
+public static Room createSapientiaTemple()
+{
+    // Les pièces du temple Sapientia
+    Room vTempleGate = new Room("at the gate of Ultima Sapientia temple", "images/sapientia_temple/gate.jpg");
+    Room vMainHall = new Room("in the grand hall of wisdom", "images/sapientia_temple/main_hall.jpg");
+    Room vHallOfTruth = new Room("in the hall of truth", "images/sapientia_temple/hall_of_truth.jpg");
+    Room vHallOfKnowledge = new Room("in the hall of knowledge", "images/sapientia_temple/hall_of_knowledge.jpg");
+    Room vSacredLibrary = new Room("in the sacred library of ancients", "images/sapientia_temple/sacred_library.jpg");
+    Room vChamberOfSecrets = new Room("in the chamber of secrets", "images/sapientia_temple/chamber_of_secrets.jpg");
+    Room vInnerSanctum = new Room("in the inner sanctum", "images/sapientia_temple/inner_sanctum.jpg");
+    Room vTreasureVault = new Room("in the vault of eternal treasures", "images/sapientia_temple/treasure_vault.jpg");
+    Room vEnd = new Room("You have discovered the truth! YOU WIN!", "images/sapientia_temple/victory.jpg");
+
+    // Le placement des pièces
+    vTempleGate.setExit("hall", vMainHall);
+    
+    vMainHall.setExit("gate", vTempleGate);
+    vMainHall.setExit("truth", vHallOfTruth);
+    vMainHall.setExit("knowledge", vHallOfKnowledge);
+    vMainHall.setExit("library", vSacredLibrary);
+    vMainHall.setExit("inner", vInnerSanctum);
+    
+    vHallOfTruth.setExit("hall", vMainHall);
+    
+    vHallOfKnowledge.setExit("hall", vMainHall);
+    vHallOfKnowledge.setExit("chamber", vChamberOfSecrets);
+    
+    vSacredLibrary.setExit("hall", vMainHall);
+    vSacredLibrary.setExit("vault", vTreasureVault);
+    
+    vChamberOfSecrets.setExit("knowledge", vHallOfKnowledge);
+    
+    vInnerSanctum.setExit("hall", vMainHall);
+    vInnerSanctum.setExit("end", vEnd);
+    
+    vTreasureVault.setExit("library", vSacredLibrary);
+    
+    vEnd.setExit("nowhere", vEnd);
+
+    // Créer les items
+    Item vTorch = new Item("eternal_torch", "Torch that burns eternally", 1, 100);
+    Item vStatue = new Item("wisdom_statue", "Majestic statue of the goddess of wisdom", 150, 5000);
+    Item vCandle = new Item("sacred_candle", "Sacred candle of enlightenment", 0.3, 50);
+    Item vIncense = new Item("mystic_incense", "Incense of clarity", 0.2, 80);
+    Item vAncientScroll1 = new Item("scroll_of_creation", "Scroll describing the creation of this world", 0.4, 1000);
+    Item vAncientScroll2 = new Item("scroll_of_destiny", "Scroll of ancient destinies", 0.4, 1200);
+    Item vAncientScroll3 = new Item("scroll_of_time", "Scroll revealing the secrets of time", 0.4, 1500);
+    Item vSecret = new Item("the_truth", "The ultimate truth about this world", 0.1, 0);
+    Item vVaultKey = new Item("vault_key", "Key to the treasure vault", 0.1, 500);
+    Item vChamberKey = new Item("chamber_key", "Key to the chamber of secrets", 0.1, 800);
+
+    // Ajouter les items aux pièces
+    vTempleGate.setItem(vTorch);
+    vTempleGate.setItem(vCandle);
+    
+    vMainHall.setItem(vStatue);
+    vMainHall.setItem(vIncense);
+    vMainHall.setItem(vTorch);
+    
+    vHallOfTruth.setItem(vAncientScroll1);
+    
+    vHallOfKnowledge.setItem(vChamberKey);
+    
+    vSacredLibrary.setItem(vAncientScroll2);
+    vSacredLibrary.setItem(vAncientScroll3);
+    vSacredLibrary.setItem(vVaultKey);
+    
+    vChamberOfSecrets.setItem(vSecret);
+    
+    vInnerSanctum.setItem(vStatue);
+
+    // Les portes verrouillées
+    
+    Door vDoorChamber = new Door(vChamberKey, false);
+    vHallOfKnowledge.setDoor("chamber", vDoorChamber);
+    vChamberOfSecrets.setDoor("knowledge", vDoorChamber);
+    
+    // La porte finale - nécessite l'item "vSecret" pour gagner
+    Door vDoorEnd = new Door(vSecret, false);
+    vInnerSanctum.setDoor("end", vDoorEnd);
+    vEnd.setDoor("nowhere", vDoorEnd);
+
+    // Pièce de départ
+    return vTempleGate;
+} // createSapientiaTemple()
+
+
+
+// Création des vraies/fausses stèles directrices
+
+/**
+ * Crée la stèle directrice de Insula Templum (thème : Connaissances fondamentales)
+ * Permet de débloquer la carte de l'île de Crypta Marina (vCryptaMarinaMap)
+ * 
+ * @return La stèle directrice
+ */
+public static Room createGuideStone2()
 {
     Room vGuideStone2 = new Room("at the guide stone of Insula Templum", "images/guide_stone/guide_stone_2.jpg");
     Room vGuideStone2Solved = new Room("in the exit of the guide stone", "images/guide_stone/guide_stone_2_solved.jpg");

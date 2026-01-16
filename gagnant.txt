@@ -47,8 +47,158 @@ go boat
 
 unlock crypta_marina
 go crypta_marina
+go guidestone
 
+# Enigme de Crypta Marina
 
+go enigma1
+go answer2
+go enigma2
+go answer1
+go enigma3
+go answer4
+go enigma4
+go answer3
+go exit
+take civitas_antiqua_map
+go crypta_marina
+go boat
 
+# Obtenir la map de Silva Mystica
 
+unlock civitas_antiqua
+go civitas_antiqua
+go palace_entrance
+go hall
+go throne
+go royal
+take treasury_key
+go throne
+go hall
+unlock treasury
+go treasury
+go guidestone
 
+# Enigme de Civitas Antiqua
+
+go enigma1
+go answer4
+go enigma2
+go answer2
+go enigma3
+go answer3
+go enigma4
+go answer4
+go exit
+take silva_mystica_map
+go treasury
+go hall
+go entrance
+go civitas_antiqua
+go boat
+
+# Obtenir la map de Labyrinthos
+
+unlock silva_mystica
+go silva_mystica
+go guidestone
+
+# Enigme de Silva Mystica
+
+go enigma1
+go answer3
+go enigma2
+go answer1
+go enigma3
+go answer3
+go enigma4
+go answer4
+go exit
+take mercatus_flotilla_map
+take labyrinthos_map
+go silva_mystica
+go boat
+
+# Obtenir la map de Mons Caelestis
+
+unlock labyrinthos
+go labyrinthos
+go cave
+go cavern
+go passage
+go down
+go underground_temple
+go hall
+go ritual
+take vault_key
+go hall
+go altar
+go secret
+unlock vault
+go vault
+go guidestone
+
+# Enigme de Sanctum Ignis
+
+go enigma1
+go answer3
+go enigma2
+go answer1
+go enigma3
+go answer4
+go enigma4
+go answer1
+go exit
+take mons_caelestis_map
+go labyrinthos
+go boat
+
+# Obtenir la map de Ultima Sapientia
+
+unlock mons_caelestis
+go mons_caelestis
+go mountain_base
+go forest
+go waterfall
+go observatory
+go hall
+go telescope
+go guidestone
+
+# Enigme de Mons Caelestis
+
+go enigma1
+go answer2
+go enigma2
+go answer3
+go enigma3
+go answer3
+go enigma4
+go answer4
+go exit
+take ultima_sapientia_map
+go telescope
+go hall
+go entrance
+go waterfall
+go forest
+go base
+go mons_caelestis
+go boat
+
+# Découvrir le secret et gagné
+
+unlock ultima_sapientia
+go ultima_sapientia
+go sapientia_temple
+go hall
+go knowledge
+take chamber_key
+unlock chamber
+go chamber
+take the_truth
+go knowledge
+go hall
+go inner
+unlock end
+go end

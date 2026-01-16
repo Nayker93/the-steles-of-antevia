@@ -30,7 +30,6 @@ public class GameWorld
         Room vSilvaMystica = new Room("in the Silva Mystica island", "images/island/5-silva-mystica.png");
         Room vMercatusFlotilla = new Room("at Mercatus Flotilla island", "images/island/6-mercatus-flotilla.png");
         Room vLabyrinthos = new Room("in the Labyrinthos island", "images/island/7-labyrinthos.png");
-        Room vSanctumIgnis = new Room("in the Sanctum Ignis cave", "images/island/8-sanctum-ignis.png");
         Room vMonsCaelestis = new Room("at Mons Caelestis mountain", "images/island/9-mons-caelestis.png");
         Room vUltimaSapientia = new Room("in the Ultima Sapientia temple", "images/island/10-ultima-sapientia.png");
 
@@ -53,7 +52,7 @@ public class GameWorld
         // 4 - Civitas Antiqua
         Room vSeaPort4 = createSeaPort();
         Room vRuinedPalaceRooms[] = createRuinedPalace();
-        Room vRuinedPalace = vRuinedPalaceRooms[0];
+        Room vPalaceEntrance = vRuinedPalaceRooms[0];
         Room vTreasuryRuinedPalace = vRuinedPalaceRooms[1];
         // 5 - Silva Mystica
         Room vSeaPort5 = createSeaPort();
@@ -81,7 +80,7 @@ public class GameWorld
         Room vAncientObservatory = vAncientObservatoryRooms[0];
         Room vTelescopeRoom = vAncientObservatoryRooms[1];
         Room[] vSacredMontainRooms = createSacredMontain();
-        Room vSacredMontain = vSacredMontainRooms[0];
+        Room vMountainBase = vSacredMontainRooms[0];
         Room vWaterfall = vSacredMontainRooms[1];
         // 10 - Ultima Sapientia
         Room vSapientiaTemple = createSapientiaTemple();
@@ -234,6 +233,7 @@ public class GameWorld
         vGuide3Enigme4Answer2.setExit("enigma4", vGuide3Enigme4);
         vGuide3Enigme4Answer4.setExit("enigma4", vGuide3Enigme4);
         vGuide3Enigme4Answer3.setExit("exit", vFakeGuideStone3Solved);
+        vFakeGuideStone3Solved.setExit("crypta_marina", vCryptaMarina);
 
         // L'item récompense de la stèle
         Item vCivitasAntiquaMap = new Item("civitas_antiqua_map",
@@ -386,6 +386,7 @@ public class GameWorld
         vGuide5Enigme4Answer2.setExit("enigma4", vGuide5Enigme4);
         vGuide5Enigme4Answer3.setExit("enigma4", vGuide5Enigme4);
         vGuide5Enigme4Answer4.setExit("exit", vFakeGuideStone5Solved);
+        vFakeGuideStone5Solved.setExit("silva_mystica", vSilvaMystica);
 
         // Les items récompense de la stèle
         Item vMercatusFlotillaMap = new Item("mercatus_flotilla_map", 
@@ -704,10 +705,12 @@ public class GameWorld
         // 4 - Civitas Antiqua
 
         vCivitasAntiqua.setExit("boat", vBoat);
-        vCivitasAntiqua.setExit("ruined_palace", vRuinedPalace);
+        vCivitasAntiqua.setExit("palace_entrance", vPalaceEntrance);
         vCivitasAntiqua.setExit("seaport", vSeaPort4);
+        vPalaceEntrance.setExit("civitas_antiqua", vCivitasAntiqua);
         vTreasuryRuinedPalace.setExit("guidestone", vGuideStone4);
         vGuideStone4Solved.setExit("treasury", vTreasuryRuinedPalace);
+        
 
         // 5 - Silva Mystica
 
@@ -733,7 +736,7 @@ public class GameWorld
         vLabyrinthos.setExit("cave", vCave);
 
         // Liaison grotte -> trou perdu -> temple souterrain
-        vNarrowPassage.setExit("hole", vLostHole);
+        vNarrowPassage.setExit("down", vLostHole);
 
         // 8 - Sanctum Ignis
 
@@ -747,7 +750,8 @@ public class GameWorld
 
         vMonsCaelestis.setExit("boat", vBoat);
         vMonsCaelestis.setExit("seaport", vSeaPort9);
-        vMonsCaelestis.setExit("sacred_mountain", vSacredMontain);
+        vMonsCaelestis.setExit("mountain_base", vMountainBase);
+        vMountainBase.setExit("mons_caelestis", vMonsCaelestis);
         vWaterfall.setExit("observatory", vAncientObservatory);
         vAncientObservatory.setExit("waterfall", vWaterfall);
         vTelescopeRoom.setExit("guidestone", vGuideStone9);

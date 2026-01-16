@@ -21,7 +21,7 @@ public class Inventory
     /**
      * Somme d'argent max transportable par le joueur en Jerry
      */
-    private static final double MAX_PRICE = 1000.0;
+    private static final double MAX_PRICE = 3000.0;
     /**
      * Les items du joueur
      */

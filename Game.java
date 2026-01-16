@@ -13,12 +13,13 @@ public class Game
     /**
      * Lancement du jeu.
      * 
-     * @param pArgs Arguments de la ligne de commande (non utilisés)
+     * @param pArgs
      */
     public static void main(final String[] pArgs)
     {
         new Game();
     } // main(final String[] pArgs)
+    
     /**
      * Lance le jeu en créant GameEngine et UserInterface.
      */

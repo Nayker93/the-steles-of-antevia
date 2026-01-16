@@ -88,36 +88,36 @@ public class GameWorld
 
 
         
-        Room vGuideStone2 = new Room("at the guide stone of Insula Templum", "images/guide_stone/guide_stone_2.jpg");
-        Room vGuideStone2Solved = new Room("in the exit of the guide stone", "images/guide_stone/guide_stone_2_solved.jpg");
+        Room vGuideStone2 = new Room("at the guide stone of Insula Templum", "images/island/2-insula-templum.png");
+        Room vGuideStone2Solved = new Room("in the exit of the guide stone", "images/island/2-insula-templum.png");
 
         // Les énigmes de la stèle 2
         // Énigme 1
-        Room vGuide2Enigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
-        Room vGuide2Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide2Enigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
-        Room vGuide2Enigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide2Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+        Room vGuide2Enigme1 = new Room("Enigma 1", "images/guide_stone/guide2/enigme1.png");
+        Room vGuide2Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide2Enigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
         // Énigme 2
-        Room vGuide2Enigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
-        Room vGuide2Enigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide2Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide2Enigme2Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
-        Room vGuide2Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+        Room vGuide2Enigme2 = new Room("Enigma 2", "images/guide_stone/guide2/enigme2.png");
+        Room vGuide2Enigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme2Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide2Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 3
-        Room vGuide2Enigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
-        Room vGuide2Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide2Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide2Enigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
-        Room vGuide2Enigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+        Room vGuide2Enigme3 = new Room("Enigma 3", "images/guide_stone/guide2/enigme3.png");
+        Room vGuide2Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide2Enigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 4
-        Room vGuide2Enigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
-        Room vGuide2Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide2Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide2Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide2Enigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+        Room vGuide2Enigme4 = new Room("Enigma 4", "images/guide_stone/guide2/enigme4.png");
+        Room vGuide2Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide2Enigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
 
         // Le placement des pièces
         vGuideStone2.setExit("enigma1", vGuide2Enigme1);
@@ -165,36 +165,36 @@ public class GameWorld
 
         // Les énigmes de la stèle 3
 
-        Room vFakeGuideStone3 = new Room("at the fake guide stone of Crypta Marina", "images/guide_stone/fake_guide_stone_3.jpg");
-        Room vFakeGuideStone3Solved = new Room("in the exit of the fake guide stone - No reward here!", "images/guide_stone/fake_guide_stone_3_solved.jpg");
+        Room vFakeGuideStone3 = new Room("at the fake guide stone of Crypta Marina", "images/island/3-cripta-marina.png");
+        Room vFakeGuideStone3Solved = new Room("in the exit of the fake guide stone - No reward here!", "images/island/3-cripta-marina.png");
 
         // Les énigmes de la stèle
         // Énigme 1
-        Room vGuide3Enigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
-        Room vGuide3Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide3Enigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
-        Room vGuide3Enigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide3Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+        Room vGuide3Enigme1 = new Room("Enigma 1", "images/guide_stone/guide3/enigme1.png");
+        Room vGuide3Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide3Enigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
         // Énigme 2
-        Room vGuide3Enigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
-        Room vGuide3Enigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
-        Room vGuide3Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide3Enigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide3Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+        Room vGuide3Enigme2 = new Room("Enigma 2", "images/guide_stone/guide3/enigme2.png");
+        Room vGuide3Enigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide3Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 3
-        Room vGuide3Enigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
-        Room vGuide3Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide3Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide3Enigme3Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide3Enigme3Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
+        Room vGuide3Enigme3 = new Room("Enigma 3", "images/guide_stone/guide3/enigme3.png");
+        Room vGuide3Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme3Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme3Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
 
         // Énigme 4
-        Room vGuide3Enigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
-        Room vGuide3Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide3Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide3Enigme4Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
-        Room vGuide3Enigme4Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+        Room vGuide3Enigme4 = new Room("Enigma 4", "images/guide_stone/guide3/enigme4.png");
+        Room vGuide3Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide3Enigme4Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide3Enigme4Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Le placement des pièces
         vFakeGuideStone3.setExit("enigma1", vGuide3Enigme1);
@@ -242,35 +242,35 @@ public class GameWorld
         vFakeGuideStone3Solved.setItem(vCivitasAntiquaMap);
 
 
-        Room vGuideStone4 = new Room("at the guide stone of Civitas Antiqua", "images/guide_stone/guide_stone_4.jpg");
-        Room vGuideStone4Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_4_solved.jpg");
+        Room vGuideStone4 = new Room("at the guide stone of Civitas Antiqua", "images/island/4-civitas-antiqua.png");
+        Room vGuideStone4Solved = new Room("in the exit of the guide stone - Congratulations!", "images/island/4-civitas-antiqua.png");
 
         // Les énigmes de la stèle
         // Énigme 1
-        Room vGuide4Enigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
-        Room vGuide4Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide4Enigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide4Enigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide4Enigme1Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
+        Room vGuide4Enigme1 = new Room("Enigma 1", "images/guide_stone/guide4/enigme1.png");
+        Room vGuide4Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme1Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
         // Énigme 2
-        Room vGuide4Enigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
-        Room vGuide4Enigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide4Enigme2Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
-        Room vGuide4Enigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide4Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+        Room vGuide4Enigme2 = new Room("Enigma 2", "images/guide_stone/guide4/enigme2.png");
+        Room vGuide4Enigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme2Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide4Enigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
         // Énigme 3
-        Room vGuide4Enigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
-        Room vGuide4Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide4Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide4Enigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
-        Room vGuide4Enigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+        Room vGuide4Enigme3 = new Room("Enigma 3", "images/guide_stone/guide4/enigme3.png");
+        Room vGuide4Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide4Enigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 4
-        Room vGuide4Enigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
-        Room vGuide4Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide4Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide4Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide4Enigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+        Room vGuide4Enigme4 = new Room("Enigma 4", "images/guide_stone/guide4/enigme4.png");
+        Room vGuide4Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide4Enigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
 
         // Le placement des pièces
         vGuideStone4.setExit("enigma1", vGuide4Enigme1);
@@ -317,37 +317,37 @@ public class GameWorld
         vGuideStone4Solved.setItem(vSilvaMysticaMap);
 
 
-        Room vFakeGuideStone5 = new Room("at the fake guide stone of Silva Mystica", "images/guide_stone/fake_guide_stone_5.jpg");
-        Room vFakeGuideStone5Solved = new Room("in the exit of the fake guide stone - Congratulations!", "images/guide_stone/fake_guide_stone_5_solved.jpg");
+        Room vFakeGuideStone5 = new Room("at the fake guide stone of Silva Mystica", "images/island/5-silva-mystica.png");
+        Room vFakeGuideStone5Solved = new Room("in the exit of the fake guide stone - Congratulations!", "images/island/5-silva-mystica.png");
 
         // Les énigmes de la stèle
         // Énigme 1
-        Room vGuide5Enigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
-        Room vGuide5Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide5Enigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide5Enigme1Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
-        Room vGuide5Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+        Room vGuide5Enigme1 = new Room("Enigma 1", "images/guide_stone/guide5/enigme1.png");
+        Room vGuide5Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme1Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide5Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 2
-        Room vGuide5Enigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
-        Room vGuide5Enigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
-        Room vGuide5Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide5Enigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide5Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+        Room vGuide5Enigme2 = new Room("Enigma 2", "images/guide_stone/guide5/enigme2.png");
+        Room vGuide5Enigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide5Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 3
-        Room vGuide5Enigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
-        Room vGuide5Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide5Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide5Enigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
-        Room vGuide5Enigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+        Room vGuide5Enigme3 = new Room("Enigma 3", "images/guide_stone/guide5/enigme3.png");
+        Room vGuide5Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide5Enigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 4
-        Room vGuide5Enigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
-        Room vGuide5Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide5Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide5Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide5Enigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+        Room vGuide5Enigme4 = new Room("Enigma 4", "images/guide_stone/guide5/enigme4.png");
+        Room vGuide5Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide5Enigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
 
         // Le placement des pièces
         vFakeGuideStone5.setExit("enigma1", vGuide5Enigme1);
@@ -398,36 +398,36 @@ public class GameWorld
         vFakeGuideStone5Solved.setItem(vLabyrinthosMap);
 
 
-        Room vGuideStone8 = new Room("at the guide stone of Sanctum Ignis", "images/guide_stone/guide_stone_8.jpg");
-        Room vGuideStone8Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_8_solved.jpg");
+        Room vGuideStone8 = new Room("at the guide stone of Sanctum Ignis", "images/island/8-sanctum-ignis.png");
+        Room vGuideStone8Solved = new Room("in the exit of the guide stone - Congratulations!", "images/island/8-sanctum-ignis.png");
 
         // Les énigmes de la stèle
         // Énigme 1
-        Room vGuide8Enigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
-        Room vGuide8Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide8Enigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide8Enigme1Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
-        Room vGuide8Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+        Room vGuide8Enigme1 = new Room("Enigma 1", "images/guide_stone/guide8/enigme1.png");
+        Room vGuide8Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme1Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme1Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide8Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
         // Énigme 2
-        Room vGuide8Enigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
-        Room vGuide8Enigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
-        Room vGuide8Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide8Enigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide8Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
+        Room vGuide8Enigme2 = new Room("Enigma 2", "images/guide_stone/guide8/enigme2.png");
+        Room vGuide8Enigme2Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide8Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme2Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 3
-        Room vGuide8Enigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
-        Room vGuide8Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide8Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide8Enigme3Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide8Enigme3Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
+        Room vGuide8Enigme3 = new Room("Enigma 3", "images/guide_stone/guide8/enigme3.png");
+        Room vGuide8Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme3Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme3Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
 
         // Énigme 4
-        Room vGuide8Enigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
-        Room vGuide8Enigme4Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
-        Room vGuide8Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide8Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide8Enigme4Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
+        Room vGuide8Enigme4 = new Room("Enigma 4", "images/guide_stone/guide8/enigme4.png");
+        Room vGuide8Enigme4Answer1 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide8Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide8Enigme4Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Le placement des pièces
         vGuideStone8.setExit("enigma1", vGuide8Enigme1);
@@ -475,36 +475,36 @@ public class GameWorld
 
         vGuideStone8Solved.setItem(vMonsCaelestisMap);
 
-        Room vGuideStone9 = new Room("at the guide stone of Mons Caelestis", "images/guide_stone/guide_stone_9.jpg");
-        Room vGuideStone9Solved = new Room("in the exit of the guide stone - Congratulations!", "images/guide_stone/guide_stone_9_solved.jpg");
+        Room vGuideStone9 = new Room("at the guide stone of Mons Caelestis", "images/island/9-mons-caelestis.png");
+        Room vGuideStone9Solved = new Room("in the exit of the guide stone - Congratulations!", "images/island/9-mons-caelestis.png");
 
         // Les énigmes de la stèle
         // Énigme 1
-        Room vGuide9Enigme1 = new Room("Enigma 1", "images/guide_stone/enigma_1.jpg");
-        Room vGuide9Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide9Enigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_1_solved.jpg");
-        Room vGuide9Enigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
-        Room vGuide9Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_1_wrong.jpg");
+        Room vGuide9Enigme1 = new Room("Enigma 1", "images/guide_stone/guide9/enigme1.png");
+        Room vGuide9Enigme1Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme1Answer2 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide9Enigme1Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme1Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
         // Énigme 2
-        Room vGuide9Enigme2 = new Room("Enigma 2", "images/guide_stone/enigma_2.jpg");
-        Room vGuide9Enigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide9Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
-        Room vGuide9Enigme2Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_2_solved.jpg");
+        Room vGuide9Enigme2 = new Room("Enigma 2", "images/guide_stone/guide9/enigme2.png");
+        Room vGuide9Enigme2Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme2Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme2Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
         Room vGuide9Enigme2Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_2_wrong.jpg");
 
         // Énigme 3
-        Room vGuide9Enigme3 = new Room("Enigma 3", "images/guide_stone/enigma_3.jpg");
-        Room vGuide9Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide9Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
-        Room vGuide9Enigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_3_solved.jpg");
-        Room vGuide9Enigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_3_wrong.jpg");
+        Room vGuide9Enigme3 = new Room("Enigma 3", "images/guide_stone/guide9/enigme3.png");
+        Room vGuide9Enigme3Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme3Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme3Answer3 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
+        Room vGuide9Enigme3Answer4 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
 
         // Énigme 4
-        Room vGuide9Enigme4 = new Room("Enigma 4", "images/guide_stone/enigma_4.jpg");
-        Room vGuide9Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide9Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide9Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/enigma_4_wrong.jpg");
-        Room vGuide9Enigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/enigma_4_solved.jpg");
+        Room vGuide9Enigme4 = new Room("Enigma 4", "images/guide_stone/guide9/enigme4.png");
+        Room vGuide9Enigme4Answer1 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme4Answer2 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme4Answer3 = new Room("Wrong answer! The stone rejects you.", "images/guide_stone/wrong.jpg");
+        Room vGuide9Enigme4Answer4 = new Room("Correct! The stone glows with approval.", "images/guide_stone/correct.jpg");
 
         // Le placement des pièces
         vGuideStone9.setExit("enigma1", vGuide9Enigme1);
@@ -561,8 +561,8 @@ public class GameWorld
         Room vCabin = new Room("in the cabin", "images/boat/cabin.jpg");
         Room vCabinFloor1 = new Room("in the first floor of the cabin", "images/boat/cabin_floor_1.jpg");
         // Trap Doors
-        Room vSlide = new Room("in the slide (trapdoor), you can't go up !", "");
-        Room vEmergencyExit = new Room("in an emergency path (trapdoor)", "");
+        Room vSlide = new Room("in the slide (trapdoor), you can't go up !", "images/boat/slide.jpg");
+        Room vEmergencyExit = new Room("in an emergency path (trapdoor)", "images/boat/emergency.jpg");
 
         // Le placement des pièces
 

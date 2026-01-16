@@ -157,7 +157,7 @@ go boat
 
 unlock mons_caelestis
 go mons_caelestis
-go mountain_base
+go montain_base
 go forest
 go waterfall
 go observatory

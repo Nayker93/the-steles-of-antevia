@@ -62,9 +62,7 @@ public class GameEngine
     private void printRoomDescription()
     {
         this.aGui.println(this.aPlayer.getCurrentRoom().getLongDescription());
-        {
-            this.aGui.showImage(this.aPlayer.getCurrentRoom().getImageName());
-        }
+        this.aGui.showImage(this.aPlayer.getCurrentRoom().getImageName());
     } // printRoomDescription()
     
     /**
